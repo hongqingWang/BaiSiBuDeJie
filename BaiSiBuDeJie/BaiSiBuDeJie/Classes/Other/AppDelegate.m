@@ -46,6 +46,25 @@
     UINavigationController *navMe = [[UINavigationController alloc] initWithRootViewController:meVc];
     [tabBar addChildViewController:navMe];
     
+    navEssense.tabBarItem.title = @"精华";
+    navEssense.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
+    navEssense.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_icon_selected"];
+    
+    navNew.tabBarItem.title = @"新帖";
+    navNew.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
+    navNew.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_icon_selected"];
+    
+    publishVc.tabBarItem.image = [UIImage imageNamed:@"tabBar_publish_icon"];
+    publishVc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_publish_icon_selected"];
+    
+    navFriendTrend.tabBarItem.title = @"关注";
+    navFriendTrend.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
+    navFriendTrend.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_icon_selected"];
+    
+    navMe.tabBarItem.title = @"我";
+    navMe.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
+    navMe.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_icon_selected"];
+    
     [self.window makeKeyAndVisible];
     
     return YES;
