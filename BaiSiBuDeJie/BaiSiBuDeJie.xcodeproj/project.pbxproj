@@ -15,6 +15,7 @@
 		044612EB1FCC4B2F002C8A95 /* QQNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044612EA1FCC4B2F002C8A95 /* QQNewViewController.m */; };
 		044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044612ED1FCC4B4E002C8A95 /* QQMeViewController.m */; };
 		04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A644F61FCC3D4700763D3C /* Assets.xcassets */; };
+		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		04A644EA1FCC3D4700763D3C /* BaiSiBuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiBuDeJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A644F61FCC3D4700763D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A644FB1FCC3D4700763D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTabBarController.h; sourceTree = "<group>"; };
+		189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +53,7 @@
 		044612C51FCC4A66002C8A95 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				189A8D531FCDCA5F00F7F77D /* Main */,
 				044612D21FCC4A66002C8A95 /* Essence */,
 				044612DA1FCC4A66002C8A95 /* New */,
 				044612CE1FCC4A66002C8A95 /* Publish */,
@@ -261,6 +265,39 @@
 			path = BaiSiBuDeJie;
 			sourceTree = "<group>";
 		};
+		189A8D531FCDCA5F00F7F77D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				189A8D541FCDCA5F00F7F77D /* Controller */,
+				189A8D551FCDCA5F00F7F77D /* Model */,
+				189A8D561FCDCA5F00F7F77D /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		189A8D541FCDCA5F00F7F77D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */,
+				189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		189A8D551FCDCA5F00F7F77D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		189A8D561FCDCA5F00F7F77D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
+				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
 				044612E81FCC4B0D002C8A95 /* QQPublishViewController.m in Sources */,
 				044612DE1FCC4A66002C8A95 /* main.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,

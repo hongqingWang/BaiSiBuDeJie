@@ -7,11 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "QQEssenceViewController.h"
-#import "QQNewViewController.h"
-#import "QQFriendTrendViewController.h"
-#import "QQPublishViewController.h"
-#import "QQMeViewController.h"
+#import "QQTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -24,46 +20,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    UITabBarController *tabBar = [[UITabBarController alloc] init];
+    QQTabBarController *tabBar = [[QQTabBarController alloc] init];
     self.window.rootViewController = tabBar;
-    
-    QQEssenceViewController *essenceVc = [[QQEssenceViewController alloc] init];
-    UINavigationController *navEssense = [[UINavigationController alloc] initWithRootViewController:essenceVc];
-    [tabBar addChildViewController:navEssense];
-    
-    QQNewViewController *newVc = [[QQNewViewController alloc] init];
-    UINavigationController *navNew = [[UINavigationController alloc] initWithRootViewController:newVc];
-    [tabBar addChildViewController:navNew];
-    
-    QQPublishViewController *publishVc = [[QQPublishViewController alloc] init];
-    [tabBar addChildViewController:publishVc];
-    
-    QQFriendTrendViewController *friendTrendVc = [[QQFriendTrendViewController alloc] init];
-    UINavigationController *navFriendTrend = [[UINavigationController alloc] initWithRootViewController:friendTrendVc];
-    [tabBar addChildViewController:navFriendTrend];
-    
-    QQMeViewController *meVc = [[QQMeViewController alloc] init];
-    UINavigationController *navMe = [[UINavigationController alloc] initWithRootViewController:meVc];
-    [tabBar addChildViewController:navMe];
-    
-    navEssense.tabBarItem.title = @"精华";
-    navEssense.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-    navEssense.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_icon_selected"];
-    
-    navNew.tabBarItem.title = @"新帖";
-    navNew.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    navNew.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_icon_selected"];
-    
-    publishVc.tabBarItem.image = [UIImage imageNamed:@"tabBar_publish_icon"];
-    publishVc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_publish_icon_selected"];
-    
-    navFriendTrend.tabBarItem.title = @"关注";
-    navFriendTrend.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    navFriendTrend.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_icon_selected"];
-    
-    navMe.tabBarItem.title = @"我";
-    navMe.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    navMe.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_icon_selected"];
     
     [self.window makeKeyAndVisible];
     
