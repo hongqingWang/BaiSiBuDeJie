@@ -20,6 +20,16 @@
 
 @implementation QQTabBarController
 
++ (void)load {
+    
+    UITabBarItem *item = [UITabBarItem appearance];
+    
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    [item setTitleTextAttributes:attrs forState:UIControlStateSelected];
+}
+
+#pragma mark - Left Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -60,10 +70,6 @@
     
     NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
     vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
-    
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
-    [vc.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateSelected];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
