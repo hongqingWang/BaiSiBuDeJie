@@ -20,13 +20,23 @@
 
 @implementation QQTabBarController
 
+
+/**
+ 此方法只调用一次
+ */
 + (void)load {
     
-    UITabBarItem *item = [UITabBarItem appearance];
+    /// 此方法不建议用,如果应用程序中如果有不止一个`TabBarItem`的话,也同样会被渲染
+//    UITabBarItem *item = [UITabBarItem appearance];
     
+    UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:attrs forState:UIControlStateSelected];
+    
+    // 设置字体尺寸
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
 }
 
 #pragma mark - Left Cycle
