@@ -56,15 +56,17 @@
     
     vc.title = title;
 
-//    vc.tabBarItem.image = imageNormal;
     vc.tabBarItem.image = [UIImage imageNamed:image];
     
     NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
     vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
-//    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    [vc.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateSelected];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-
+    
     [self addChildViewController:nav];
 }
 
