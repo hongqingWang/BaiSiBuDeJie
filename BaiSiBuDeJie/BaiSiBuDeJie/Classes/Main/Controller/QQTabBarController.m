@@ -96,10 +96,12 @@
 - (void)addNoNavChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image {
     
     vc.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:image];
+    vc.tabBarItem.image = [UIImage imageOriginalWithName:image];
     
     NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
     vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
+    
+    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     
     [self addChildViewController:vc];
 }
