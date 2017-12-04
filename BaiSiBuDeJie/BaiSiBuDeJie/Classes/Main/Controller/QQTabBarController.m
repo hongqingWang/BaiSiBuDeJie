@@ -13,6 +13,7 @@
 #import "QQPublishViewController.h"
 #import "QQMeViewController.h"
 #import "UIImage+QQ.h"
+#import "QQTabBar.h"
 
 @interface QQTabBarController ()
 
@@ -44,6 +45,12 @@
     [super viewDidLoad];
     
     [self addAllChildViewControllers];
+    [self setupTabBar];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
 }
 
 #pragma mark - addAllChildViewControllers
@@ -55,8 +62,8 @@
     QQNewViewController *newVc = [[QQNewViewController alloc] init];
     [self addChildViewController:newVc title:@"新帖" image:@"tabBar_new"];
 
-    QQPublishViewController *publishVc = [[QQPublishViewController alloc] init];
-    [self addNoNavChildViewController:publishVc title:nil image:@"tabBar_publish"];
+//    QQPublishViewController *publishVc = [[QQPublishViewController alloc] init];
+//    [self addNoNavChildViewController:publishVc title:nil image:@"tabBar_publish"];
     
     QQFriendTrendViewController *friendTrendVc = [[QQFriendTrendViewController alloc] init];
     [self addChildViewController:friendTrendVc title:@"关注" image:@"tabBar_friendTrends"];
@@ -93,17 +100,25 @@
  @param title title
  @param image image
  */
-- (void)addNoNavChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image {
+//- (void)addNoNavChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image {
+//    
+//    vc.title = title;
+//    vc.tabBarItem.image = [UIImage imageOriginalWithName:image];
+//    
+//    NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
+//    vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
+//    
+//    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+//    
+//    [self addChildViewController:vc];
+//}
+
+#pragma mark - setupTabBar
+- (void)setupTabBar {
     
-    vc.title = title;
-    vc.tabBarItem.image = [UIImage imageOriginalWithName:image];
-    
-    NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
-    vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
-    
-    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    
-    [self addChildViewController:vc];
+    QQTabBar *tabBar = [[QQTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];
+//    NSLog(@"%@", tabBar);
 }
 
 @end
