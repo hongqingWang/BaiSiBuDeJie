@@ -40,16 +40,15 @@
     }
     [self addSubview:self.plusButton];
     self.plusButton.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.5);
-    NSLog(@"===%@", _plusButton);
-    NSLog(@"%@", self.plusButton);
 }
 
 #pragma mark - Getters and Setters
 - (UIButton *)plusButton {
     if (_plusButton == nil) {
         _plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_plusButton setImage:[UIImage imageNamed:@"tabBar_publish"] forState:UIControlStateNormal];
-        [_plusButton setImage:[UIImage imageNamed:@"tabBar_publish_selected"] forState:UIControlStateSelected];
+        [_plusButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish"] forState:UIControlStateNormal];
+        [_plusButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_selected"] forState:UIControlStateHighlighted];
+        [_plusButton sizeToFit];
     }
     return _plusButton;
 }

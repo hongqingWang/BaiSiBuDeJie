@@ -93,32 +93,11 @@
     [self addChildViewController:nav];
 }
 
-/**
- 添加子控制器(无导航控制器)
- 
- @param vc vc
- @param title title
- @param image image
- */
-//- (void)addNoNavChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image {
-//    
-//    vc.title = title;
-//    vc.tabBarItem.image = [UIImage imageOriginalWithName:image];
-//    
-//    NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
-//    vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
-//    
-//    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-//    
-//    [self addChildViewController:vc];
-//}
-
 #pragma mark - setupTabBar
 - (void)setupTabBar {
     
     QQTabBar *tabBar = [[QQTabBar alloc] init];
     [self setValue:tabBar forKey:@"tabBar"];
-//    NSLog(@"%@", tabBar);
 }
 
 @end
