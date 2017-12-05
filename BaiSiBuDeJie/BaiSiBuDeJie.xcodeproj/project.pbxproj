@@ -41,6 +41,7 @@
 		044612ED1FCC4B4E002C8A95 /* QQMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQMeViewController.m; sourceTree = "<group>"; };
 		04577C651FD6D57200A0DB29 /* UIView+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QQ.h"; sourceTree = "<group>"; };
 		04577C661FD6D57200A0DB29 /* UIView+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QQ.m"; sourceTree = "<group>"; };
+		04577C681FD6DBDF00A0DB29 /* BaiSiBuDeJie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiSiBuDeJie.h; sourceTree = "<group>"; };
 		04A644EA1FCC3D4700763D3C /* BaiSiBuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiBuDeJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A644F61FCC3D4700763D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A644FB1FCC3D4700763D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				041CE63E1FCF962E00883695 /* Category */,
+				04577C681FD6DBDF00A0DB29 /* BaiSiBuDeJie.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -527,6 +529,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GC4GVLG96H;
+				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.h;
 				INFOPLIST_FILE = BaiSiBuDeJie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -543,6 +546,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GC4GVLG96H;
+				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.h;
 				INFOPLIST_FILE = BaiSiBuDeJie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
