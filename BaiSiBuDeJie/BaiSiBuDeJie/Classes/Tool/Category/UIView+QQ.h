@@ -10,12 +10,12 @@
 
 @interface UIView (QQ)
 
-@property (nonatomic, assign) CGFloat x;
-@property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGFloat w;
-@property (nonatomic, assign) CGFloat h;
-@property (nonatomic, assign) CGFloat centerX;
-@property (nonatomic, assign) CGFloat centerY;
-@property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGFloat qq_x;
+@property (nonatomic, assign) CGFloat qq_y;
+@property (nonatomic, assign) CGFloat qq_w;
+@property (nonatomic, assign) CGFloat qq_h;
+@property (nonatomic, assign) CGFloat qq_centerX;
+@property (nonatomic, assign) CGFloat qq_centerY;
+@property (nonatomic, assign) CGSize qq_size;
 
 @end

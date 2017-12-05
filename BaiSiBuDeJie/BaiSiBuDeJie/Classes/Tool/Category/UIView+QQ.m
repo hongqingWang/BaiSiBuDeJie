@@ -10,86 +10,87 @@
 
 @implementation UIView (QQ)
 
-- (void)setX:(CGFloat)x {
+
+- (void)setQq_x:(CGFloat)qq_x {
     
     CGRect frame = self.frame;
-    frame.origin.x = x;
+    frame.origin.x = qq_x;
     self.frame = frame;
 }
 
-- (CGFloat)x {
+- (CGFloat)qq_x {
     
     return self.frame.origin.x;
 }
 
-- (void)setY:(CGFloat)y {
+- (void)setQq_y:(CGFloat)qq_y {
     
     CGRect frame = self.frame;
-    frame.origin.y = y;
+    frame.origin.y = qq_y;
     self.frame = frame;
 }
 
-- (CGFloat)y {
+- (CGFloat)qq_y {
     
     return self.frame.origin.x;
 }
 
-- (void)setW:(CGFloat)w {
+- (void)setQq_w:(CGFloat)qq_w {
     
     CGRect frame = self.frame;
-    frame.size.width = w;
+    frame.size.width = qq_w;
     self.frame = frame;
 }
 
-- (CGFloat)w {
+- (CGFloat)qq_w {
     
     return self.frame.size.width;
 }
 
-- (void)setH:(CGFloat)h {
+- (void)setQq_h:(CGFloat)qq_h {
     
     CGRect frame = self.frame;
-    frame.size.height = h;
+    frame.size.height = qq_h;
     self.frame = frame;
 }
 
-- (CGFloat)h {
+- (CGFloat)qq_h {
     
     return self.frame.size.height;
 }
 
-- (void)setCenterX:(CGFloat)centerX {
+- (void)setQq_centerX:(CGFloat)qq_centerX {
     
     CGPoint center = self.center;
-    center.x = centerX;
+    center.x = qq_centerX;
     self.center = center;
 }
 
-- (CGFloat)centerX {
+- (CGFloat)qq_centerX {
     
     return self.center.x;
 }
 
-- (void)setCenterY:(CGFloat)centerY {
+- (void)setQq_centerY:(CGFloat)qq_centerY {
     
     CGPoint center = self.center;
-    center.y = centerY;
+    center.y = qq_centerY;
     self.center = center;
 }
 
-- (CGFloat)centerY {
+- (CGFloat)qq_centerY {
     
     return self.center.y;
 }
 
-- (void)setSize:(CGSize)size {
+- (void)setQq_size:(CGSize)qq_size {
     
     CGRect frame = self.frame;
-    frame.size = size;
+    frame.size = qq_size;
     self.frame = frame;
 }
 
-- (CGSize)size {
+- (CGSize)qq_size {
     
     return self.frame.size;
 }
