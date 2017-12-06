@@ -14,6 +14,7 @@
 #import "QQMeViewController.h"
 #import "UIImage+QQ.h"
 #import "QQTabBar.h"
+#import "QQNavigationController.h"
 
 @interface QQTabBarController ()
 
@@ -88,7 +89,7 @@
     NSString *selectedImage = [NSString stringWithFormat:@"%@_selected", image];
     vc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:selectedImage];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    QQNavigationController *nav = [[QQNavigationController alloc] initWithRootViewController:vc];
     
     [self addChildViewController:nav];
 }
