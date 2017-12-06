@@ -23,16 +23,19 @@
 
 #pragma mark - setupNav
 - (void)setupNav {
-
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"qq_nav_item_game"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"qq_nav_item_game_highlighted"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(game) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qq_nav_title"]];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_itemWithImageName:@"qq_nav_item_game" target:self action:@selector(game)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qq_itemWithImageName:@"qq_nav_item_random" target:self action:@selector(random)];
 }
 
 #pragma mark - Event Response
 - (void)game {
+    
+    NSLog(@"%s", __FUNCTION__);
+}
+
+- (void)random {
     
     NSLog(@"%s", __FUNCTION__);
 }

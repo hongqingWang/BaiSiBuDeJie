@@ -17,6 +17,7 @@
 		044612EB1FCC4B2F002C8A95 /* QQNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044612EA1FCC4B2F002C8A95 /* QQNewViewController.m */; };
 		044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044612ED1FCC4B4E002C8A95 /* QQMeViewController.m */; };
 		04577C671FD6D57200A0DB29 /* UIView+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C661FD6D57200A0DB29 /* UIView+QQ.m */; };
+		04577C8E1FD815E500A0DB29 /* UIBarButtonItem+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */; };
 		04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A644F61FCC3D4700763D3C /* Assets.xcassets */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,8 @@
 		04577C651FD6D57200A0DB29 /* UIView+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QQ.h"; sourceTree = "<group>"; };
 		04577C661FD6D57200A0DB29 /* UIView+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QQ.m"; sourceTree = "<group>"; };
 		04577C681FD6DBDF00A0DB29 /* BaiSiBuDeJie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiSiBuDeJie.h; sourceTree = "<group>"; };
+		04577C8C1FD815E500A0DB29 /* UIBarButtonItem+QQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+QQ.h"; sourceTree = "<group>"; };
+		04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+QQ.m"; sourceTree = "<group>"; };
 		04A644EA1FCC3D4700763D3C /* BaiSiBuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiBuDeJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A644F61FCC3D4700763D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A644FB1FCC3D4700763D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				04577C661FD6D57200A0DB29 /* UIView+QQ.m */,
 				041CE63F1FCF964000883695 /* UIImage+QQ.h */,
 				041CE6401FCF964000883695 /* UIImage+QQ.m */,
+				04577C8C1FD815E500A0DB29 /* UIBarButtonItem+QQ.h */,
+				04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				044612DE1FCC4A66002C8A95 /* main.m in Sources */,
 				041CE6411FCF964000883695 /* UIImage+QQ.m in Sources */,
 				04577C671FD6D57200A0DB29 /* UIView+QQ.m in Sources */,
+				04577C8E1FD815E500A0DB29 /* UIBarButtonItem+QQ.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
 				04105BB21FD587E400DC3EF3 /* QQTabBar.m in Sources */,

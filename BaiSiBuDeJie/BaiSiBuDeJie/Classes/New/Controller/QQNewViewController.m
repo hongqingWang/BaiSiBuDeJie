@@ -18,21 +18,21 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor orangeColor];
+    
+    [self setupNav];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - setupNav
+- (void)setupNav {
+    
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qq_nav_title"]];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_itemWithImageName:@"qq_nav_sub" target:self action:@selector(subscribe)];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Event Response
+- (void)subscribe {
+    
+    NSLog(@"%s", __FUNCTION__);
 }
-*/
 
 @end

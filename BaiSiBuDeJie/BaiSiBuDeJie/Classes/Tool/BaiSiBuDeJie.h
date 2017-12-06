@@ -7,6 +7,7 @@
 //
 
 #import "UIView+QQ.h"
+#import "UIBarButtonItem+QQ.h"
 
 #ifdef DEBUG
 
