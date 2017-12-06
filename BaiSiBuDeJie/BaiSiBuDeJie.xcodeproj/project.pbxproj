@@ -19,6 +19,7 @@
 		04577C671FD6D57200A0DB29 /* UIView+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C661FD6D57200A0DB29 /* UIView+QQ.m */; };
 		04577C8E1FD815E500A0DB29 /* UIBarButtonItem+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */; };
 		04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C901FD830BC00A0DB29 /* QQNavigationController.m */; };
+		04577C991FD832E100A0DB29 /* QQSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C981FD832E100A0DB29 /* QQSettingController.m */; };
 		04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A644F61FCC3D4700763D3C /* Assets.xcassets */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,8 @@
 		04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+QQ.m"; sourceTree = "<group>"; };
 		04577C8F1FD830BC00A0DB29 /* QQNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQNavigationController.h; sourceTree = "<group>"; };
 		04577C901FD830BC00A0DB29 /* QQNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQNavigationController.m; sourceTree = "<group>"; };
+		04577C971FD832E100A0DB29 /* QQSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSettingController.h; sourceTree = "<group>"; };
+		04577C981FD832E100A0DB29 /* QQSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSettingController.m; sourceTree = "<group>"; };
 		04A644EA1FCC3D4700763D3C /* BaiSiBuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiBuDeJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A644F61FCC3D4700763D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A644FB1FCC3D4700763D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 				044612CE1FCC4A66002C8A95 /* Publish */,
 				044612C61FCC4A66002C8A95 /* FriendTrend */,
 				044612D61FCC4A66002C8A95 /* Me */,
+				04577C921FD8329800A0DB29 /* Setting */,
 				044612CA1FCC4A66002C8A95 /* Other */,
 				041CE63D1FCF961B00883695 /* Tool */,
 			);
@@ -287,6 +291,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04577C921FD8329800A0DB29 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				04577C931FD8329800A0DB29 /* Controller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		04577C931FD8329800A0DB29 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04577C971FD832E100A0DB29 /* QQSettingController.h */,
+				04577C981FD832E100A0DB29 /* QQSettingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		04A644E11FCC3D4700763D3C = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +444,7 @@
 				04105BB21FD587E400DC3EF3 /* QQTabBar.m in Sources */,
 				044612DF1FCC4A66002C8A95 /* AppDelegate.m in Sources */,
 				04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */,
+				04577C991FD832E100A0DB29 /* QQSettingController.m in Sources */,
 				044612EB1FCC4B2F002C8A95 /* QQNewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

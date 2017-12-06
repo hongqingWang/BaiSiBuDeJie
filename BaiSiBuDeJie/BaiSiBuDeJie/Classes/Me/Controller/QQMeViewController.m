@@ -7,6 +7,7 @@
 //
 
 #import "QQMeViewController.h"
+#import "QQSettingController.h"
 
 @interface QQMeViewController ()
 
@@ -36,7 +37,8 @@
 #pragma mark - Event Response
 - (void)setting {
     
-    NSLog(@"%s", __FUNCTION__);
+    QQSettingController *vc = [[QQSettingController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)night:(UIButton *)button {
