@@ -18,22 +18,23 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor redColor];
-     
+    [self setupNav];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - setupNav
+- (void)setupNav {
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"qq_nav_item_game"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"qq_nav_item_game_highlighted"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(game) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Event Response
+- (void)game {
+    
+    NSLog(@"%s", __FUNCTION__);
 }
-*/
 
 @end
