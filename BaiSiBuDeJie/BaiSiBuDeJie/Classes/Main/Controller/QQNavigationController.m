@@ -8,7 +8,7 @@
 
 #import "QQNavigationController.h"
 
-@interface QQNavigationController ()
+@interface QQNavigationController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -25,22 +25,30 @@
     [navBar setBackgroundImage:[UIImage imageNamed:@"qq_nav_background"] forBarMetrics:UIBarMetricsDefault];
 }
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
+    if (self.childViewControllers.count > 0) {
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_backItemWithImageName:@"qq_nav_back" target:self action:@selector(back)];
+    }
     [super pushViewController:viewController animated:animated];
-    
-    NSLog(@"%s", __FUNCTION__);
-    viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_backItemWithImageName:@"qq_nav_back" target:self action:@selector(back)];
 }
 
+#pragma mark - Event Response
 - (void)back {
     
     [self popViewControllerAnimated:YES];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return self.childViewControllers.count > 1;
 }
 
 @end
