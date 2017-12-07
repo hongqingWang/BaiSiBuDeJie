@@ -14,4 +14,7 @@
 
 + (UIBarButtonItem *)qq_itemWithImageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName target:(id)target action:(SEL)action;
 
++ (UIBarButtonItem *)qq_backItemWithImageName:(NSString *)imageName target:(id)target action:(SEL)action;
+
 @end
+
