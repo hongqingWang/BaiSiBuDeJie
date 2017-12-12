@@ -7,6 +7,7 @@
 //
 
 #import "QQNavigationController.h"
+#import "UIBarButtonItem+QQ.h"
 
 @interface QQNavigationController ()<UIGestureRecognizerDelegate>
 
@@ -29,14 +30,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.interactivePopGestureRecognizer.delegate = self;
+//    self.interactivePopGestureRecognizer.delegate = self;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+#pragma clang diagnostic pop
+    [self.view addGestureRecognizer:pan];
+    // 根控制器不触发滑动手势,防止假死
+    pan.delegate = self;
+    // 禁用系统自带的手势
+    self.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     if (self.childViewControllers.count > 0) {
+        
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_backItemWithImageName:@"qq_nav_back" target:self action:@selector(back)];
+        NSLog(@"%@", self.interactivePopGestureRecognizer);
     }
+    
     [super pushViewController:viewController animated:animated];
 }
 
