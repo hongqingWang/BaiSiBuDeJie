@@ -31,9 +31,33 @@
     [super viewDidLoad];
     
 //    self.interactivePopGestureRecognizer.delegate = self;
+// diagnostic -> 诊断
+
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+    
+    // Warning Code
+    NSString *string = [NSString string];
+    
+#pragma clang diagnostic pop
+    
+    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
+    
+     
+    
+    
+    
+    
+    
+    
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+    
+    
+    
+    
 #pragma clang diagnostic pop
     [self.view addGestureRecognizer:pan];
     // 根控制器不触发滑动手势,防止假死
