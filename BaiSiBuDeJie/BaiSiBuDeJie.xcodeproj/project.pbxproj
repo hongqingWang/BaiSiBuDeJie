@@ -22,6 +22,7 @@
 		04577C991FD832E100A0DB29 /* QQSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C981FD832E100A0DB29 /* QQSettingController.m */; };
 		04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A644F61FCC3D4700763D3C /* Assets.xcassets */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
+		18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		04A644FB1FCC3D4700763D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTabBarController.h; sourceTree = "<group>"; };
 		189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTabBarController.m; sourceTree = "<group>"; };
+		18E0F1101FE2B72C00ABC4E1 /* QQAdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAdController.h; sourceTree = "<group>"; };
+		18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQAdController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				189A8D531FCDCA5F00F7F77D /* Main */,
+				18E0F10E1FE2B71B00ABC4E1 /* Ad */,
 				044612D21FCC4A66002C8A95 /* Essence */,
 				044612DA1FCC4A66002C8A95 /* New */,
 				044612CE1FCC4A66002C8A95 /* Publish */,
@@ -362,6 +366,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		18E0F10E1FE2B71B00ABC4E1 /* Ad */ = {
+			isa = PBXGroup;
+			children = (
+				18E0F10F1FE2B71B00ABC4E1 /* Controller */,
+			);
+			path = Ad;
+			sourceTree = "<group>";
+		};
+		18E0F10F1FE2B71B00ABC4E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18E0F1101FE2B72C00ABC4E1 /* QQAdController.h */,
+				18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -438,6 +459,7 @@
 				044612DE1FCC4A66002C8A95 /* main.m in Sources */,
 				041CE6411FCF964000883695 /* UIImage+QQ.m in Sources */,
 				04577C671FD6D57200A0DB29 /* UIView+QQ.m in Sources */,
+				18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */,
 				04577C8E1FD815E500A0DB29 /* UIBarButtonItem+QQ.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
