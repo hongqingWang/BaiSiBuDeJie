@@ -21,6 +21,8 @@
 		04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C901FD830BC00A0DB29 /* QQNavigationController.m */; };
 		04577C991FD832E100A0DB29 /* QQSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577C981FD832E100A0DB29 /* QQSettingController.m */; };
 		04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A644F61FCC3D4700763D3C /* Assets.xcassets */; };
+		181716DE1FE8078000AF0286 /* QQAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716DD1FE8078000AF0286 /* QQAdView.m */; };
+		181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716E01FE822F500AF0286 /* UIColor+QQ.m */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
 		18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
@@ -46,7 +48,6 @@
 		044612ED1FCC4B4E002C8A95 /* QQMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQMeViewController.m; sourceTree = "<group>"; };
 		04577C651FD6D57200A0DB29 /* UIView+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QQ.h"; sourceTree = "<group>"; };
 		04577C661FD6D57200A0DB29 /* UIView+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QQ.m"; sourceTree = "<group>"; };
-		04577C681FD6DBDF00A0DB29 /* BaiSiBuDeJie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiSiBuDeJie.h; sourceTree = "<group>"; };
 		04577C8C1FD815E500A0DB29 /* UIBarButtonItem+QQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+QQ.h"; sourceTree = "<group>"; };
 		04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+QQ.m"; sourceTree = "<group>"; };
 		04577C8F1FD830BC00A0DB29 /* QQNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQNavigationController.h; sourceTree = "<group>"; };
@@ -57,6 +58,11 @@
 		04A644F61FCC3D4700763D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A644FB1FCC3D4700763D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A14D2268344AA61066E9A /* Pods-BaiSiBuDeJie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.debug.xcconfig"; sourceTree = "<group>"; };
+		181716DA1FE8031500AF0286 /* BaiSiBuDeJie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiSiBuDeJie.pch; sourceTree = "<group>"; };
+		181716DC1FE8078000AF0286 /* QQAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAdView.h; sourceTree = "<group>"; };
+		181716DD1FE8078000AF0286 /* QQAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQAdView.m; sourceTree = "<group>"; };
+		181716DF1FE822F500AF0286 /* UIColor+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QQ.h"; sourceTree = "<group>"; };
+		181716E01FE822F500AF0286 /* UIColor+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QQ.m"; sourceTree = "<group>"; };
 		189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTabBarController.h; sourceTree = "<group>"; };
 		189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTabBarController.m; sourceTree = "<group>"; };
 		18E0F1101FE2B72C00ABC4E1 /* QQAdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAdController.h; sourceTree = "<group>"; };
@@ -90,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				041CE63E1FCF962E00883695 /* Category */,
-				04577C681FD6DBDF00A0DB29 /* BaiSiBuDeJie.h */,
+				181716DA1FE8031500AF0286 /* BaiSiBuDeJie.pch */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -98,6 +104,8 @@
 		041CE63E1FCF962E00883695 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				181716DF1FE822F500AF0286 /* UIColor+QQ.h */,
+				181716E01FE822F500AF0286 /* UIColor+QQ.m */,
 				04577C651FD6D57200A0DB29 /* UIView+QQ.h */,
 				04577C661FD6D57200A0DB29 /* UIView+QQ.m */,
 				041CE63F1FCF964000883695 /* UIImage+QQ.h */,
@@ -345,6 +353,15 @@
 			path = BaiSiBuDeJie;
 			sourceTree = "<group>";
 		};
+		181716DB1FE8076700AF0286 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				181716DC1FE8078000AF0286 /* QQAdView.h */,
+				181716DD1FE8078000AF0286 /* QQAdView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		189A8D531FCDCA5F00F7F77D /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				18E0F10F1FE2B71B00ABC4E1 /* Controller */,
+				181716DB1FE8076700AF0286 /* View */,
 			);
 			path = Ad;
 			sourceTree = "<group>";
@@ -528,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */,
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
 				044612E81FCC4B0D002C8A95 /* QQPublishViewController.m in Sources */,
@@ -535,6 +554,7 @@
 				041CE6411FCF964000883695 /* UIImage+QQ.m in Sources */,
 				04577C671FD6D57200A0DB29 /* UIView+QQ.m in Sources */,
 				18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */,
+				181716DE1FE8078000AF0286 /* QQAdView.m in Sources */,
 				04577C8E1FD815E500A0DB29 /* UIBarButtonItem+QQ.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
@@ -661,7 +681,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QHWSQVGPN4;
-				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.h;
+				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.pch;
 				INFOPLIST_FILE = BaiSiBuDeJie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -679,7 +699,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QHWSQVGPN4;
-				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.h;
+				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.pch;
 				INFOPLIST_FILE = BaiSiBuDeJie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

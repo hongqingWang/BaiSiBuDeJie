@@ -7,8 +7,12 @@
 //
 
 #import "QQAdController.h"
+#import "QQAdView.h"
 
 @interface QQAdController ()
+
+/// AdView
+@property (nonatomic, strong) QQAdView *adView;
 
 @end
 
@@ -17,22 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.adView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getters And Setters
+- (QQAdView *)adView {
+    if (_adView == nil) {
+        _adView = [[QQAdView alloc] init];
+    }
+    return _adView;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
