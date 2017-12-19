@@ -9,6 +9,7 @@
 #import "UIView+QQ.h"
 #import "UIBarButtonItem+QQ.h"
 #import "UIColor+QQ.h"
+#import <AFNetworking.h>
 
 #ifdef DEBUG
 
