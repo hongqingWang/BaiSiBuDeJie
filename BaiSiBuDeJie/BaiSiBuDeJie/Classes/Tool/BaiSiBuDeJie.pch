@@ -10,6 +10,8 @@
 #import "UIBarButtonItem+QQ.h"
 #import "UIColor+QQ.h"
 #import <AFNetworking.h>
+#import <MJExtension.h>
+#import <UIImageView+WebCache.h>
 
 #ifdef DEBUG
 

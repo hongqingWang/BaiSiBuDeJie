@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class QQAd;
 
 @interface QQAdView : UIView
+
+/// 模型
+@property (nonatomic, strong) QQAd *ad;
 
 @end

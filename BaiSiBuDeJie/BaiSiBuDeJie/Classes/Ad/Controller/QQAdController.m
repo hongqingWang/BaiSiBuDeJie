@@ -36,6 +36,7 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
         NSArray *adArray = [responseObject[@"T1348647853363"] firstObject][@"ads"];
         NSLog(@"%s %@", __FUNCTION__, [adArray firstObject]);
         
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"%s %@", __FUNCTION__, error);

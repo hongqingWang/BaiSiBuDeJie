@@ -17,6 +17,12 @@
 
 @implementation QQAdView
 
+- (void)setAd:(QQAd *)ad {
+    _ad = ad;
+    
+    
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
