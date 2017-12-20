@@ -38,7 +38,7 @@
     if (_backgroundImageView == nil) {
         _backgroundImageView = [[UIImageView alloc] init];
         _backgroundImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-        _backgroundImageView.image = [UIImage imageNamed:@"qq_nav_sub_highlighted"];
+        _backgroundImageView.image = [UIImage imageNamed:@"LaunchImage-375x667"];
     }
     return _backgroundImageView;
 }
