@@ -33,7 +33,8 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:adURLString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"%s %@", __FUNCTION__, responseObject);
+        NSArray *adArray = [responseObject[@"T1348647853363"] firstObject][@"ads"];
+        NSLog(@"%s %@", __FUNCTION__, [adArray firstObject]);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
