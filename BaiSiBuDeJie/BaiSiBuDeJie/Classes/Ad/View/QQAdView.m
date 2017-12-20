@@ -7,6 +7,7 @@
 //
 
 #import "QQAdView.h"
+#import "QQAd.h"
 
 @interface QQAdView ()
 
@@ -20,7 +21,8 @@
 - (void)setAd:(QQAd *)ad {
     _ad = ad;
     
-    
+    NSURL *url = [NSURL URLWithString:ad.imgsrc];
+    [self.backgroundImageView sd_setImageWithURL:url];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

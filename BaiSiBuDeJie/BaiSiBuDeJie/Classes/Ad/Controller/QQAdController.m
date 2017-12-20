@@ -8,6 +8,7 @@
 
 #import "QQAdController.h"
 #import "QQAdView.h"
+#import "QQAd.h"
 
 static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-10.html";
 
@@ -34,8 +35,10 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
     [manager GET:adURLString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSArray *adArray = [responseObject[@"T1348647853363"] firstObject][@"ads"];
-        NSLog(@"%s %@", __FUNCTION__, [adArray firstObject]);
+        NSDictionary *adDict = [adArray firstObject];
         
+        QQAd *ad = [QQAd mj_objectWithKeyValues:adDict];
+        self.adView.ad = ad;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
