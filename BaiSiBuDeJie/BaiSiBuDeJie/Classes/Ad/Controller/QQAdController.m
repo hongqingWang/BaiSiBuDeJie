@@ -16,6 +16,8 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 
 /// AdView
 @property (nonatomic, strong) QQAdView *adView;
+/// Ad
+//@property (nonatomic, strong) QQAd *ad;
 
 @end
 
@@ -38,6 +40,9 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
         NSDictionary *adDict = [adArray firstObject];
         
         QQAd *ad = [QQAd mj_objectWithKeyValues:adDict];
+//        ad.imgsrc = @"http://d.paper.i4.cn/max/2017/04/17/15/1492414647016_163870.jpg";
+        ad.imgsrc = @"http://upload-images.jianshu.io/upload_images/2069062-41ec389fa17b3ee6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
+        
         self.adView.ad = ad;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

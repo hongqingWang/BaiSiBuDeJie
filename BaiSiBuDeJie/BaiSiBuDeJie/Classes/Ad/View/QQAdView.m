@@ -32,6 +32,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         [self setupUI];
     }
     return self;
@@ -42,8 +43,18 @@
     
     [self addSubview:self.backgroundImageView];
     [self addSubview:self.adImageView];
+}
+
+#pragma mark - Event Response
+- (void)tapAdImageView {
     
-//    self.adImageView 
+    self.ad.imgsrc = @"https://github.com/hongqingWang";
+    NSURL *url = [NSURL URLWithString:self.ad.imgsrc];
+    UIApplication *application = [UIApplication sharedApplication];
+
+    if ([application canOpenURL:url]) {
+        [application openURL:url];
+    }
 }
 
 #pragma mark - Getters And Setters
@@ -59,6 +70,11 @@
 - (UIImageView *)adImageView {
     if (_adImageView == nil) {
         _adImageView = [[UIImageView alloc] init];
+        _adImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAdImageView)];
+        [_adImageView addGestureRecognizer:tap];
+        _adImageView.userInteractionEnabled = YES;
     }
     return _adImageView;
 }
