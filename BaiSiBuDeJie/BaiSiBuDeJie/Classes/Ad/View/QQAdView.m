@@ -13,6 +13,8 @@
 
 /// BackgroundImageView
 @property (nonatomic, strong) UIImageView *backgroundImageView;
+/// AdImageView
+@property (nonatomic, strong) UIImageView *adImageView;
 
 @end
 
@@ -22,7 +24,7 @@
     _ad = ad;
     
     NSURL *url = [NSURL URLWithString:ad.imgsrc];
-    [self.backgroundImageView sd_setImageWithURL:url];
+    [self.adImageView sd_setImageWithURL:url];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -39,6 +41,9 @@
 - (void)setupUI {
     
     [self addSubview:self.backgroundImageView];
+    [self addSubview:self.adImageView];
+    
+//    self.adImageView 
 }
 
 #pragma mark - Getters And Setters
@@ -49,6 +54,13 @@
         _backgroundImageView.image = [UIImage imageNamed:@"LaunchImage-375x667"];
     }
     return _backgroundImageView;
+}
+
+- (UIImageView *)adImageView {
+    if (_adImageView == nil) {
+        _adImageView = [[UIImageView alloc] init];
+    }
+    return _adImageView;
 }
 
 @end
