@@ -9,6 +9,7 @@
 #import "QQAdController.h"
 #import "QQAdView.h"
 #import "QQAd.h"
+#import "QQTabBarController.h"
 
 static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-10.html";
 
@@ -16,6 +17,8 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 
 /// AdView
 @property (nonatomic, strong) QQAdView *adView;
+/// Timer
+@property (nonatomic, weak) NSTimer *timer;
 /// Ad
 //@property (nonatomic, strong) QQAd *ad;
 
@@ -28,6 +31,23 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
     
     [self setupUI];
     [self loadData];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeChange) userInfo:nil repeats:YES];
+}
+
+#pragma mark - Event Response
+- (void)timeChange {
+    NSLog(@"Aaaa");
+    static int i = 3;
+    
+    if (i == 0) {
+        
+        QQTabBarController *tabBarVc = [[QQTabBarController alloc] init];
+        [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVc;
+        [self.timer invalidate];
+    }
+    
+    i--;
 }
 
 #pragma mark - loadData
