@@ -60,9 +60,8 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
         NSDictionary *adDict = [adArray firstObject];
         
         QQAd *ad = [QQAd mj_objectWithKeyValues:adDict];
-//        ad.imgsrc = @"http://d.paper.i4.cn/max/2017/04/17/15/1492414647016_163870.jpg";
-        ad.imgsrc = @"http://upload-images.jianshu.io/upload_images/2069062-41ec389fa17b3ee6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
-        
+        ad.imgsrc = @"https://upload-images.jianshu.io/upload_images/2069062-c7a2a34a7e2139a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
+        ad.url = @"https://www.jianshu.com/u/1ab0fcff23e7";
         self.adView.ad = ad;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

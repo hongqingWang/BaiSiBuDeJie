@@ -12,5 +12,7 @@
 
 /// 图片地址
 @property (nonatomic, copy) NSString *imgsrc;
+/// 跳转Url
+@property (nonatomic, copy) NSString *url;
 
 @end

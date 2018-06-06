@@ -13,6 +13,13 @@
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
 
+#define SCREEN_WIDTH        [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT       [UIScreen mainScreen].bounds.size.height
+
+#define iPhone8_Plus        (SCREEN_HEIGHT == 736)
+#define iPhone8             (SCREEN_HEIGHT == 667)
+#define iPhone5s            (SCREEN_HEIGHT == 568)
+
 #ifdef DEBUG
 
 #define QQLog(...) NSLog(__VA_ARGS__)

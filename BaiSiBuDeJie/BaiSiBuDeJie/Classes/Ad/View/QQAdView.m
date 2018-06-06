@@ -70,7 +70,7 @@
 - (UIImageView *)adImageView {
     if (_adImageView == nil) {
         _adImageView = [[UIImageView alloc] init];
-        _adImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        _adImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width * 960 / 640);
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAdImageView)];
         [_adImageView addGestureRecognizer:tap];
