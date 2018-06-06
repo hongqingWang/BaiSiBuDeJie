@@ -697,7 +697,7 @@
 				DEVELOPMENT_TEAM = QHWSQVGPN4;
 				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.pch;
 				INFOPLIST_FILE = BaiSiBuDeJie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ymbenzhi.BaiSiBuDeJie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -715,7 +715,7 @@
 				DEVELOPMENT_TEAM = QHWSQVGPN4;
 				GCC_PREFIX_HEADER = BaiSiBuDeJie/Classes/Tool/BaiSiBuDeJie.pch;
 				INFOPLIST_FILE = BaiSiBuDeJie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ymbenzhi.BaiSiBuDeJie;
 				PRODUCT_NAME = "$(TARGET_NAME)";

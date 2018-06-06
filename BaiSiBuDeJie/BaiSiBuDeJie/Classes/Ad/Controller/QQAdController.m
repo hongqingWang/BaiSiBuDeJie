@@ -13,14 +13,14 @@
 
 static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-10.html";
 
-@interface QQAdController ()
+@interface QQAdController ()<QQAdViewDelegete>
 
 /// AdView
 @property (nonatomic, strong) QQAdView *adView;
 /// Timer
 @property (nonatomic, weak) NSTimer *timer;
 /// Ad
-//@property (nonatomic, strong) QQAd *ad;
+@property (nonatomic, strong) QQAd *ad;
 
 @end
 
@@ -38,7 +38,7 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 #pragma mark - Event Response
 - (void)timeChange {
     NSLog(@"Aaaa");
-    static int i = 3;
+    static int i = 30;
     
     if (i == 0) {
         
@@ -59,15 +59,37 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
         NSArray *adArray = [responseObject[@"T1348647853363"] firstObject][@"ads"];
         NSDictionary *adDict = [adArray firstObject];
         
-        QQAd *ad = [QQAd mj_objectWithKeyValues:adDict];
-        ad.imgsrc = @"https://upload-images.jianshu.io/upload_images/2069062-c7a2a34a7e2139a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
-        ad.url = @"https://www.jianshu.com/u/1ab0fcff23e7";
-        self.adView.ad = ad;
+        self.ad = [QQAd mj_objectWithKeyValues:adDict];
+        self.ad.imgsrc = @"https://upload-images.jianshu.io/upload_images/2069062-c7a2a34a7e2139a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
+        self.adView.ad = self.ad;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"%s %@", __FUNCTION__, error);
     }];
+}
+
+#pragma mark - QQAdViewDelegete
+- (void)adView:(QQAdView *)adView tapAdImageView:(UITapGestureRecognizer *)tap {
+    
+    int i = arc4random_uniform(4);
+    
+    if (i == 0) {
+        self.ad.url = @"https://www.jianshu.com/u/1ab0fcff23e7";
+    } else if (i == 1) {
+        self.ad.url = @"https://github.com/hongqingWang";
+    } else if (i == 2) {
+        self.ad.url = @"https://juejin.im/user/5954542d6fb9a06ba6462edc/posts";
+    } else {
+        self.ad.url = @"https://cloud.tencent.com/developer/user/1890628";
+    }
+    
+    NSURL *url = [NSURL URLWithString:self.ad.url];
+    UIApplication *application = [UIApplication sharedApplication];
+
+    if ([application canOpenURL:url]) {
+        [application openURL:url];
+    }
 }
 
 #pragma mark - SetupUI
@@ -81,6 +103,7 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 - (QQAdView *)adView {
     if (_adView == nil) {
         _adView = [[QQAdView alloc] init];
+        _adView.delegate = self;
     }
     return _adView;
 }

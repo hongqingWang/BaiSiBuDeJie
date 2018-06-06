@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 @class QQAd;
+@class QQAdView;
+
+@protocol QQAdViewDelegete <NSObject>
+
+/**
+ * 点击广告图片跳转
+ */
+- (void)adView:(QQAdView *)adView tapAdImageView:(UITapGestureRecognizer *)tap;
+
+@end
 
 @interface QQAdView : UIView
 
 /// 模型
 @property (nonatomic, strong) QQAd *ad;
+/// QQAdViewDelegete
+@property (nonatomic, weak) id <QQAdViewDelegete> delegate;
 
 @end

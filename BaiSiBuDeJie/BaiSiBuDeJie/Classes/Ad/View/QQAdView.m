@@ -46,14 +46,10 @@
 }
 
 #pragma mark - Event Response
-- (void)tapAdImageView {
+- (void)tapAdImageView:(UITapGestureRecognizer *)tap {
     
-    self.ad.imgsrc = @"https://github.com/hongqingWang";
-    NSURL *url = [NSURL URLWithString:self.ad.imgsrc];
-    UIApplication *application = [UIApplication sharedApplication];
-
-    if ([application canOpenURL:url]) {
-        [application openURL:url];
+    if ([self.delegate respondsToSelector:@selector(adView:tapAdImageView:)]) {
+        [self.delegate adView:self tapAdImageView:tap];
     }
 }
 
@@ -71,8 +67,7 @@
     if (_adImageView == nil) {
         _adImageView = [[UIImageView alloc] init];
         _adImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width * 960 / 640);
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAdImageView)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAdImageView:)];
         [_adImageView addGestureRecognizer:tap];
         _adImageView.userInteractionEnabled = YES;
     }

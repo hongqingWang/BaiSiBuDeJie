@@ -31,7 +31,10 @@
     /// 此方法不建议用,如果应用程序中如果有不止一个`TabBarItem`的话,也同样会被渲染
 //    UITabBarItem *item = [UITabBarItem appearance];
     
-    UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
+    /**
+     * 'appearanceWhenContainedIn:' is deprecated: first deprecated in iOS 9.0 - Use +appearanceWhenContainedInInstancesOfClasses: instead
+     */
+    UITabBarItem *item = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:attrs forState:UIControlStateSelected];
