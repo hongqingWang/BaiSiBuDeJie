@@ -9,6 +9,7 @@
 #import "QQSubTagViewController.h"
 #import <AFNetworking.h>
 #import "QQSubTag.h"
+#import "QQSubTagCell.h"
 
 @interface QQSubTagViewController ()
 
@@ -54,16 +55,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    
+    QQSubTagCell *cell = [QQSubTagCell subTagCellWithTableView:tableView];
     QQSubTag *tag = _subTags[indexPath.row];
-    cell.textLabel.text = tag.theme_name;
-    
     return cell;
+}
+
+#pragma mark - TableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70;
 }
 
 @end
