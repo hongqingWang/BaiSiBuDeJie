@@ -33,35 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.interactivePopGestureRecognizer.delegate = self;
-// diagnostic -> 诊断
-
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-variable"
-    
-    // Warning Code
-    NSString *string = [NSString string];
-    
-#pragma clang diagnostic pop
-    
-    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
     
-     
-    
-    
-    
-    
-    
-    
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
-    
-    
-    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]
+                                   initWithTarget:self.interactivePopGestureRecognizer.delegate
+                                   action:@selector(handleNavigationTransition:)];
     
 #pragma clang diagnostic pop
+    
     [self.view addGestureRecognizer:pan];
     // 根控制器不触发滑动手势,防止假死
     pan.delegate = self;
@@ -73,8 +53,10 @@
     
     if (self.childViewControllers.count > 0) {
         
+        viewController.hidesBottomBarWhenPushed = YES;
+        
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_backItemWithImageName:@"qq_nav_back" target:self action:@selector(back)];
-        NSLog(@"%@", self.interactivePopGestureRecognizer);
+//        NSLog(@"%@", self.interactivePopGestureRecognizer);
     }
     
     [super pushViewController:viewController animated:animated];

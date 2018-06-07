@@ -39,7 +39,7 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 
 #pragma mark - Event Response
 - (void)timeChange {
-    NSLog(@"Aaaa");
+    
     static int i = 3;
     
     if (i == 0) {

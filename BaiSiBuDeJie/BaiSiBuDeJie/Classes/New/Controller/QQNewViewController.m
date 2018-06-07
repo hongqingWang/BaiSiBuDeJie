@@ -7,6 +7,7 @@
 //
 
 #import "QQNewViewController.h"
+#import "QQSubTagViewController.h"
 
 @interface QQNewViewController ()
 
@@ -32,7 +33,8 @@
 #pragma mark - Event Response
 - (void)subscribe {
     
-    NSLog(@"%s", __FUNCTION__);
+    QQSubTagViewController *vc = [[QQSubTagViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
