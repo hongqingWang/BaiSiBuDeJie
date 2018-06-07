@@ -17,6 +17,11 @@
  */
 - (void)adView:(QQAdView *)adView tapAdImageView:(UITapGestureRecognizer *)tap;
 
+/**
+ * 点击跳过广告按钮
+ */
+- (void)adView:(QQAdView *)adView jumpAd:(UIButton *)button;
+
 @end
 
 @interface QQAdView : UIView
@@ -25,5 +30,7 @@
 @property (nonatomic, strong) QQAd *ad;
 /// QQAdViewDelegete
 @property (nonatomic, weak) id <QQAdViewDelegete> delegate;
+/// JumpButton
+@property (nonatomic, strong) UIButton *jumpButton;
 
 @end

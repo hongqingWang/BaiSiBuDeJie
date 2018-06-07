@@ -21,6 +21,8 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 @property (nonatomic, weak) NSTimer *timer;
 /// Ad
 @property (nonatomic, strong) QQAd *ad;
+/// JumpButton
+@property (nonatomic, strong) UIButton *jumpButton;
 
 @end
 
@@ -38,16 +40,16 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 #pragma mark - Event Response
 - (void)timeChange {
     NSLog(@"Aaaa");
-    static int i = 30;
+    static int i = 3;
     
     if (i == 0) {
         
-        QQTabBarController *tabBarVc = [[QQTabBarController alloc] init];
-        [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVc;
-        [self.timer invalidate];
+        [self adView:nil jumpAd:nil];
     }
     
     i--;
+    
+    [self.jumpButton setTitle:[NSString stringWithFormat:@"跳过(%d)", i] forState:UIControlStateNormal];
 }
 
 #pragma mark - loadData
@@ -92,6 +94,13 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
     }
 }
 
+- (void)adView:(QQAdView *)adView jumpAd:(UIButton *)button {
+    
+    QQTabBarController *tabBarController = [[QQTabBarController alloc] init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarController;
+    [self.timer invalidate];
+}
+
 #pragma mark - SetupUI
 - (void)setupUI {
     
@@ -104,6 +113,7 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
     if (_adView == nil) {
         _adView = [[QQAdView alloc] init];
         _adView.delegate = self;
+        self.jumpButton = _adView.jumpButton;
     }
     return _adView;
 }

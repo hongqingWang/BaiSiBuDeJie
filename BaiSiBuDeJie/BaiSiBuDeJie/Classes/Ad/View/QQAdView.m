@@ -43,6 +43,7 @@
     
     [self addSubview:self.backgroundImageView];
     [self addSubview:self.adImageView];
+    [self addSubview:self.jumpButton];
 }
 
 #pragma mark - Event Response
@@ -50,6 +51,12 @@
     
     if ([self.delegate respondsToSelector:@selector(adView:tapAdImageView:)]) {
         [self.delegate adView:self tapAdImageView:tap];
+    }
+}
+
+- (void)jumpAd:(UIButton *)button {
+    if ([self.delegate respondsToSelector:@selector(adView:jumpAd:)]) {
+        [self.delegate adView:self jumpAd:button];
     }
 }
 
@@ -72,6 +79,22 @@
         _adImageView.userInteractionEnabled = YES;
     }
     return _adImageView;
+}
+
+- (UIButton *)jumpButton {
+    if (_jumpButton == nil) {
+        _jumpButton = [[UIButton alloc] init];
+        CGFloat w = 80;
+        CGFloat h = 40;
+        _jumpButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 10 - w, 20, w, h);
+        [_jumpButton setTitle:@"跳过(3)" forState:UIControlStateNormal];
+        _jumpButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        [_jumpButton setBackgroundColor:[UIColor lightGrayColor]];
+        _jumpButton.layer.cornerRadius = 5;
+        _jumpButton.layer.masksToBounds = YES;
+        [_jumpButton addTarget:self action:@selector(jumpAd:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _jumpButton;
 }
 
 @end
