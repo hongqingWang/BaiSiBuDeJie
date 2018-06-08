@@ -56,7 +56,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQSubTagCell *cell = [QQSubTagCell subTagCellWithTableView:tableView];
-    QQSubTag *tag = _subTags[indexPath.row];
+    QQSubTag *subTag = _subTags[indexPath.row];
+    cell.subTag = subTag;
     return cell;
 }
 
