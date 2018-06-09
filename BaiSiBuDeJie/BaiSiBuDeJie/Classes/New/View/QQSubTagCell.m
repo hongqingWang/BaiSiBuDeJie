@@ -25,7 +25,7 @@
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subTag.image_list]];
     self.nameLabel.text = subTag.theme_name;
-//    self.countLabel.text = [NSString stringWithFormat:@""]
+    self.countLabel.text = subTag.sub_number;
 }
 
 + (instancetype)subTagCellWithTableView:(UITableView *)tableView {

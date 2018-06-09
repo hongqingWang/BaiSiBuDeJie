@@ -34,7 +34,8 @@
     /**
      * 'appearanceWhenContainedIn:' is deprecated: first deprecated in iOS 9.0 - Use +appearanceWhenContainedInInstancesOfClasses: instead
      */
-    UITabBarItem *item = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
+//    UITabBarItem *item = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
+    UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:attrs forState:UIControlStateSelected];

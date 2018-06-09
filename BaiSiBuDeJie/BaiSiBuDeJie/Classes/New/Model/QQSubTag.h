@@ -14,5 +14,7 @@
 @property (nonatomic, copy) NSString *image_list;
 /// 标签名称
 @property (nonatomic, copy) NSString *theme_name;
+/// 订阅的数量
+@property (nonatomic, copy) NSString *sub_number;
 
 @end

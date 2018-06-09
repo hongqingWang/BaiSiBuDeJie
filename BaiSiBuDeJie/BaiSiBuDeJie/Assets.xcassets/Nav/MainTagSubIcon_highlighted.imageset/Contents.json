@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "qq_nav_sub@2x.png",
+      "filename" : "MainTagSubIcon_highlighted@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "qq_nav_sub@3x.png",
+      "filename" : "MainTagSubIcon_highlighted@3x.png",
       "scale" : "3x"
     }
   ],

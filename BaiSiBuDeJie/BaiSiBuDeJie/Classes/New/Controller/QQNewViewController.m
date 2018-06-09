@@ -27,7 +27,7 @@
 - (void)setupNav {
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qq_nav_title"]];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_itemWithImageName:@"qq_nav_sub" target:self action:@selector(subscribe)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem qq_itemWithImageName:@"MainTagSubIcon" target:self action:@selector(subscribe)];
 }
 
 #pragma mark - Event Response
