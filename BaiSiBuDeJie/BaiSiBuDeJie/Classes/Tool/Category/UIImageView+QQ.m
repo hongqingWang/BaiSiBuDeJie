@@ -12,11 +12,23 @@
 
 @implementation UIImageView (QQ)
 
+- (void)qq_setAvatarWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage {
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    [self sd_setImageWithURL:url placeholderImage:placeholderImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+        self.image = [image qq_avatarImageWithSize:image.size];
+    }];
+}
+
+
+
+
 - (void)qq_imageName:(NSString *)imageName {
     
     self.image = [UIImage imageNamed:imageName];
 }
-
 - (void)qq_setImageWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage isAvatar:(BOOL)isAvatar {
     
     NSURL *url = [NSURL URLWithString:urlString];

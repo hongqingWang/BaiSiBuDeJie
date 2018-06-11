@@ -24,24 +24,7 @@
 - (void)setSubTag:(QQSubTag *)subTag {
     _subTag = subTag;
     
-//    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subTag.image_list]];
-    
-    [self.iconImageView qq_setImageWithUrlString:subTag.image_list placeholderImage:nil isAvatar:YES];
-    
-//    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subTag.image_list] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        
-//        UIGraphicsBeginImageContextWithOptions(image.size, YES, 0);
-//        
-//        [[UIColor whiteColor] setFill];
-//        
-//        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
-//        [path addClip];
-//        [image drawAtPoint:CGPointZero];
-//        image = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-//        _iconImageView.image = image;
-//    }];
-    
+    [self.iconImageView qq_setAvatarWithUrlString:subTag.image_list placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = subTag.theme_name;
     [self resolveNumber];
 }

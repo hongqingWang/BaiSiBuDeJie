@@ -10,10 +10,12 @@
 
 @interface UIImageView (QQ)
 
-- (void)qq_setAvatarithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage;
+- (void)qq_setAvatarWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage;
+
+
+
 
 - (void)qq_imageName:(NSString *)imageName;
-
 - (void)qq_setImageWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage isAvatar:(BOOL)isAvatar;
 
 @end

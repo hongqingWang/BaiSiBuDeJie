@@ -10,10 +10,14 @@
 
 @interface UIImage (QQ)
 
+- (UIImage *)qq_avatarImageWithSize:(CGSize)size;
+
 + (instancetype)imageOriginalWithName:(NSString *)imageName;
 
-- (UIImage *)qq_imageWithSize:(CGSize)size backgroundColor:(UIColor *)backgroundColor;
 
+
+
+- (UIImage *)qq_imageWithSize:(CGSize)size backgroundColor:(UIColor *)backgroundColor;
 - (UIImage *)qq_roundImageWithSize:(CGSize)size backgroundColor:(UIColor *)backgroundColor lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth;
 
 @end
