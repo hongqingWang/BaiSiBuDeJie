@@ -29,6 +29,7 @@
 		18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C4320C920D800BE8EA8 /* QQSubTag.m */; };
 		18DD1C4820C927F000BE8EA8 /* QQSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C4720C927F000BE8EA8 /* QQSubTagCell.m */; };
 		18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */; };
+		18EE157920CDFD200078EB5E /* UIImageView+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE157720CDFD200078EB5E /* UIImageView+QQ.m */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		18DD1C4720C927F000BE8EA8 /* QQSubTagCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSubTagCell.m; sourceTree = "<group>"; };
 		18E0F1101FE2B72C00ABC4E1 /* QQAdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAdController.h; sourceTree = "<group>"; };
 		18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQAdController.m; sourceTree = "<group>"; };
+		18EE157720CDFD200078EB5E /* UIImageView+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+QQ.m"; sourceTree = "<group>"; };
+		18EE157820CDFD200078EB5E /* UIImageView+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+QQ.h"; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +125,8 @@
 				04577C661FD6D57200A0DB29 /* UIView+QQ.m */,
 				041CE63F1FCF964000883695 /* UIImage+QQ.h */,
 				041CE6401FCF964000883695 /* UIImage+QQ.m */,
+				18EE157820CDFD200078EB5E /* UIImageView+QQ.h */,
+				18EE157720CDFD200078EB5E /* UIImageView+QQ.m */,
 				04577C8C1FD815E500A0DB29 /* UIBarButtonItem+QQ.h */,
 				04577C8D1FD815E500A0DB29 /* UIBarButtonItem+QQ.m */,
 			);
@@ -574,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EE157920CDFD200078EB5E /* UIImageView+QQ.m in Sources */,
 				181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */,
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,

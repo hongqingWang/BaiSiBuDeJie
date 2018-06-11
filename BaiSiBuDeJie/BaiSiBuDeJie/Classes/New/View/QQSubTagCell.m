@@ -8,6 +8,7 @@
 
 #import "QQSubTagCell.h"
 #import "QQSubTag.h"
+#import "UIImageView+QQ.h"
 
 @interface QQSubTagCell ()
 
@@ -23,9 +24,40 @@
 - (void)setSubTag:(QQSubTag *)subTag {
     _subTag = subTag;
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subTag.image_list]];
+//    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subTag.image_list]];
+    
+    [self.iconImageView qq_setImageWithUrlString:subTag.image_list placeholderImage:nil isAvatar:YES];
+    
+//    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subTag.image_list] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        
+//        UIGraphicsBeginImageContextWithOptions(image.size, YES, 0);
+//        
+//        [[UIColor whiteColor] setFill];
+//        
+//        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+//        [path addClip];
+//        [image drawAtPoint:CGPointZero];
+//        image = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+//        _iconImageView.image = image;
+//    }];
+    
     self.nameLabel.text = subTag.theme_name;
-    self.countLabel.text = subTag.sub_number;
+    [self resolveNumber];
+}
+
+- (void)resolveNumber {
+    
+    NSString *numberString = [NSString string];
+    NSInteger numberInteger = _subTag.sub_number.integerValue;
+    if (numberInteger > 10000) {
+        CGFloat numFloat = numberInteger / 10000.0;
+        numberString = [NSString stringWithFormat:@"%.1f万人订阅", numFloat];
+        numberString = [numberString stringByReplacingOccurrencesOfString:@".0" withString:@""];
+    } else {
+        numberString = [NSString stringWithFormat:@"%ld人订阅", numberInteger];
+    }
+    self.countLabel.text = numberString;
 }
 
 + (instancetype)subTagCellWithTableView:(UITableView *)tableView {
@@ -35,6 +67,9 @@
     if (cell == nil) {
         cell = [[QQSubTagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    
+//    cell.backgroundColor = [UIColor qq_randomColor];
+    
     return cell;
 }
 
