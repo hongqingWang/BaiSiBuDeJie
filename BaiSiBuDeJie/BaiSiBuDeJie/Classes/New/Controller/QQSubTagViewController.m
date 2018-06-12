@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupUI];
+    
     [self loadData];
 }
 
@@ -49,6 +51,13 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
+}
+
+#pragma mark - SetupUI
+- (void)setupUI {
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor lineColor];
 }
 
 #pragma mark - TableViewDataSource

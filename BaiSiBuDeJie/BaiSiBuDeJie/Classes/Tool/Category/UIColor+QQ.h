@@ -21,7 +21,12 @@
 /**
  * 随机色
  */
-+ (UIColor *)qq_randomColor;
++ (UIColor *)randomColor;
+
+/**
+ * 分割线颜色
+ */
++ (UIColor *)lineColor;
 
 //// 默认alpha位1
 //+ (UIColor *)colorWithHexString:(NSString *)color;

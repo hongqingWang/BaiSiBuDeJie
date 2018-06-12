@@ -10,9 +10,14 @@
 
 @implementation UIColor (QQ)
 
-+ (UIColor *)qq_randomColor {
++ (UIColor *)randomColor {
     
     return [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:0.5];
+}
+
++ (UIColor *)lineColor {
+    
+    return [UIColor colorWithRed:220 / 255.0 green:220 / 255.0 blue:220 / 255.0 alpha:1.0];
 }
 
 //+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha

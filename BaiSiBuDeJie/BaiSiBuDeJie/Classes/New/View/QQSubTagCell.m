@@ -50,7 +50,8 @@
     if (cell == nil) {
         cell = [[QQSubTagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    cell.separatorInset = UIEdgeInsetsZero;
+    
+//    cell.separatorInset = UIEdgeInsetsZero;
 //    cell.separatorInset = UIEdgeInsetsMake(0, 16, 0, 16);
     return cell;
 }
@@ -90,6 +91,11 @@
         make.centerY.equalTo(self.contentView);
         make.right.equalTo(self.contentView).offset(-16);
     }];
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.size.height -= 1;
+    [super setFrame:frame];
 }
 
 #pragma mark - Getters And Setters
