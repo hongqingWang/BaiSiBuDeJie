@@ -50,9 +50,8 @@
     if (cell == nil) {
         cell = [[QQSubTagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    
-//    cell.backgroundColor = [UIColor qq_randomColor];
-    
+    cell.separatorInset = UIEdgeInsetsZero;
+//    cell.separatorInset = UIEdgeInsetsMake(0, 16, 0, 16);
     return cell;
 }
 

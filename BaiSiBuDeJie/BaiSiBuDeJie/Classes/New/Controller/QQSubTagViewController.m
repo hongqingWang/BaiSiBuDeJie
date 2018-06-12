@@ -25,6 +25,10 @@
     [self loadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 #pragma mark - LoadData
 - (void)loadData {
     
@@ -38,7 +42,6 @@
     [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
         
         _subTags = [QQSubTag mj_objectArrayWithKeyValuesArray:responseObject];
         [self.tableView reloadData];
