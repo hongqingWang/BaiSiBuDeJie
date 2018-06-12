@@ -41,16 +41,21 @@
     para[@"action"] = @"sub";
     para[@"c"] = @"topic";
     
-    [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        _subTags = [QQSubTag mj_objectArrayWithKeyValuesArray:responseObject];
-        [self.tableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+        [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            _subTags = [QQSubTag mj_objectArrayWithKeyValuesArray:responseObject];
+            [self.tableView reloadData];
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    });
+    
+    
 }
 
 #pragma mark - SetupUI
