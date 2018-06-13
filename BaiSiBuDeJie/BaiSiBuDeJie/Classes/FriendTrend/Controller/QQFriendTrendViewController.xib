@@ -36,20 +36,21 @@
                         <constraint firstAttribute="width" constant="48" id="vq3-8l-2AP"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4l-oL-XuN">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-ga-xh7">
                     <rect key="frame" x="66" y="394" width="243" height="48"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="立即登录注册" backgroundImage="friendsTrend_login">
-                        <color key="titleColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="friendsTrend_login_click"/>
+                    <state key="highlighted" backgroundImage="friendsTrend_login_click">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="frX-X5-icu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4Dg-Ym-KOr"/>
-                <constraint firstItem="Y4l-oL-XuN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RiO-Sr-rua"/>
-                <constraint firstItem="Y4l-oL-XuN" firstAttribute="top" secondItem="frX-X5-icu" secondAttribute="bottom" constant="30" id="e83-qH-rUu"/>
+                <constraint firstItem="pL2-ga-xh7" firstAttribute="top" secondItem="frX-X5-icu" secondAttribute="bottom" constant="30" id="8Un-s3-sqp"/>
+                <constraint firstItem="pL2-ga-xh7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HPf-fr-oWU"/>
                 <constraint firstItem="vOZ-xg-8hu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qku-M2-5WM"/>
                 <constraint firstItem="frX-X5-icu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="t3R-ry-E4B"/>
                 <constraint firstItem="frX-X5-icu" firstAttribute="top" secondItem="vOZ-xg-8hu" secondAttribute="bottom" constant="30" id="xOs-xP-h8a"/>
