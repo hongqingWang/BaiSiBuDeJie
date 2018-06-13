@@ -10,10 +10,12 @@
 #import <AFNetworking.h>
 #import "QQSubTag.h"
 #import "QQSubTagCell.h"
+#import <SVProgressHUD.h>
 
 @interface QQSubTagViewController ()
 
 @property (nonatomic, strong) NSArray *subTags;
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
 
 @end
 
@@ -31,31 +33,37 @@
     [super viewDidAppear:animated];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [SVProgressHUD dismiss];
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+}
+
 #pragma mark - LoadData
 - (void)loadData {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
     
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    _manager = manager;
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"a"] = @"tag_recommend";
     para[@"action"] = @"sub";
     para[@"c"] = @"topic";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            _subTags = [QQSubTag mj_objectArrayWithKeyValuesArray:responseObject];
-            [self.tableView reloadData];
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@", error);
-        }];
-    });
-    
-    
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        self.subTags = [QQSubTag mj_objectArrayWithKeyValuesArray:responseObject];
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+        [SVProgressHUD dismiss];
+    }];
 }
 
 #pragma mark - SetupUI
