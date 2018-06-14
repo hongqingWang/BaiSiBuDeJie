@@ -8,6 +8,7 @@
 //
 
 #import "QQFriendTrendViewController.h"
+#import "QQLoginViewController.h"
 
 @interface QQFriendTrendViewController ()
 
@@ -34,6 +35,12 @@
 - (void)recomment {
     
     NSLog(@"%s", __FUNCTION__);
+}
+
+- (IBAction)clickLoginAndRegister:(UIButton *)sender {
+    
+    QQLoginViewController *vc = [[QQLoginViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

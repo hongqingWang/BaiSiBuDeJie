@@ -31,6 +31,8 @@
 		18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F1111FE2B72C00ABC4E1 /* QQAdController.m */; };
 		18EE157920CDFD200078EB5E /* UIImageView+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE157720CDFD200078EB5E /* UIImageView+QQ.m */; };
 		18EE157B20D09DE10078EB5E /* QQFriendTrendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE157A20D09DE10078EB5E /* QQFriendTrendViewController.xib */; };
+		18EE158220D220C00078EB5E /* QQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE158020D220C00078EB5E /* QQLoginViewController.m */; };
+		18EE158320D220C00078EB5E /* QQLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE158120D220C00078EB5E /* QQLoginViewController.xib */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,9 @@
 		18EE157720CDFD200078EB5E /* UIImageView+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+QQ.m"; sourceTree = "<group>"; };
 		18EE157820CDFD200078EB5E /* UIImageView+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+QQ.h"; sourceTree = "<group>"; };
 		18EE157A20D09DE10078EB5E /* QQFriendTrendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQFriendTrendViewController.xib; sourceTree = "<group>"; };
+		18EE157F20D220C00078EB5E /* QQLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQLoginViewController.h; sourceTree = "<group>"; };
+		18EE158020D220C00078EB5E /* QQLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQLoginViewController.m; sourceTree = "<group>"; };
+		18EE158120D220C00078EB5E /* QQLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQLoginViewController.xib; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +173,9 @@
 				044612E31FCC4B01002C8A95 /* QQFriendTrendViewController.h */,
 				044612E41FCC4B01002C8A95 /* QQFriendTrendViewController.m */,
 				18EE157A20D09DE10078EB5E /* QQFriendTrendViewController.xib */,
+				18EE157F20D220C00078EB5E /* QQLoginViewController.h */,
+				18EE158020D220C00078EB5E /* QQLoginViewController.m */,
+				18EE158120D220C00078EB5E /* QQLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -523,6 +531,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EE158320D220C00078EB5E /* QQLoginViewController.xib in Resources */,
 				18EE157B20D09DE10078EB5E /* QQFriendTrendViewController.xib in Resources */,
 				04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */,
 			);
@@ -595,6 +604,7 @@
 				18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */,
 				181716DE1FE8078000AF0286 /* QQAdView.m in Sources */,
 				04577C8E1FD815E500A0DB29 /* UIBarButtonItem+QQ.m in Sources */,
+				18EE158220D220C00078EB5E /* QQLoginViewController.m in Sources */,
 				18DD1C4820C927F000BE8EA8 /* QQSubTagCell.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
