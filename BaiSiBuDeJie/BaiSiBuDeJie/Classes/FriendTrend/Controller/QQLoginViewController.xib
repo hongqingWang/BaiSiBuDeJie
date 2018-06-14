@@ -20,8 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2w-u6-23g">
-                    <rect key="frame" x="0.0" y="40" width="375" height="35"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="UUp-o6-5ul" userLabel="BackImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2w-u6-23g" userLabel="Top">
+                    <rect key="frame" x="0.0" y="20" width="375" height="35"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOO-xR-w9y">
                             <rect key="frame" x="10" y="0.0" width="35" height="35"/>
@@ -29,20 +32,26 @@
                                 <constraint firstAttribute="width" constant="35" id="ZeV-KM-Gnn"/>
                             </constraints>
                             <state key="normal" image="login_close_icon"/>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="dw6-Zl-Qph"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFg-fa-x7r">
-                            <rect key="frame" x="295" y="0.0" width="70" height="35"/>
+                            <rect key="frame" x="265" y="0.0" width="100" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="70" id="fPA-Wr-29y"/>
+                                <constraint firstAttribute="width" constant="100" id="fPA-Wr-29y"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="注册帐号">
                                 <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" title="已有帐号？"/>
+                            <connections>
+                                <action selector="clickRegister:" destination="-1" eventType="touchUpInside" id="0H3-O4-GZZ"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="dFg-fa-x7r" secondAttribute="bottom" id="5lm-ls-mOp"/>
                         <constraint firstAttribute="height" constant="35" id="D40-KY-mcj"/>
@@ -53,14 +62,14 @@
                         <constraint firstItem="gOO-xR-w9y" firstAttribute="leading" secondItem="d2w-u6-23g" secondAttribute="leading" constant="10" id="yqR-TH-cBj"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aT8-gb-FGD">
-                    <rect key="frame" x="0.0" y="115" width="375" height="300"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aT8-gb-FGD" userLabel="Middle">
+                    <rect key="frame" x="0.0" y="75" width="375" height="300"/>
                     <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="AuG-sk-hEn"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uf-m1-jUI">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uf-m1-jUI" userLabel="Bottom">
                     <rect key="frame" x="0.0" y="527" width="375" height="120"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -70,20 +79,29 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="aT8-gb-FGD" firstAttribute="top" secondItem="d2w-u6-23g" secondAttribute="bottom" constant="40" id="2ww-TU-pEt"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4uf-m1-jUI" secondAttribute="trailing" id="8ml-t7-NCP"/>
                 <constraint firstItem="d2w-u6-23g" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="9Pd-Vx-BIw"/>
-                <constraint firstItem="d2w-u6-23g" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="Epg-tC-uv0"/>
                 <constraint firstItem="aT8-gb-FGD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="GDh-O7-PDY"/>
+                <constraint firstItem="aT8-gb-FGD" firstAttribute="top" secondItem="d2w-u6-23g" secondAttribute="bottom" constant="20" id="GMF-bR-JuP"/>
+                <constraint firstItem="d2w-u6-23g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Jhu-Q0-U8s"/>
+                <constraint firstItem="UUp-o6-5ul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pdu-LR-lMd"/>
+                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="VfS-ME-mfO"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="d2w-u6-23g" secondAttribute="trailing" id="cul-Lr-Roa"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="4uf-m1-jUI" secondAttribute="bottom" constant="20" id="dVG-xB-NFp"/>
+                <constraint firstItem="UUp-o6-5ul" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="dmc-IT-KbR"/>
+                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="gDh-B9-1t3"/>
+                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="i5w-FP-myV"/>
+                <constraint firstItem="UUp-o6-5ul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jvc-Mb-Rd0"/>
+                <constraint firstItem="UUp-o6-5ul" firstAttribute="trailing" secondItem="aT8-gb-FGD" secondAttribute="trailing" id="l07-M8-LHY"/>
                 <constraint firstItem="4uf-m1-jUI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lIj-XU-aND"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="aT8-gb-FGD" secondAttribute="trailing" id="pX7-ob-QEk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="31.5" y="58.5"/>
         </view>
     </objects>
     <resources>
         <image name="login_close_icon" width="16" height="16"/>
+        <image name="login_register_background" width="320" height="568"/>
     </resources>
 </document>
