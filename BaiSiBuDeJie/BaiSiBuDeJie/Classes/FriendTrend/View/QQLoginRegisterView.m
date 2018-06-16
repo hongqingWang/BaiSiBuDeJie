@@ -20,6 +20,10 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
 }
 
++ (instancetype)registerView {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     

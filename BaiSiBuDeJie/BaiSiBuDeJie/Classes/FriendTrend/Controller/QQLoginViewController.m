@@ -20,8 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    QQLoginRegisterView *loginView = [QQLoginRegisterView loginView];
-    [self.middleView addSubview:loginView];
+//    QQLoginRegisterView *loginView = [QQLoginRegisterView loginView];
+//    [self.middleView addSubview:loginView];
+    QQLoginRegisterView *registerView = [QQLoginRegisterView registerView];
+    [self.middleView addSubview:registerView];
 }
 
 #pragma mark - Event Response

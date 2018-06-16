@@ -12,4 +12,6 @@
 
 + (instancetype)loginView;
 
++ (instancetype)registerView;
+
 @end
