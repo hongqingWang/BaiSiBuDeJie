@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQLoginViewController">
             <connections>
+                <outlet property="bottomView" destination="4uf-m1-jUI" id="jC9-1d-8RC"/>
                 <outlet property="middleView" destination="aT8-gb-FGD" id="5GX-5j-Drq"/>
                 <outlet property="middleViewLeadConstrains" destination="GDh-O7-PDY" id="e1C-2a-SAq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -74,7 +75,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uf-m1-jUI" userLabel="Bottom View">
                     <rect key="frame" x="0.0" y="527" width="375" height="120"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="cIX-c5-NW6"/>
                     </constraints>

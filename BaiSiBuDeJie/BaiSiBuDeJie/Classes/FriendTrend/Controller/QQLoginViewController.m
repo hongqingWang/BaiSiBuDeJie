@@ -8,11 +8,13 @@
 
 #import "QQLoginViewController.h"
 #import "QQLoginRegisterView.h"
+#import "QQFastLoginView.h"
 
 @interface QQLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *middleView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleViewLeadConstrains;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @end
 
@@ -27,6 +29,9 @@
     
     QQLoginRegisterView *registerView = [QQLoginRegisterView registerView];
     [self.middleView addSubview:registerView];
+    
+    QQFastLoginView *fastLoginView = [QQFastLoginView fastLoginView];
+    [self.bottomView addSubview:fastLoginView];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -37,6 +42,9 @@
 
     QQLoginRegisterView *registerView = [self.middleView.subviews lastObject];
     registerView.frame = CGRectMake(self.middleView.qq_w * 0.5, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
+    
+    QQFastLoginView *fastLoginView = self.bottomView.subviews.firstObject;
+    fastLoginView.frame = self.bottomView.bounds;
 }
 
 #pragma mark - Event Response
