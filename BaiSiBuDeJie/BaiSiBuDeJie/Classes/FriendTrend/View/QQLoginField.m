@@ -15,7 +15,12 @@
     
     self.tintColor = [UIColor whiteColor];
     
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs];
+    
     [self addTarget:self action:@selector(textEditBegin) forControlEvents:UIControlEventEditingDidBegin];
+    [self addTarget:self action:@selector(textEditEnd) forControlEvents:UIControlEventEditingDidEnd];
 }
 
 #pragma mark - Event Response
@@ -23,6 +28,13 @@
     
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs];
+}
+
+- (void)textEditEnd {
+    
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs];
 }
 
