@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) UIColor *placeholderColor;
 
+- (void)qq_setPlaceholder:(NSString *)placeholder;
+
 @end

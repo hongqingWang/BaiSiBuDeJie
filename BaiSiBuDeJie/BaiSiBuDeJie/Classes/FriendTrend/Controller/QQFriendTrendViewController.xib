@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQFriendTrendViewController">
             <connections>
+                <outlet property="textField" destination="m35-mC-4Nd" id="91E-ni-Tka"/>
                 <outlet property="view" destination="iN0-l3-epB" id="qoW-aC-yxc"/>
             </connections>
         </placeholder>
@@ -48,6 +49,13 @@
                         <action selector="clickLoginAndRegister:" destination="-1" eventType="touchUpInside" id="lMQ-gq-efT"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m35-mC-4Nd">
+                    <rect key="frame" x="38" y="94" width="97" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

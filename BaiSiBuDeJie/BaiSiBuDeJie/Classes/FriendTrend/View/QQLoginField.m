@@ -20,10 +20,10 @@
 //    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
 //    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs];
     
-    UILabel *placeholderLabel = [self valueForKey:@"placeholderLabel"];
-    placeholderLabel.textColor = [UIColor redColor];
+//    UILabel *placeholderLabel = [self valueForKey:@"placeholderLabel"];
+//    placeholderLabel.textColor = [UIColor redColor];
 
-//    self.placeholderColor = [UIColor redColor];
+    self.placeholderColor = [UIColor redColor];
     
     [self addTarget:self action:@selector(textEditBegin) forControlEvents:UIControlEventEditingDidBegin];
     [self addTarget:self action:@selector(textEditEnd) forControlEvents:UIControlEventEditingDidEnd];
@@ -31,9 +31,11 @@
 
 #pragma mark - Event Response
 - (void)textEditBegin {
+
+    self.placeholderColor = [UIColor whiteColor];
     
-    UILabel *placeholderLabel = [self valueForKey:@"placeholderLabel"];
-    placeholderLabel.textColor = [UIColor whiteColor];
+//    UILabel *placeholderLabel = [self valueForKey:@"placeholderLabel"];
+//    placeholderLabel.textColor = [UIColor whiteColor];
     
 //    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
 //    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
@@ -41,9 +43,11 @@
 }
 
 - (void)textEditEnd {
-  
-    UILabel *placeholderLabel = [self valueForKey:@"placeholderLabel"];
-    placeholderLabel.textColor = [UIColor redColor];
+
+    self.placeholderColor = [UIColor redColor];
+    
+//    UILabel *placeholderLabel = [self valueForKey:@"placeholderLabel"];
+//    placeholderLabel.textColor = [UIColor redColor];
     
 //    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
 //    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
