@@ -38,6 +38,7 @@
 		18EE159420D4BD5D0078EB5E /* QQFastLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE159320D4BD5D0078EB5E /* QQFastLoginView.m */; };
 		18EE159620D4BD660078EB5E /* QQFastLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE159520D4BD660078EB5E /* QQFastLoginView.xib */; };
 		18EE159920D4ECEB0078EB5E /* QQFastButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE159820D4ECEB0078EB5E /* QQFastButton.m */; };
+		18EE159C20D4F4DD0078EB5E /* QQLoginField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE159B20D4F4DD0078EB5E /* QQLoginField.m */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,8 @@
 		18EE159520D4BD660078EB5E /* QQFastLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQFastLoginView.xib; sourceTree = "<group>"; };
 		18EE159720D4ECEB0078EB5E /* QQFastButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQFastButton.h; sourceTree = "<group>"; };
 		18EE159820D4ECEB0078EB5E /* QQFastButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQFastButton.m; sourceTree = "<group>"; };
+		18EE159A20D4F4DD0078EB5E /* QQLoginField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQLoginField.h; sourceTree = "<group>"; };
+		18EE159B20D4F4DD0078EB5E /* QQLoginField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQLoginField.m; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -469,6 +472,8 @@
 				18EE159520D4BD660078EB5E /* QQFastLoginView.xib */,
 				18EE159720D4ECEB0078EB5E /* QQFastButton.h */,
 				18EE159820D4ECEB0078EB5E /* QQFastButton.m */,
+				18EE159A20D4F4DD0078EB5E /* QQLoginField.h */,
+				18EE159B20D4F4DD0078EB5E /* QQLoginField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */,
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
 				18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */,
+				18EE159C20D4F4DD0078EB5E /* QQLoginField.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
 				044612E81FCC4B0D002C8A95 /* QQPublishViewController.m in Sources */,
 				181716E51FEAA4D000AF0286 /* QQAd.m in Sources */,
