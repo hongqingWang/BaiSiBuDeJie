@@ -6,6 +6,7 @@
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQLoginViewController">
             <connections>
                 <outlet property="middleView" destination="aT8-gb-FGD" id="5GX-5j-Drq"/>
+                <outlet property="middleViewLeadConstrains" destination="GDh-O7-PDY" id="e1C-2a-SAq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,7 +66,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aT8-gb-FGD" userLabel="Middle View">
-                    <rect key="frame" x="0.0" y="75" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="75" width="750" height="300"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="AuG-sk-hEn"/>
@@ -80,22 +82,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="UUp-o6-5ul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1px-V6-5fo"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4uf-m1-jUI" secondAttribute="trailing" id="8ml-t7-NCP"/>
                 <constraint firstItem="d2w-u6-23g" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="9Pd-Vx-BIw"/>
+                <constraint firstItem="UUp-o6-5ul" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DS4-jY-isG"/>
                 <constraint firstItem="aT8-gb-FGD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="GDh-O7-PDY"/>
                 <constraint firstItem="aT8-gb-FGD" firstAttribute="top" secondItem="d2w-u6-23g" secondAttribute="bottom" constant="20" id="GMF-bR-JuP"/>
+                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="JSL-fu-ORm"/>
                 <constraint firstItem="d2w-u6-23g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Jhu-Q0-U8s"/>
-                <constraint firstItem="UUp-o6-5ul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pdu-LR-lMd"/>
-                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="VfS-ME-mfO"/>
+                <constraint firstItem="aT8-gb-FGD" firstAttribute="width" secondItem="UUp-o6-5ul" secondAttribute="width" multiplier="2" id="QYP-2G-5qG"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="d2w-u6-23g" secondAttribute="trailing" id="cul-Lr-Roa"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="4uf-m1-jUI" secondAttribute="bottom" constant="20" id="dVG-xB-NFp"/>
-                <constraint firstItem="UUp-o6-5ul" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="dmc-IT-KbR"/>
-                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="gDh-B9-1t3"/>
-                <constraint firstAttribute="bottom" secondItem="UUp-o6-5ul" secondAttribute="bottom" id="i5w-FP-myV"/>
-                <constraint firstItem="UUp-o6-5ul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jvc-Mb-Rd0"/>
-                <constraint firstItem="UUp-o6-5ul" firstAttribute="trailing" secondItem="aT8-gb-FGD" secondAttribute="trailing" id="l07-M8-LHY"/>
                 <constraint firstItem="4uf-m1-jUI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lIj-XU-aND"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="aT8-gb-FGD" secondAttribute="trailing" id="pX7-ob-QEk"/>
+                <constraint firstAttribute="trailing" secondItem="UUp-o6-5ul" secondAttribute="trailing" id="yGD-VO-LIA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="31.5" y="58.5"/>

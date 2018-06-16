@@ -12,6 +12,7 @@
 @interface QQLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *middleView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleViewLeadConstrains;
 
 @end
 
@@ -20,9 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    QQLoginRegisterView *loginView = [QQLoginRegisterView loginView];
-//    [self.middleView addSubview:loginView];
+    QQLoginRegisterView *loginView = [QQLoginRegisterView loginView];
+    loginView.frame = CGRectMake(0, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
+    [self.middleView addSubview:loginView];
+    
     QQLoginRegisterView *registerView = [QQLoginRegisterView registerView];
+    registerView.frame = CGRectMake(self.middleView.qq_w * 0.5, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
     [self.middleView addSubview:registerView];
 }
 
@@ -33,6 +37,11 @@
 
 - (IBAction)clickRegister:(UIButton *)sender {
     sender.selected = !sender.selected;
+    
+    _middleViewLeadConstrains.constant = _middleViewLeadConstrains.constant == 0 ? -self.middleView.qq_w * 0.5 : 0;
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end
