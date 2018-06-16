@@ -18,16 +18,25 @@
 
 @implementation QQLoginViewController
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     QQLoginRegisterView *loginView = [QQLoginRegisterView loginView];
-    loginView.frame = CGRectMake(0, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
     [self.middleView addSubview:loginView];
     
     QQLoginRegisterView *registerView = [QQLoginRegisterView registerView];
-    registerView.frame = CGRectMake(self.middleView.qq_w * 0.5, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
     [self.middleView addSubview:registerView];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    QQLoginRegisterView *loginView = [self.middleView.subviews firstObject];
+    loginView.frame = CGRectMake(0, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
+
+    QQLoginRegisterView *registerView = [self.middleView.subviews lastObject];
+    registerView.frame = CGRectMake(self.middleView.qq_w * 0.5, 0, self.middleView.qq_w * 0.5, self.middleView.qq_h);
 }
 
 #pragma mark - Event Response
