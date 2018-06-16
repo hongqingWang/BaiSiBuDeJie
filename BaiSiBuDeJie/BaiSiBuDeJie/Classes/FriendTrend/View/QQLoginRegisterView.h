@@ -10,4 +10,6 @@
 
 @interface QQLoginRegisterView : UIView
 
++ (instancetype)loginView;
+
 @end

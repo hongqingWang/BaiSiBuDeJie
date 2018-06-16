@@ -8,14 +8,27 @@
 
 #import "QQLoginRegisterView.h"
 
+@interface QQLoginRegisterView ()
+
+@property (weak, nonatomic) IBOutlet UIButton *loginRegisterButton;
+
+@end
+
 @implementation QQLoginRegisterView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (instancetype)loginView {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
 }
-*/
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    UIImage *image = _loginRegisterButton.currentBackgroundImage;
+    UIImage *heighlightedImage = [UIImage imageNamed:@"loginBtnBgClick"];
+    image = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
+    heighlightedImage = [heighlightedImage stretchableImageWithLeftCapWidth:heighlightedImage.size.width * 0.5 topCapHeight:heighlightedImage.size.height * 0.5];
+    [_loginRegisterButton setBackgroundImage:image forState:UIControlStateNormal];
+    [_loginRegisterButton setBackgroundImage:heighlightedImage forState:UIControlStateHighlighted];
+}
 
 @end

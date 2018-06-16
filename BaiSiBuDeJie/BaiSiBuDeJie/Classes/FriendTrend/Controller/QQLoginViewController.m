@@ -7,8 +7,11 @@
 //
 
 #import "QQLoginViewController.h"
+#import "QQLoginRegisterView.h"
 
 @interface QQLoginViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *middleView;
 
 @end
 
@@ -16,7 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    QQLoginRegisterView *loginView = [QQLoginRegisterView loginView];
+    [self.middleView addSubview:loginView];
 }
 
 #pragma mark - Event Response
