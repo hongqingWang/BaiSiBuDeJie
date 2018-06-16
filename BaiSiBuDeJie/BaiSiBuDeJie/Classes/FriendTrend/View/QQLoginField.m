@@ -14,6 +14,16 @@
     [super awakeFromNib];
     
     self.tintColor = [UIColor whiteColor];
+    
+    [self addTarget:self action:@selector(textEditBegin) forControlEvents:UIControlEventEditingDidBegin];
+}
+
+#pragma mark - Event Response
+- (void)textEditBegin {
+    
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs];
 }
 
 @end
