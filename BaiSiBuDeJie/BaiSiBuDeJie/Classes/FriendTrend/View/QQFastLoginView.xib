@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-xk-Wed">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-xk-Wed" customClass="QQFastButton">
                     <rect key="frame" x="0.0" y="20" width="125" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="LzR-On-ZI1"/>
@@ -24,12 +24,12 @@
                     <state key="normal" title="QQ登录" image="login_QQ_icon"/>
                     <state key="highlighted" image="login_QQ_icon_click"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ia-Ra-CHF">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ia-Ra-CHF" customClass="QQFastButton">
                     <rect key="frame" x="125" y="20" width="125" height="100"/>
                     <state key="normal" title="微博登录" image="login_sina_icon"/>
                     <state key="highlighted" image="login_sina_icon_click"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2c-Fl-QwU">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2c-Fl-QwU" customClass="QQFastButton">
                     <rect key="frame" x="250" y="20" width="125" height="100"/>
                     <state key="normal" title="腾讯微博" image="login_tecent_icon"/>
                     <state key="highlighted" image="login_tecent_icon_click"/>
