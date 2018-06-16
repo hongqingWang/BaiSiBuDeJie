@@ -33,8 +33,8 @@
 		18EE157B20D09DE10078EB5E /* QQFriendTrendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE157A20D09DE10078EB5E /* QQFriendTrendViewController.xib */; };
 		18EE158220D220C00078EB5E /* QQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE158020D220C00078EB5E /* QQLoginViewController.m */; };
 		18EE158320D220C00078EB5E /* QQLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE158120D220C00078EB5E /* QQLoginViewController.xib */; };
-		18EE158A20D3451F0078EB5E /* QQRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE158920D3451F0078EB5E /* QQRegisterView.m */; };
-		18EE158C20D3453C0078EB5E /* QQRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE158B20D3453C0078EB5E /* QQRegisterView.xib */; };
+		18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE158E20D496520078EB5E /* QQLoginRegisterView.m */; };
+		18EE159120D496600078EB5E /* QQLoginRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE159020D496600078EB5E /* QQLoginRegisterView.xib */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -91,9 +91,9 @@
 		18EE157F20D220C00078EB5E /* QQLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQLoginViewController.h; sourceTree = "<group>"; };
 		18EE158020D220C00078EB5E /* QQLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQLoginViewController.m; sourceTree = "<group>"; };
 		18EE158120D220C00078EB5E /* QQLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQLoginViewController.xib; sourceTree = "<group>"; };
-		18EE158820D3451F0078EB5E /* QQRegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQRegisterView.h; sourceTree = "<group>"; };
-		18EE158920D3451F0078EB5E /* QQRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQRegisterView.m; sourceTree = "<group>"; };
-		18EE158B20D3453C0078EB5E /* QQRegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQRegisterView.xib; sourceTree = "<group>"; };
+		18EE158D20D496520078EB5E /* QQLoginRegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQLoginRegisterView.h; sourceTree = "<group>"; };
+		18EE158E20D496520078EB5E /* QQLoginRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQLoginRegisterView.m; sourceTree = "<group>"; };
+		18EE159020D496600078EB5E /* QQLoginRegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQLoginRegisterView.xib; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -453,9 +453,9 @@
 		18EE158420D344BB0078EB5E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18EE158820D3451F0078EB5E /* QQRegisterView.h */,
-				18EE158920D3451F0078EB5E /* QQRegisterView.m */,
-				18EE158B20D3453C0078EB5E /* QQRegisterView.xib */,
+				18EE158D20D496520078EB5E /* QQLoginRegisterView.h */,
+				18EE158E20D496520078EB5E /* QQLoginRegisterView.m */,
+				18EE159020D496600078EB5E /* QQLoginRegisterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -540,9 +540,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EE158320D220C00078EB5E /* QQLoginViewController.xib in Resources */,
-				18EE158C20D3453C0078EB5E /* QQRegisterView.xib in Resources */,
 				18EE157B20D09DE10078EB5E /* QQFriendTrendViewController.xib in Resources */,
 				04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */,
+				18EE159120D496600078EB5E /* QQLoginRegisterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +604,7 @@
 				18EE157920CDFD200078EB5E /* UIImageView+QQ.m in Sources */,
 				181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */,
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
+				18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
 				044612E81FCC4B0D002C8A95 /* QQPublishViewController.m in Sources */,
 				181716E51FEAA4D000AF0286 /* QQAd.m in Sources */,
@@ -622,7 +623,6 @@
 				04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */,
 				18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */,
 				18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */,
-				18EE158A20D3451F0078EB5E /* QQRegisterView.m in Sources */,
 				04577C991FD832E100A0DB29 /* QQSettingController.m in Sources */,
 				044612EB1FCC4B2F002C8A95 /* QQNewViewController.m in Sources */,
 			);
