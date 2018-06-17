@@ -12,7 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQWebViewController">
             <connections>
+                <outlet property="backItem" destination="2as-bs-dj1" id="kUN-yn-PGh"/>
                 <outlet property="contentView" destination="wcu-Ee-BlI" id="Y5w-ps-aKs"/>
+                <outlet property="forwordItem" destination="909-8p-Ywf" id="FB9-kc-es5"/>
+                <outlet property="reloadItem" destination="fEr-CE-WB4" id="DWE-E6-SxM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,10 +34,22 @@
                         <constraint firstAttribute="height" constant="44" id="0yi-2R-I0Q"/>
                     </constraints>
                     <items>
-                        <barButtonItem title="Item" image="Yellow_3D_arrow_left" id="2as-bs-dj1"/>
-                        <barButtonItem title="Item" image="Yellow_3D_arrow_right" id="909-8p-Ywf"/>
+                        <barButtonItem enabled="NO" title="Item" image="Yellow_3D_arrow_left" id="2as-bs-dj1">
+                            <connections>
+                                <action selector="back:" destination="-1" id="Mf5-Ro-tsV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" title="Item" image="Yellow_3D_arrow_right" id="909-8p-Ywf">
+                            <connections>
+                                <action selector="forword:" destination="-1" id="9r0-vr-J5u"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="i1w-0Q-hGG"/>
-                        <barButtonItem systemItem="refresh" id="fEr-CE-WB4"/>
+                        <barButtonItem systemItem="refresh" id="fEr-CE-WB4">
+                            <connections>
+                                <action selector="reload:" destination="-1" id="4yC-dQ-sXJ"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
