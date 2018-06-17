@@ -33,6 +33,9 @@ static int const margin = 1;
     [self setupNav];
     [self setupFooterView];
     [self loadData];
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 10;
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
 }
 
 #pragma mark - loadData
