@@ -8,6 +8,8 @@
 
 #import "QQSettingController.h"
 
+#define CachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
 @interface QQSettingController ()
 
 @end
@@ -67,6 +69,20 @@ static NSString *const ID = @"cell";
     return cell;
 }
 
+#pragma mark - TableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSFileManager *fileManeger = [NSFileManager defaultManager];
+    NSArray *pathArray = [fileManeger contentsOfDirectoryAtPath:CachePath error:nil];
+    
+    for (NSString *path in pathArray) {
+        NSString *filePath = [CachePath stringByAppendingPathComponent:path];
+        [fileManeger removeItemAtPath:filePath error:nil];
+    }
+    [self.tableView reloadData];
+}
+
 - (NSString *)sizeString {
     
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
@@ -81,7 +97,7 @@ static NSString *const ID = @"cell";
     } else if (totalSize > 1000) {
         CGFloat sizeFloat = totalSize / 1000.0;
         sizeString = [NSString stringWithFormat:@"%@(%.1fKB)", sizeString, sizeFloat];
-    } else {
+    } else if (totalSize > 0) {
         sizeString = [NSString stringWithFormat:@"%@(%ldB)", sizeString, totalSize];
     }
     
