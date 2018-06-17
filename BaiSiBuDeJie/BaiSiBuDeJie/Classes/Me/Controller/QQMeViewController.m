@@ -12,7 +12,8 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import "QQSquare.h"
-#import <SafariServices/SafariServices.h>
+//#import <SafariServices/SafariServices.h>
+#import "QQWebViewController.h"
 
 static NSString * const ID = @"cell";
 static int const cols = 4;
@@ -148,8 +149,11 @@ static int const margin = 1;
     
     QQSquare *item = self.squareItems[indexPath.item];
     if ([item.url containsString:@"http"]) {
-        SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
-        [self presentViewController:safariVc animated:YES completion:nil];
+        QQWebViewController *vc = [[QQWebViewController alloc] init];
+        vc.url = [NSURL URLWithString:item.url];
+        [self.navigationController pushViewController:vc animated:YES];
+//        SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
+//        [self presentViewController:safariVc animated:YES completion:nil];
     }
 }
 
