@@ -12,13 +12,14 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import "QQSquare.h"
+#import <SafariServices/SafariServices.h>
 
 static NSString * const ID = @"cell";
 static int const cols = 4;
 static int const margin = 1;
 #define itemWH (SCREEN_WIDTH - (cols - 1) * margin) / cols
 
-@interface QQMeViewController ()<UICollectionViewDataSource>
+@interface QQMeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *squareItems;
 @property (nonatomic, weak) UICollectionView *collectionView;
@@ -108,6 +109,7 @@ static int const margin = 1;
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 300) collectionViewLayout:layout];
     collectionView.backgroundColor = self.tableView.backgroundColor;
     collectionView.dataSource = self;
+    collectionView.delegate = self;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([QQSquareCell class]) bundle:nil] forCellWithReuseIdentifier:ID];
     collectionView.scrollEnabled = NO;
     _collectionView = collectionView;
@@ -139,6 +141,16 @@ static int const margin = 1;
     QQSquareCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     cell.item = item;
     return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    QQSquare *item = self.squareItems[indexPath.item];
+    if ([item.url containsString:@"http"]) {
+        SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:item.url]];
+        [self presentViewController:safariVc animated:YES completion:nil];
+    }
 }
 
 @end
