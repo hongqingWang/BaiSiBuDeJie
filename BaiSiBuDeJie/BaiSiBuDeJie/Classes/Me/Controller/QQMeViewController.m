@@ -20,7 +20,7 @@ static int const margin = 1;
 
 @interface QQMeViewController ()<UICollectionViewDataSource>
 
-@property (nonatomic, strong) NSArray *squareItems;
+@property (nonatomic, strong) NSMutableArray *squareItems;
 @property (nonatomic, weak) UICollectionView *collectionView;
 
 @end
@@ -49,9 +49,15 @@ static int const margin = 1;
         NSArray *dictArray = responseObject[@"square_list"];
         self.squareItems = [QQSquare mj_objectArrayWithKeyValuesArray:dictArray];
         
+        // 处理请求完毕的数据
+        [self resolveData];
+        
         NSInteger count = self.squareItems.count;
         NSInteger rows = (count - 1) / cols + 1;
         self.collectionView.qq_h = rows * itemWH;
+        
+//        self.tableView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.collectionView.frame));
+        self.tableView.tableFooterView = self.collectionView;
         
         [self.collectionView reloadData];
         
@@ -59,6 +65,21 @@ static int const margin = 1;
         
         NSLog(@"%@", error);
     }];
+}
+
+#pragma mark - resolveData
+- (void)resolveData {
+    
+    NSInteger count = self.squareItems.count;
+    NSInteger extar = count % cols;
+    
+    if (extar) {
+        extar = cols - extar;
+        for (int i = 0; i < extar; i++) {
+            QQSquare *item = [[QQSquare alloc] init];
+            [self.squareItems addObject:item];
+        }
+    }
 }
 
 #pragma mark - setupNav
@@ -85,6 +106,7 @@ static int const margin = 1;
     collectionView.backgroundColor = self.tableView.backgroundColor;
     collectionView.dataSource = self;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([QQSquareCell class]) bundle:nil] forCellWithReuseIdentifier:ID];
+    collectionView.scrollEnabled = NO;
     _collectionView = collectionView;
 //    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
     self.tableView.tableFooterView = collectionView;

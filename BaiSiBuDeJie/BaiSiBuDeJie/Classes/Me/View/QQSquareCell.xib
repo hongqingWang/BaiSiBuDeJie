@@ -20,16 +20,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pzZ-70-Ywb">
-                        <rect key="frame" x="15" y="5" width="60" height="60"/>
+                        <rect key="frame" x="17.5" y="5" width="55" height="55"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="0Ct-cr-DaS"/>
-                            <constraint firstAttribute="width" constant="60" id="3w8-Ci-8On"/>
+                            <constraint firstAttribute="height" constant="55" id="0Ct-cr-DaS"/>
+                            <constraint firstAttribute="width" constant="55" id="3w8-Ci-8On"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6D8-6U-dlD">
-                        <rect key="frame" x="25.5" y="65.5" width="39.5" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="26.5" y="64" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -38,7 +38,7 @@
             <constraints>
                 <constraint firstItem="6D8-6U-dlD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0NQ-Ro-qMQ"/>
                 <constraint firstItem="pzZ-70-Ywb" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="WbU-w8-V4A"/>
-                <constraint firstAttribute="bottom" secondItem="6D8-6U-dlD" secondAttribute="bottom" constant="5" id="c9V-MX-oQB"/>
+                <constraint firstAttribute="bottom" secondItem="6D8-6U-dlD" secondAttribute="bottom" constant="8" id="c9V-MX-oQB"/>
                 <constraint firstItem="pzZ-70-Ywb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="spt-kI-mTg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
