@@ -8,6 +8,7 @@
 
 #import "QQMeViewController.h"
 #import "QQSettingController.h"
+#import "QQSquareCell.h"
 
 static NSString * const ID = @"cell";
 
@@ -39,10 +40,19 @@ static NSString * const ID = @"cell";
 - (void)setupFooterView {
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    
+    int cols = 4;
+    int margin = 1;
+    CGFloat itemWH = (SCREEN_WIDTH - (cols - 1) * margin) / cols;
+    layout.itemSize = CGSizeMake(itemWH, itemWH);
+    layout.minimumInteritemSpacing = margin;
+    layout.minimumLineSpacing = margin;
+    
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 300) collectionViewLayout:layout];
-    collectionView.backgroundColor = [UIColor randomColor];
+    collectionView.backgroundColor = self.tableView.backgroundColor;
     collectionView.dataSource = self;
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([QQSquareCell class]) bundle:nil] forCellWithReuseIdentifier:ID];
+//    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
     self.tableView.tableFooterView = collectionView;
 }
 
@@ -66,8 +76,8 @@ static NSString * const ID = @"cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor randomColor];
+    QQSquareCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
     return cell;
 }
 
