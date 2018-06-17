@@ -15,6 +15,7 @@
                 <outlet property="backItem" destination="2as-bs-dj1" id="kUN-yn-PGh"/>
                 <outlet property="contentView" destination="wcu-Ee-BlI" id="Y5w-ps-aKs"/>
                 <outlet property="forwordItem" destination="909-8p-Ywf" id="FB9-kc-es5"/>
+                <outlet property="processView" destination="Ogy-xZ-dgY" id="M2V-Fp-FCd"/>
                 <outlet property="reloadItem" destination="fEr-CE-WB4" id="DWE-E6-SxM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,6 +29,13 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ogy-xZ-dgY">
+                    <rect key="frame" x="0.0" y="20" width="375" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="UZj-sW-ZF7"/>
+                    </constraints>
+                    <color key="progressTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </progressView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1my-NP-XCq">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <constraints>
@@ -55,6 +63,8 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ogy-xZ-dgY" secondAttribute="trailing" id="1lC-dQ-O88"/>
+                <constraint firstItem="Ogy-xZ-dgY" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="N4V-6H-6tt"/>
                 <constraint firstItem="wcu-Ee-BlI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="OLq-8k-dTM"/>
                 <constraint firstItem="wcu-Ee-BlI" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Q9T-h7-2rO"/>
                 <constraint firstItem="1my-NP-XCq" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="R3k-cc-VqE"/>
@@ -62,6 +72,7 @@
                 <constraint firstItem="1my-NP-XCq" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="gcN-zK-bwW"/>
                 <constraint firstItem="wcu-Ee-BlI" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="ia6-GQ-8DR"/>
                 <constraint firstItem="1my-NP-XCq" firstAttribute="top" secondItem="wcu-Ee-BlI" secondAttribute="bottom" id="mBx-oB-KD2"/>
+                <constraint firstItem="Ogy-xZ-dgY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tok-Mi-Cfn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="31.5" y="100.5"/>

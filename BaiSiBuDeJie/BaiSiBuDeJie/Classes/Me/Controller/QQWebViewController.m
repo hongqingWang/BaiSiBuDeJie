@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwordItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *reloadItem;
+@property (weak, nonatomic) IBOutlet UIProgressView *processView;
 
 @end
 
@@ -36,6 +37,7 @@
     [webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
     [webView addObserver:self forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
     [webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+    [webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -49,6 +51,7 @@
     [self.webView removeObserver:self forKeyPath:@"canGoBack"];
     [self.webView removeObserver:self forKeyPath:@"canGoForward"];
     [self.webView removeObserver:self forKeyPath:@"title"];
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 }
 
 #pragma mark - Observer
@@ -57,6 +60,8 @@
     self.backItem.enabled = self.webView.canGoBack;
     self.forwordItem.enabled = self.webView.canGoForward;
     self.title = self.webView.title;
+    self.processView.progress = self.webView.estimatedProgress;
+    self.processView.hidden = self.webView.estimatedProgress >= 1;
 }
 
 #pragma mark - Event Response
