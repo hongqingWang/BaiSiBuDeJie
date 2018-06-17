@@ -40,6 +40,9 @@
 		18EE159920D4ECEB0078EB5E /* QQFastButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE159820D4ECEB0078EB5E /* QQFastButton.m */; };
 		18EE159C20D4F4DD0078EB5E /* QQLoginField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE159B20D4F4DD0078EB5E /* QQLoginField.m */; };
 		18EE159F20D4FDC80078EB5E /* UITextField+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE159E20D4FDC80078EB5E /* UITextField+QQ.m */; };
+		18EE15A120D5F26B0078EB5E /* QQMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EE15A020D5F26B0078EB5E /* QQMeViewController.storyboard */; };
+		18EE15A620D5FDC20078EB5E /* QQSquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE15A420D5FDC20078EB5E /* QQSquareCell.m */; };
+		18EE15A720D5FDC20078EB5E /* QQSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE15A520D5FDC20078EB5E /* QQSquareCell.xib */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +111,10 @@
 		18EE159B20D4F4DD0078EB5E /* QQLoginField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQLoginField.m; sourceTree = "<group>"; };
 		18EE159D20D4FDC80078EB5E /* UITextField+QQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QQ.h"; sourceTree = "<group>"; };
 		18EE159E20D4FDC80078EB5E /* UITextField+QQ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+QQ.m"; sourceTree = "<group>"; };
+		18EE15A020D5F26B0078EB5E /* QQMeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QQMeViewController.storyboard; sourceTree = "<group>"; };
+		18EE15A320D5FDC20078EB5E /* QQSquareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSquareCell.h; sourceTree = "<group>"; };
+		18EE15A420D5FDC20078EB5E /* QQSquareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSquareCell.m; sourceTree = "<group>"; };
+		18EE15A520D5FDC20078EB5E /* QQSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQSquareCell.xib; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,8 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				044612D71FCC4A66002C8A95 /* Controller */,
+				18EE15A220D5FD940078EB5E /* View */,
 				044612D81FCC4A66002C8A95 /* Model */,
-				044612D91FCC4A66002C8A95 /* View */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 			children = (
 				044612EC1FCC4B4E002C8A95 /* QQMeViewController.h */,
 				044612ED1FCC4B4E002C8A95 /* QQMeViewController.m */,
+				18EE15A020D5F26B0078EB5E /* QQMeViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,13 +316,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		044612D91FCC4A66002C8A95 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		044612DA1FCC4A66002C8A95 /* New */ = {
@@ -483,6 +484,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		18EE15A220D5FD940078EB5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18EE15A320D5FDC20078EB5E /* QQSquareCell.h */,
+				18EE15A420D5FDC20078EB5E /* QQSquareCell.m */,
+				18EE15A520D5FDC20078EB5E /* QQSquareCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		69D49812CA838C3E0E3BD818 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,11 +573,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EE15A720D5FDC20078EB5E /* QQSquareCell.xib in Resources */,
 				18EE158320D220C00078EB5E /* QQLoginViewController.xib in Resources */,
 				18EE157B20D09DE10078EB5E /* QQFriendTrendViewController.xib in Resources */,
 				18EE159620D4BD660078EB5E /* QQFastLoginView.xib in Resources */,
 				04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */,
 				18EE159120D496600078EB5E /* QQLoginRegisterView.xib in Resources */,
+				18EE15A120D5F26B0078EB5E /* QQMeViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +660,7 @@
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
 				04105BB21FD587E400DC3EF3 /* QQTabBar.m in Sources */,
 				18EE159420D4BD5D0078EB5E /* QQFastLoginView.m in Sources */,
+				18EE15A620D5FDC20078EB5E /* QQSquareCell.m in Sources */,
 				044612DF1FCC4A66002C8A95 /* AppDelegate.m in Sources */,
 				04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */,
 				18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */,

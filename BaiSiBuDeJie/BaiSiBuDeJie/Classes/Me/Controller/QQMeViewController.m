@@ -9,7 +9,9 @@
 #import "QQMeViewController.h"
 #import "QQSettingController.h"
 
-@interface QQMeViewController ()
+static NSString * const ID = @"cell";
+
+@interface QQMeViewController ()<UICollectionViewDataSource>
 
 @end
 
@@ -18,9 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor purpleColor];
-    
     [self setupNav];
+    [self setupFooterView];
 }
 
 #pragma mark - setupNav
@@ -32,6 +33,17 @@
     UIBarButtonItem *nightItem = [UIBarButtonItem qq_itemWithImageName:@"qq_nav_moon" selectedImageName:@"qq_nav_moon_selected" target:self action:@selector(night:)];
     
     self.navigationItem.rightBarButtonItems = @[settingItem, nightItem];
+}
+
+#pragma mark - setupFooterView
+- (void)setupFooterView {
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 300) collectionViewLayout:layout];
+    collectionView.backgroundColor = [UIColor randomColor];
+    collectionView.dataSource = self;
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    self.tableView.tableFooterView = collectionView;
 }
 
 #pragma mark - Event Response
@@ -47,16 +59,16 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 10;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor randomColor];
+    return cell;
 }
 
 @end

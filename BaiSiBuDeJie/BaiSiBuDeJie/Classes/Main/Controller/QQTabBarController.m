@@ -73,7 +73,9 @@
     QQFriendTrendViewController *friendTrendVc = [[QQFriendTrendViewController alloc] init];
     [self addChildViewController:friendTrendVc title:@"关注" image:@"tabBar_friendTrends"];
 
-    QQMeViewController *meVc = [[QQMeViewController alloc] init];
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:NSStringFromClass([QQMeViewController class]) bundle:nil];
+    QQMeViewController *meVc = [storyBoard instantiateInitialViewController];
+//    QQMeViewController *meVc = [[QQMeViewController alloc] init];
     [self addChildViewController:meVc title:@"我" image:@"tabBar_me"];
 }
 

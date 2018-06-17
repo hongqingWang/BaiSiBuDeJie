@@ -12,7 +12,6 @@
 #import "UITextField+QQ.h"
 
 @interface QQFriendTrendViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -20,9 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.textField.placeholderColor = [UIColor redColor];
-    self.textField.placeholder = @"123";
     
     [self setupNav];
 }
