@@ -14,73 +14,78 @@
 
 @implementation QQSettingController
 
+static NSString *const ID = @"cell";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+#pragma mark - getFileSize
+- (NSInteger)getFileSize:(NSString *)directoryPath {
     
-    // Configure the cell...
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSArray *subPathArray = [fileManager subpathsAtPath:directoryPath];
+    
+    NSInteger totalSize = 0;
+    
+    for (NSString *path in subPathArray) {
+        
+        NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
+        
+        if ([filePath containsString:@".DS"]) {
+            continue;
+        }
+        
+        BOOL isDirectory;
+        BOOL isExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDirectory];
+        if (!isExist || isDirectory) {
+            continue;
+        }
+        
+        NSDictionary *attrs = [fileManager attributesOfItemAtPath:filePath error:nil];
+        NSInteger fileSize = [attrs fileSize];
+        
+        totalSize += fileSize;
+    }
+    return totalSize;
+}
+
+#pragma mark - TableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    cell.textLabel.text = [self sizeString];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSString *)sizeString {
+    
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSString *sizeString = @"清除缓存";
+    
+    NSInteger totalSize = [self getFileSize:cachePath];
+    
+    if (totalSize > 1000 * 1000) {
+        CGFloat sizeFloat = totalSize / 1000.0 / 1000.0;
+        sizeString = [NSString stringWithFormat:@"%@(%.1fMB)", sizeString, sizeFloat];
+    } else if (totalSize > 1000) {
+        CGFloat sizeFloat = totalSize / 1000.0;
+        sizeString = [NSString stringWithFormat:@"%@(%.1fKB)", sizeString, sizeFloat];
+    } else {
+        sizeString = [NSString stringWithFormat:@"%@(%ldB)", sizeString, totalSize];
+    }
+    
+    return sizeString;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
