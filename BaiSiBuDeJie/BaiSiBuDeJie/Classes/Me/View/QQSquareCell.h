@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class QQSquare;
 
 @interface QQSquareCell : UICollectionViewCell
+
+@property (nonatomic, strong) QQSquare *item;
 
 @end

@@ -42,6 +42,10 @@
                 <constraint firstItem="pzZ-70-Ywb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="spt-kI-mTg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="iconImageView" destination="pzZ-70-Ywb" id="MZe-l0-QnQ"/>
+                <outlet property="nameLabel" destination="6D8-6U-dlD" id="EnT-6y-F02"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

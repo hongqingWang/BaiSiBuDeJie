@@ -7,12 +7,23 @@
 //
 
 #import "QQSquareCell.h"
+#import "QQSquare.h"
+#import <UIImageView+WebCache.h>
+
+@interface QQSquareCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@end
 
 @implementation QQSquareCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setItem:(QQSquare *)item {
+    _item = item;
+    
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:item.icon]];
+    _nameLabel.text = item.name;
 }
 
 @end

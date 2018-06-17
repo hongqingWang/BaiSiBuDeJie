@@ -43,6 +43,7 @@
 		18EE15A120D5F26B0078EB5E /* QQMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EE15A020D5F26B0078EB5E /* QQMeViewController.storyboard */; };
 		18EE15A620D5FDC20078EB5E /* QQSquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE15A420D5FDC20078EB5E /* QQSquareCell.m */; };
 		18EE15A720D5FDC20078EB5E /* QQSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE15A520D5FDC20078EB5E /* QQSquareCell.xib */; };
+		18EE15AB20D605760078EB5E /* QQSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE15AA20D605760078EB5E /* QQSquare.m */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		18EE15A320D5FDC20078EB5E /* QQSquareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSquareCell.h; sourceTree = "<group>"; };
 		18EE15A420D5FDC20078EB5E /* QQSquareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSquareCell.m; sourceTree = "<group>"; };
 		18EE15A520D5FDC20078EB5E /* QQSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQSquareCell.xib; sourceTree = "<group>"; };
+		18EE15A920D605760078EB5E /* QQSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSquare.h; sourceTree = "<group>"; };
+		18EE15AA20D605760078EB5E /* QQSquare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSquare.m; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,7 +299,7 @@
 			children = (
 				044612D71FCC4A66002C8A95 /* Controller */,
 				18EE15A220D5FD940078EB5E /* View */,
-				044612D81FCC4A66002C8A95 /* Model */,
+				18EE15A820D6055D0078EB5E /* Model */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -309,13 +312,6 @@
 				18EE15A020D5F26B0078EB5E /* QQMeViewController.storyboard */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		044612D81FCC4A66002C8A95 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		044612DA1FCC4A66002C8A95 /* New */ = {
@@ -494,6 +490,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		18EE15A820D6055D0078EB5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18EE15A920D605760078EB5E /* QQSquare.h */,
+				18EE15AA20D605760078EB5E /* QQSquare.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		69D49812CA838C3E0E3BD818 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +645,7 @@
 			files = (
 				18EE157920CDFD200078EB5E /* UIImageView+QQ.m in Sources */,
 				181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */,
+				18EE15AB20D605760078EB5E /* QQSquare.m in Sources */,
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
 				18EE159F20D4FDC80078EB5E /* UITextField+QQ.m in Sources */,
 				18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */,
