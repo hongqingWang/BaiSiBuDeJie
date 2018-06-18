@@ -7,11 +7,14 @@
 //
 
 #import "QQEssenceViewController.h"
+#import "QQTitleButton.h"
 
 @interface QQEssenceViewController ()
 
 /// 标题栏
 @property (nonatomic, weak) UIView *titlesView;
+/// 上一次点击的按钮
+@property (nonatomic, weak) QQTitleButton *previousClickedTitleButton;
 
 @end
 
@@ -47,14 +50,18 @@
 
 - (void)setupTitleButton {
     
-    NSInteger titleButtonCount = 5;
+    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSUInteger titleButtonCount = 5;
     CGFloat titleButtonW = self.titlesView.qq_w / titleButtonCount;
     CGFloat titleButtonH = self.titlesView.qq_h;
     
-    for (int i = 0; i < titleButtonCount; i++) {
-        UIButton *titleButton = [[UIButton alloc] init];
+    for (NSUInteger i = 0; i < titleButtonCount; i++) {
+        QQTitleButton *titleButton = [[QQTitleButton alloc] init];
         titleButton.frame = CGRectMake(titleButtonW * i, 0, titleButtonW, titleButtonH);
-        titleButton.backgroundColor = [UIColor randomColor];
+        [titleButton setTitle:titles[i] forState:UIControlStateNormal];
+        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.titlesView addSubview:titleButton];
     }
 }
@@ -81,6 +88,13 @@
 - (void)random {
     
     NSLog(@"%s", __FUNCTION__);
+}
+
+- (void)titleButtonClick:(QQTitleButton *)titleButton {
+    
+    self.previousClickedTitleButton.selected = NO;
+    titleButton.selected = YES;
+    self.previousClickedTitleButton = titleButton;
 }
 
 @end

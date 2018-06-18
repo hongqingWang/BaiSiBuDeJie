@@ -24,6 +24,7 @@
 		181716DE1FE8078000AF0286 /* QQAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716DD1FE8078000AF0286 /* QQAdView.m */; };
 		181716E11FE822F500AF0286 /* UIColor+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716E01FE822F500AF0286 /* UIColor+QQ.m */; };
 		181716E51FEAA4D000AF0286 /* QQAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716E41FEAA4D000AF0286 /* QQAd.m */; };
+		18598A3420D7885F008EECED /* QQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3320D7885F008EECED /* QQTitleButton.m */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
 		18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C3C20C91A7300BE8EA8 /* QQSubTagViewController.m */; };
 		18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C4320C920D800BE8EA8 /* QQSubTag.m */; };
@@ -87,6 +88,8 @@
 		181716E01FE822F500AF0286 /* UIColor+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QQ.m"; sourceTree = "<group>"; };
 		181716E31FEAA4D000AF0286 /* QQAd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAd.h; sourceTree = "<group>"; };
 		181716E41FEAA4D000AF0286 /* QQAd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQAd.m; sourceTree = "<group>"; };
+		18598A3220D7885F008EECED /* QQTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTitleButton.h; sourceTree = "<group>"; };
+		18598A3320D7885F008EECED /* QQTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTitleButton.m; sourceTree = "<group>"; };
 		189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTabBarController.h; sourceTree = "<group>"; };
 		189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTabBarController.m; sourceTree = "<group>"; };
 		18DD1C3B20C91A7300BE8EA8 /* QQSubTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSubTagViewController.h; sourceTree = "<group>"; };
@@ -274,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				044612D31FCC4A66002C8A95 /* Controller */,
+				18598A3120D78848008EECED /* View */,
 				044612D41FCC4A66002C8A95 /* Model */,
-				044612D51FCC4A66002C8A95 /* View */,
 			);
 			path = Essence;
 			sourceTree = "<group>";
@@ -294,13 +297,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		044612D51FCC4A66002C8A95 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		044612D61FCC4A66002C8A95 /* Me */ = {
@@ -408,6 +404,15 @@
 				181716E41FEAA4D000AF0286 /* QQAd.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18598A3120D78848008EECED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18598A3220D7885F008EECED /* QQTitleButton.h */,
+				18598A3320D7885F008EECED /* QQTitleButton.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		189A8D531FCDCA5F00F7F77D /* Main */ = {
@@ -671,6 +676,7 @@
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
 				18EE159F20D4FDC80078EB5E /* UITextField+QQ.m in Sources */,
 				18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */,
+				18598A3420D7885F008EECED /* QQTitleButton.m in Sources */,
 				18EE159C20D4F4DD0078EB5E /* QQLoginField.m in Sources */,
 				18EE15B420D7319E0078EB5E /* QQFileTool.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
