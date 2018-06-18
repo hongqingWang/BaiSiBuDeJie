@@ -18,6 +18,8 @@
 
 /// 标题栏
 @property (nonatomic, weak) UIView *titlesView;
+/// ScrollView
+@property (nonatomic, weak) UIScrollView *scrollView;
 /// 上一次点击的按钮
 @property (nonatomic, weak) QQTitleButton *previousClickedTitleButton;
 /// 下划线
@@ -55,6 +57,7 @@
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
     [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
     
     NSUInteger count = self.childViewControllers.count;
     CGFloat scrollViewW = scrollView.qq_w;
@@ -95,6 +98,7 @@
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.titlesView addSubview:titleButton];
+        titleButton.tag = i;
     }
 }
 
@@ -144,9 +148,11 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         
-//        self.titleUnderline.qq_w = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
         self.titleUnderline.qq_w = titleButton.titleLabel.qq_w + 10;
         self.titleUnderline.qq_centerX = titleButton.qq_centerX;
+        
+        CGFloat offsetX = self.scrollView.qq_w * titleButton.tag;
+        self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.qq_y);
     }];
 }
 
