@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "QQAdController.h"
+#import "QQTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    QQAdController *adVc = [[QQAdController alloc] init];
-    self.window.rootViewController = adVc;
+//    QQAdController *adVc = [[QQAdController alloc] init];
+//    self.window.rootViewController = adVc;
+    QQTabBarController *tabBarVc = [[QQTabBarController alloc] init];
+    self.window.rootViewController = tabBarVc;
     
     [self.window makeKeyAndVisible];
     
