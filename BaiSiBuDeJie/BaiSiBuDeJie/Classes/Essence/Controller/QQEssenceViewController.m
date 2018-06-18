@@ -8,6 +8,11 @@
 
 #import "QQEssenceViewController.h"
 #import "QQTitleButton.h"
+#import "QQAllViewController.h"
+#import "QQVideoViewController.h"
+#import "QQVoiceViewController.h"
+#import "QQPictureViewController.h"
+#import "QQWordViewController.h"
 
 @interface QQEssenceViewController ()
 
@@ -25,17 +30,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupAllChildViewControllers];
     [self setupNav];
     [self setupScrollView];
     [self setupTitlesView];
 }
 
+- (void)setupAllChildViewControllers {
+    
+    [self addChildViewController:[[QQAllViewController alloc] init]];
+    [self addChildViewController:[[QQVideoViewController alloc] init]];
+    [self addChildViewController:[[QQVoiceViewController alloc] init]];
+    [self addChildViewController:[[QQPictureViewController alloc] init]];
+    [self addChildViewController:[[QQWordViewController alloc] init]];
+}
+
 - (void)setupScrollView {
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = [UIColor randomColor];
     scrollView.frame = self.view.bounds;
     [self.view addSubview:scrollView];
+    
+    NSUInteger count = self.childViewControllers.count;
+    CGFloat scrollViewW = scrollView.qq_w;
+    
+    for (NSUInteger i = 0; i < count; i++) {
+        
+        UIView *childView = self.childViewControllers[i].view;
+        childView.backgroundColor = [UIColor randomColor];
+        childView.qq_x = scrollViewW * i;
+        [scrollView addSubview:childView];
+    }
+    scrollView.contentSize = CGSizeMake(scrollViewW * count, 0);
 }
 
 - (void)setupTitlesView {
@@ -52,7 +80,7 @@
 
 - (void)setupTitleButton {
     
-    NSArray *titles = @[@"全部", @"视频b", @"声音cc", @"图片ddd", @"段子eeee"];
+    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
     NSUInteger titleButtonCount = 5;
     CGFloat titleButtonW = self.titlesView.qq_w / titleButtonCount;
     CGFloat titleButtonH = self.titlesView.qq_h;
@@ -81,7 +109,7 @@
     firstButton.selected = YES;
     self.previousClickedTitleButton = firstButton;
     [firstButton.titleLabel sizeToFit];
-    self.titleUnderline.qq_w = firstButton.titleLabel.qq_w;
+    self.titleUnderline.qq_w = firstButton.titleLabel.qq_w + 10;
     self.titleUnderline.qq_centerX = firstButton.qq_centerX;
 }
 
@@ -113,7 +141,7 @@
     [UIView animateWithDuration:0.25 animations:^{
         
 //        self.titleUnderline.qq_w = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
-        self.titleUnderline.qq_w = titleButton.titleLabel.qq_w;
+        self.titleUnderline.qq_w = titleButton.titleLabel.qq_w + 10;
         self.titleUnderline.qq_centerX = titleButton.qq_centerX;
     }];
 }
