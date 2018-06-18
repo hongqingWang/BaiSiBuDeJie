@@ -10,7 +10,7 @@
 
 @implementation QQFileTool
 
-+ (NSInteger)getFileSize:(NSString *)directoryPath {
++ (void)getFileSize:(NSString *)directoryPath completion:(void (^)(NSInteger totalSize))completion {
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
@@ -22,30 +22,38 @@
         [exception raise];
     }
     
-    NSArray *subPathArray = [fileManager subpathsAtPath:directoryPath];
-    
-    NSInteger totalSize = 0;
-    
-    for (NSString *path in subPathArray) {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
+        NSArray *subPathArray = [fileManager subpathsAtPath:directoryPath];
         
-        if ([filePath containsString:@".DS"]) {
-            continue;
+        NSInteger totalSize = 0;
+        
+        for (NSString *path in subPathArray) {
+            
+            NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
+            
+            if ([filePath containsString:@".DS"]) {
+                continue;
+            }
+            
+            BOOL isDirectory;
+            BOOL isExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDirectory];
+            if (!isExist || isDirectory) {
+                continue;
+            }
+            
+            NSDictionary *attrs = [fileManager attributesOfItemAtPath:filePath error:nil];
+            NSInteger fileSize = [attrs fileSize];
+            
+            totalSize += fileSize;
         }
         
-        BOOL isDirectory;
-        BOOL isExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDirectory];
-        if (!isExist || isDirectory) {
-            continue;
-        }
-        
-        NSDictionary *attrs = [fileManager attributesOfItemAtPath:filePath error:nil];
-        NSInteger fileSize = [attrs fileSize];
-        
-        totalSize += fileSize;
-    }
-    return totalSize;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(totalSize);
+            }
+        });
+    });
 }
 
 + (void)removeDirectoryAtPath:(NSString *)directoryPath {
