@@ -14,7 +14,7 @@
 #import "QQPictureViewController.h"
 #import "QQWordViewController.h"
 
-@interface QQEssenceViewController ()
+@interface QQEssenceViewController ()<UIScrollViewDelegate>
 
 /// 标题栏
 @property (nonatomic, weak) UIView *titlesView;
@@ -51,13 +51,13 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-//    scrollView.backgroundColor = [UIColor randomColor];
     scrollView.frame = self.view.bounds;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
+    scrollView.delegate = self;
     
     NSUInteger count = self.childViewControllers.count;
     CGFloat scrollViewW = scrollView.qq_w;
@@ -66,7 +66,6 @@
     for (NSUInteger i = 0; i < count; i++) {
         
         UIView *childView = self.childViewControllers[i].view;
-//        childView.backgroundColor = [UIColor randomColor];
         childView.frame = CGRectMake(scrollViewW * i, 0, scrollViewW, scrollViewH);
         [scrollView addSubview:childView];
     }
@@ -154,6 +153,14 @@
         CGFloat offsetX = self.scrollView.qq_w * titleButton.tag;
         self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.qq_y);
     }];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    NSUInteger index = scrollView.contentOffset.x / scrollView.qq_w;
+    QQTitleButton *button = self.titlesView.subviews[index];
+    [self titleButtonClick:button];
 }
 
 @end
