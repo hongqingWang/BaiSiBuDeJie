@@ -10,6 +10,9 @@
 
 @interface QQEssenceViewController ()
 
+/// 标题栏
+@property (nonatomic, weak) UIView *titlesView;
+
 @end
 
 @implementation QQEssenceViewController
@@ -17,9 +20,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
-    
     [self setupNav];
+    [self setupScrollView];
+    [self setupTitlesView];
+}
+
+- (void)setupScrollView {
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = [UIColor randomColor];
+    scrollView.frame = self.view.bounds;
+    [self.view addSubview:scrollView];
+}
+
+- (void)setupTitlesView {
+    
+    UIView *titlesView = [[UIView alloc] init];
+    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    titlesView.frame = CGRectMake(0, 64, self.view.qq_w, 35);
+    [self.view addSubview:titlesView];
+    self.titlesView = titlesView;
+    
+    [self setupTitleButton];
+    [self setupTitleUnderline];
+}
+
+- (void)setupTitleButton {
+    
+    NSInteger titleButtonCount = 5;
+    CGFloat titleButtonW = self.titlesView.qq_w / titleButtonCount;
+    CGFloat titleButtonH = self.titlesView.qq_h;
+    
+    for (int i = 0; i < titleButtonCount; i++) {
+        UIButton *titleButton = [[UIButton alloc] init];
+        titleButton.frame = CGRectMake(titleButtonW * i, 0, titleButtonW, titleButtonH);
+        titleButton.backgroundColor = [UIColor randomColor];
+        [self.titlesView addSubview:titleButton];
+    }
+}
+
+- (void)setupTitleUnderline {
+    
+    
 }
 
 #pragma mark - setupNav

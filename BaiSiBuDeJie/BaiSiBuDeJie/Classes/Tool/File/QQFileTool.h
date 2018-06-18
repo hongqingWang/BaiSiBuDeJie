@@ -14,10 +14,9 @@
  获取文件夹尺寸
 
  @param directoryPath 文件夹路径
- @return 文件夹尺寸
+ @param completion 回调文件夹尺寸
  */
 + (void)getFileSize:(NSString *)directoryPath completion:(void (^)(NSInteger totalSize))completion;
-
 
 /**
  删除文件夹下所有文件
