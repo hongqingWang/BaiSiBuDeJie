@@ -46,6 +46,7 @@
 		18EE15AB20D605760078EB5E /* QQSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE15AA20D605760078EB5E /* QQSquare.m */; };
 		18EE15AF20D642F90078EB5E /* QQWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE15AD20D642F90078EB5E /* QQWebViewController.m */; };
 		18EE15B020D642F90078EB5E /* QQWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE15AE20D642F90078EB5E /* QQWebViewController.xib */; };
+		18EE15B420D7319E0078EB5E /* QQFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE15B320D7319E0078EB5E /* QQFileTool.m */; };
 		457CBECE74AE3415FBE4405B /* libPods-BaiSiBuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,8 @@
 		18EE15AC20D642F90078EB5E /* QQWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQWebViewController.h; sourceTree = "<group>"; };
 		18EE15AD20D642F90078EB5E /* QQWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQWebViewController.m; sourceTree = "<group>"; };
 		18EE15AE20D642F90078EB5E /* QQWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQWebViewController.xib; sourceTree = "<group>"; };
+		18EE15B220D7319E0078EB5E /* QQFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQFileTool.h; sourceTree = "<group>"; };
+		18EE15B320D7319E0078EB5E /* QQFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQFileTool.m; sourceTree = "<group>"; };
 		6121CD4A453D26FE584BDAD2 /* libPods-BaiSiBuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaiSiBuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE37B284CCB4D7B1BABF1B3B /* Pods-BaiSiBuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiBuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiBuDeJie/Pods-BaiSiBuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +154,7 @@
 		041CE63D1FCF961B00883695 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				18EE15B120D7318C0078EB5E /* File */,
 				041CE63E1FCF962E00883695 /* Category */,
 				181716DA1FE8031500AF0286 /* BaiSiBuDeJie.pch */,
 			);
@@ -507,6 +511,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		18EE15B120D7318C0078EB5E /* File */ = {
+			isa = PBXGroup;
+			children = (
+				18EE15B220D7319E0078EB5E /* QQFileTool.h */,
+				18EE15B320D7319E0078EB5E /* QQFileTool.m */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 		69D49812CA838C3E0E3BD818 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +672,7 @@
 				18EE159F20D4FDC80078EB5E /* UITextField+QQ.m in Sources */,
 				18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */,
 				18EE159C20D4F4DD0078EB5E /* QQLoginField.m in Sources */,
+				18EE15B420D7319E0078EB5E /* QQFileTool.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
 				044612E81FCC4B0D002C8A95 /* QQPublishViewController.m in Sources */,
 				181716E51FEAA4D000AF0286 /* QQAd.m in Sources */,

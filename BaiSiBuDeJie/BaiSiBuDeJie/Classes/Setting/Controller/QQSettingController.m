@@ -7,6 +7,7 @@
 //
 
 #import "QQSettingController.h"
+#import "QQFileTool.h"
 
 #define CachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
@@ -24,36 +25,11 @@ static NSString *const ID = @"cell";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 }
 
-#pragma mark - getFileSize
-- (NSInteger)getFileSize:(NSString *)directoryPath {
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    NSArray *subPathArray = [fileManager subpathsAtPath:directoryPath];
-    
-    NSInteger totalSize = 0;
-    
-    for (NSString *path in subPathArray) {
-        
-        NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
-        
-        if ([filePath containsString:@".DS"]) {
-            continue;
-        }
-        
-        BOOL isDirectory;
-        BOOL isExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDirectory];
-        if (!isExist || isDirectory) {
-            continue;
-        }
-        
-        NSDictionary *attrs = [fileManager attributesOfItemAtPath:filePath error:nil];
-        NSInteger fileSize = [attrs fileSize];
-        
-        totalSize += fileSize;
-    }
-    return totalSize;
-}
+//#pragma mark - getFileSize
+//- (NSInteger)getFileSize:(NSString *)directoryPath {
+//
+//
+//}
 
 #pragma mark - TableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -73,23 +49,15 @@ static NSString *const ID = @"cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSFileManager *fileManeger = [NSFileManager defaultManager];
-    NSArray *pathArray = [fileManeger contentsOfDirectoryAtPath:CachePath error:nil];
-    
-    for (NSString *path in pathArray) {
-        NSString *filePath = [CachePath stringByAppendingPathComponent:path];
-        [fileManeger removeItemAtPath:filePath error:nil];
-    }
+    [QQFileTool removeDirectoryAtPath:CachePath];
     [self.tableView reloadData];
 }
 
 - (NSString *)sizeString {
     
-    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    
     NSString *sizeString = @"清除缓存";
     
-    NSInteger totalSize = [self getFileSize:cachePath];
+    NSInteger totalSize = [QQFileTool getFileSize:CachePath];
     
     if (totalSize > 1000 * 1000) {
         CGFloat sizeFloat = totalSize / 1000.0 / 1000.0;
