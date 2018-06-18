@@ -63,7 +63,7 @@
     for (NSUInteger i = 0; i < count; i++) {
         
         UIView *childView = self.childViewControllers[i].view;
-        childView.backgroundColor = [UIColor randomColor];
+//        childView.backgroundColor = [UIColor randomColor];
         childView.frame = CGRectMake(scrollViewW * i, 0, scrollViewW, scrollViewH);
         [scrollView addSubview:childView];
     }
