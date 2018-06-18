@@ -15,6 +15,8 @@
 @property (nonatomic, weak) UIView *titlesView;
 /// 上一次点击的按钮
 @property (nonatomic, weak) QQTitleButton *previousClickedTitleButton;
+/// 下划线
+@property (nonatomic, weak) UIView *titleUnderline;
 
 @end
 
@@ -50,7 +52,7 @@
 
 - (void)setupTitleButton {
     
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"全部", @"视频b", @"声音cc", @"图片ddd", @"段子eeee"];
     NSUInteger titleButtonCount = 5;
     CGFloat titleButtonW = self.titlesView.qq_w / titleButtonCount;
     CGFloat titleButtonH = self.titlesView.qq_h;
@@ -59,8 +61,6 @@
         QQTitleButton *titleButton = [[QQTitleButton alloc] init];
         titleButton.frame = CGRectMake(titleButtonW * i, 0, titleButtonW, titleButtonH);
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.titlesView addSubview:titleButton];
     }
@@ -68,7 +68,21 @@
 
 - (void)setupTitleUnderline {
     
+    QQTitleButton *firstButton = self.titlesView.subviews.firstObject;
     
+    UIView *titleUnderline = [[UIView alloc] init];
+    titleUnderline.qq_h = 2;
+    titleUnderline.qq_y = self.titlesView.qq_h - titleUnderline.qq_h;
+    titleUnderline.qq_w = 70;
+    titleUnderline.backgroundColor = [firstButton titleColorForState:UIControlStateSelected];
+    [self.titlesView addSubview:titleUnderline];
+    self.titleUnderline = titleUnderline;
+    
+    firstButton.selected = YES;
+    self.previousClickedTitleButton = firstButton;
+    [firstButton.titleLabel sizeToFit];
+    self.titleUnderline.qq_w = firstButton.titleLabel.qq_w;
+    self.titleUnderline.qq_centerX = firstButton.qq_centerX;
 }
 
 #pragma mark - setupNav
@@ -95,6 +109,13 @@
     self.previousClickedTitleButton.selected = NO;
     titleButton.selected = YES;
     self.previousClickedTitleButton = titleButton;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+//        self.titleUnderline.qq_w = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
+        self.titleUnderline.qq_w = titleButton.titleLabel.qq_w;
+        self.titleUnderline.qq_centerX = titleButton.qq_centerX;
+    }];
 }
 
 @end
