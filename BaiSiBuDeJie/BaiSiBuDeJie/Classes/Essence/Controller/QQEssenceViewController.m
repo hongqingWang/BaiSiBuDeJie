@@ -49,18 +49,22 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = [UIColor randomColor];
+//    scrollView.backgroundColor = [UIColor randomColor];
     scrollView.frame = self.view.bounds;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.pagingEnabled = YES;
     [self.view addSubview:scrollView];
     
     NSUInteger count = self.childViewControllers.count;
     CGFloat scrollViewW = scrollView.qq_w;
+    CGFloat scrollViewH = scrollView.qq_h;
     
     for (NSUInteger i = 0; i < count; i++) {
         
         UIView *childView = self.childViewControllers[i].view;
         childView.backgroundColor = [UIColor randomColor];
-        childView.qq_x = scrollViewW * i;
+        childView.frame = CGRectMake(scrollViewW * i, 0, scrollViewW, scrollViewH);
         [scrollView addSubview:childView];
     }
     scrollView.contentSize = CGSizeMake(scrollViewW * count, 0);
