@@ -18,6 +18,8 @@
     [super viewDidLoad];
     
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
+    
+    NSLog(@"%s", __FUNCTION__);
 }
 
 #pragma mark - TableViewDataSource

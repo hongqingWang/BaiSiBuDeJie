@@ -36,6 +36,8 @@
     [self setupNav];
     [self setupScrollView];
     [self setupTitlesView];
+    
+    [self addChildViewControllerWithIndex:0];
 }
 
 - (void)setupAllChildViewControllers {
@@ -61,14 +63,14 @@
     
     NSUInteger count = self.childViewControllers.count;
     CGFloat scrollViewW = scrollView.qq_w;
-    CGFloat scrollViewH = scrollView.qq_h;
+//    CGFloat scrollViewH = scrollView.qq_h;
     
-    for (NSUInteger i = 0; i < count; i++) {
-        
-        UIView *childView = self.childViewControllers[i].view;
-        childView.frame = CGRectMake(scrollViewW * i, 0, scrollViewW, scrollViewH);
-        [scrollView addSubview:childView];
-    }
+//    for (NSUInteger i = 0; i < count; i++) {
+//
+//        UIView *childView = self.childViewControllers[i].view;
+//        childView.frame = CGRectMake(scrollViewW * i, 0, scrollViewW, scrollViewH);
+//        [scrollView addSubview:childView];
+//    }
     scrollView.contentSize = CGSizeMake(scrollViewW * count, 0);
 }
 
@@ -145,13 +147,20 @@
     titleButton.selected = YES;
     self.previousClickedTitleButton = titleButton;
     
+    NSUInteger index = titleButton.tag;
+    
     [UIView animateWithDuration:0.25 animations:^{
         
         self.titleUnderline.qq_w = titleButton.titleLabel.qq_w + 10;
         self.titleUnderline.qq_centerX = titleButton.qq_centerX;
         
-        CGFloat offsetX = self.scrollView.qq_w * titleButton.tag;
-        self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.qq_y);
+        CGFloat offsetX = self.scrollView.qq_w * index;
+        self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.contentOffset.y);
+        
+    } completion:^(BOOL finished) {
+        
+        [self addChildViewControllerWithIndex:index];
+        
     }];
 }
 
@@ -162,5 +171,35 @@
     QQTitleButton *button = self.titlesView.subviews[index];
     [self titleButtonClick:button];
 }
+
+/**
+ * 添加第 index 个子控制器到 ScrollView 中
+ */
+- (void)addChildViewControllerWithIndex:(NSUInteger)index {
+    
+    CGFloat scrollViewW = self.scrollView.qq_w;
+    
+    UIView *childView = self.childViewControllers[index].view;
+    childView.frame = CGRectMake(scrollViewW * index, 0, scrollViewW, self.scrollView.qq_h);
+    [self.scrollView addSubview:childView];
+}
+
+/**
+ * viewWithTag 的递归原理
+ */
+//- (UIView *)viewWithTag:(NSInteger)tag {
+//
+//    if (self.tag == tag) {
+//        return self;
+//    }
+//
+//    for (UIView *subView in self.subViews) {
+//        UIView *resultView = [subView viewWithTag:tag];
+//        if (resultView) {
+//            return resultView;
+//        }
+//    }
+//    return nil;
+//}
 
 @end
