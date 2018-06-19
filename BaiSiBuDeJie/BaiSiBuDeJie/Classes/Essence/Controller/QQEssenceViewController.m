@@ -177,9 +177,21 @@
  */
 - (void)addChildViewControllerWithIndex:(NSUInteger)index {
     
-    CGFloat scrollViewW = self.scrollView.qq_w;
+//    UIViewController *childVc = self.childViewControllers[index];
+//    if (childVc.isViewLoaded) {
+//        return;
+//    }
     
     UIView *childView = self.childViewControllers[index].view;
+    
+    if (childView.superview) {
+        return;
+    }
+//    if (childView.window) {
+//        return;
+//    }
+    
+    CGFloat scrollViewW = self.scrollView.qq_w;
     childView.frame = CGRectMake(scrollViewW * index, 0, scrollViewW, self.scrollView.qq_h);
     [self.scrollView addSubview:childView];
 }
