@@ -18,6 +18,7 @@
     [super viewDidLoad];
     
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonRepeatClick) name:QQTabBarButtonDidRepeatClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonRepeatClick) name:QQTitlerButtonDidRepeatClickNotification object:nil];
 }
@@ -61,5 +62,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%ld", self.class, indexPath.row];
     return cell;
 }
+
+#pragma mark - TableViewDelegate
 
 @end
