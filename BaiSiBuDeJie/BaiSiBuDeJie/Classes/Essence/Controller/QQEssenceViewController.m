@@ -160,8 +160,23 @@
     } completion:^(BOOL finished) {
         
         [self addChildViewControllerWithIndex:index];
-        
     }];
+    
+    for (NSUInteger i = 0; i < self.childViewControllers.count; i++) {
+        
+        UIViewController *childVc = self.childViewControllers[i];
+        if (!childVc.isViewLoaded) {
+            continue;
+        }
+        
+        UIScrollView *scrollView = (UIScrollView *)childVc.view;
+        
+        if (![scrollView isKindOfClass:[UIScrollView class]]) {
+            continue;
+        }
+        
+        scrollView.scrollsToTop = (i == index);
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

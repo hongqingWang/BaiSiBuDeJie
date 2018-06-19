@@ -55,7 +55,7 @@
 - (void)tabBarButtonClick:(UIControl *)tabBarButton {
 
     if (self.previousClickedTabBarButton == tabBarButton) {
-        NSLog(@"aaa");
+        [[NSNotificationCenter defaultCenter] postNotificationName:QQTabBarButtonDidRepeatClickNotification object:nil];
     }
     self.previousClickedTabBarButton = tabBarButton;
 }
