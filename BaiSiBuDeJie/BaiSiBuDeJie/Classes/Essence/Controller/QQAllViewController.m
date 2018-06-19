@@ -145,35 +145,11 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
-    if (self.isHeaderRefreshing) return;
-    
     CGFloat offsetY = - (self.tableView.contentInset.top + QQNavigationMaxY + self.header.qq_h);
     
     if (self.tableView.contentOffset.y <= offsetY) {
         
-        self.headerLabel.text = @"正在刷新数据...";
-        self.header.backgroundColor = [UIColor blueColor];
-        self.headerRefreshing = YES;
-        
-        [UIView animateWithDuration:0.25 animations:^{
-            UIEdgeInsets inset = self.tableView.contentInset;
-            inset.top += self.header.qq_h;
-            self.tableView.contentInset = inset;
-        }];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            self.dataCount = 20;
-            [self.tableView reloadData];
-
-            self.headerRefreshing = NO;
-            
-            [UIView animateWithDuration:0.25 animations:^{
-                UIEdgeInsets inset = self.tableView.contentInset;
-                inset.top -= self.header.qq_h;
-                self.tableView.contentInset = inset;
-            }];
-        });
+        [self headerBeginRefreshing];
     }
 }
 
@@ -198,24 +174,70 @@
     
     CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom + self.tabBarController.tabBar.qq_h - self.tableView.qq_h;
     
-    if (self.isFooterRefreshing) return;
-    
     if (self.tableView.contentOffset.y >= offsetY && self.tableView.contentOffset.y > -(self.tableView.contentInset.top + QQNavigationMaxY)) {
         
-        self.footerRefreshing = YES;
-        self.footerView.backgroundColor = [UIColor blueColor];
-        self.footerLabel.text = @"正在加载更多数据...";
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            self.dataCount += 5;
-            [self.tableView reloadData];
-            
-            self.footerRefreshing = NO;
-            self.footerView.backgroundColor = [UIColor redColor];
-            self.footerLabel.text = @"上拉加载更多";
-        });
+        [self footerBeginRefreshing];
     }
+}
+
+#pragma mark - header
+- (void)headerBeginRefreshing {
+    
+    if (self.isHeaderRefreshing) return;
+    
+    self.headerLabel.text = @"正在刷新数据...";
+    self.header.backgroundColor = [UIColor blueColor];
+    self.headerRefreshing = YES;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        UIEdgeInsets inset = self.tableView.contentInset;
+        inset.top += self.header.qq_h;
+        self.tableView.contentInset = inset;
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        self.dataCount = 20;
+        [self.tableView reloadData];
+        
+        [self headerEndRefreshing];
+    });
+}
+
+- (void)headerEndRefreshing {
+  
+    self.headerRefreshing = NO;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        UIEdgeInsets inset = self.tableView.contentInset;
+        inset.top -= self.header.qq_h;
+        self.tableView.contentInset = inset;
+    }];
+}
+
+#pragma mark - footer
+- (void)footerBeginRefreshing {
+    
+    if (self.isFooterRefreshing) return;
+    
+    self.footerRefreshing = YES;
+    self.footerView.backgroundColor = [UIColor blueColor];
+    self.footerLabel.text = @"正在加载更多数据...";
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        self.dataCount += 5;
+        [self.tableView reloadData];
+        
+        [self footerEndRefreshing];
+    });
+}
+
+- (void)footerEndRefreshing {
+    
+    self.footerRefreshing = NO;
+    self.footerView.backgroundColor = [UIColor redColor];
+    self.footerLabel.text = @"上拉加载更多";
 }
 
 @end
