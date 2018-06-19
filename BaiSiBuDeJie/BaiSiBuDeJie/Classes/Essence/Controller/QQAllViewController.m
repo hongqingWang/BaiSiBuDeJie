@@ -20,6 +20,7 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonRepeatClick) name:QQTabBarButtonDidRepeatClickNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonRepeatClick) name:QQTitlerButtonDidRepeatClickNotification object:nil];
 }
 
 - (void)dealloc {
@@ -38,7 +39,12 @@
         return;
     }
     
-    NSLog(@"aa");
+    NSLog(@"%@ - 刷新", self);
+}
+
+- (void)titleButtonRepeatClick {
+    
+    [self tabBarButtonRepeatClick];
 }
 
 #pragma mark - TableViewDataSource

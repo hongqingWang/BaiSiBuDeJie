@@ -9,3 +9,5 @@ UIKIT_EXTERN CGFloat const QQNavigationMaxY;
 
 /// TabBarButton 被重复点击的通知
 UIKIT_EXTERN NSString * const QQTabBarButtonDidRepeatClickNotification;
+/// TitleButton 被重复点击的通知
+UIKIT_EXTERN NSString * const QQTitlerButtonDidRepeatClickNotification;

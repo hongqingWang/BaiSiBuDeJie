@@ -9,3 +9,5 @@ CGFloat const QQNavigationMaxY = 64;
 
 /// TabBarButton 被重复点击的通知
 NSString * const QQTabBarButtonDidRepeatClickNotification = @"QQTabBarButtonDidRepeatClickNotification";
+/// TitleButton 被重复点击的通知
+NSString * const QQTitlerButtonDidRepeatClickNotification = @"QQTitlerButtonDidRepeatClickNotification";

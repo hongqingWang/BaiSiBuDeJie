@@ -143,6 +143,10 @@
 
 - (void)titleButtonClick:(QQTitleButton *)titleButton {
     
+    if (self.previousClickedTitleButton == titleButton) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:QQTitlerButtonDidRepeatClickNotification object:nil];
+    }
+    
     self.previousClickedTitleButton.selected = NO;
     titleButton.selected = YES;
     self.previousClickedTitleButton = titleButton;

@@ -18,6 +18,32 @@
     [super viewDidLoad];
     
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonRepeatClick) name:QQTabBarButtonDidRepeatClickNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonRepeatClick) name:QQTitlerButtonDidRepeatClickNotification object:nil];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:QQTabBarButtonDidRepeatClickNotification object:nil];
+}
+
+#pragma mark - Event Response
+- (void)tabBarButtonRepeatClick {
+    
+    if (self.view.window == nil) {
+        return;
+    }
+    
+    if (self.tableView.scrollsToTop == NO) {
+        return;
+    }
+    
+    NSLog(@"%@ - 刷新", self);
+}
+
+- (void)titleButtonRepeatClick {
+    
+    [self tabBarButtonRepeatClick];
 }
 
 #pragma mark - TableViewDataSource
