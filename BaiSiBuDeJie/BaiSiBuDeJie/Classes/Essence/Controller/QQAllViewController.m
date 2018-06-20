@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataCount = 3;
+//    self.dataCount = 3;
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //
@@ -54,6 +54,34 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QQTabBarButtonDidRepeatClickNotification object:nil];
 }
 
+#pragma mark - LoadData
+- (void)loadNewData {
+    
+    NSLog(@"发送数据给服务器，下拉刷新数据");
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        self.dataCount = 20;
+        [self.tableView reloadData];
+        
+        [self headerEndRefreshing];
+    });
+}
+
+- (void)loadMoreData {
+    
+    NSLog(@"发送数据给服务器，上拉加载数据");
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        self.dataCount += 5;
+        [self.tableView reloadData];
+        
+        [self footerEndRefreshing];
+    });
+}
+
+#pragma mark - Refresh
 - (void)setupRefresh {
     
     UIView *header = [[UIView alloc] init];
@@ -69,6 +97,8 @@
     headerLabel.frame = header.bounds;
     [header addSubview:headerLabel];
     self.headerLabel = headerLabel;
+    
+    [self headerBeginRefreshing];
     
     UILabel *adLabel = [[UILabel alloc] init];
     adLabel.backgroundColor = [UIColor blackColor];
@@ -105,7 +135,7 @@
         return;
     }
     
-    NSLog(@"%@ - 刷新", self);
+    [self headerBeginRefreshing];
 }
 
 - (void)titleButtonRepeatClick {
@@ -193,15 +223,11 @@
         UIEdgeInsets inset = self.tableView.contentInset;
         inset.top += self.header.qq_h;
         self.tableView.contentInset = inset;
+        
+        self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, -(inset.top + QQNavigationMaxY));
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        self.dataCount = 20;
-        [self.tableView reloadData];
-        
-        [self headerEndRefreshing];
-    });
+    [self loadNewData];
 }
 
 - (void)headerEndRefreshing {
@@ -224,13 +250,7 @@
     self.footerView.backgroundColor = [UIColor blueColor];
     self.footerLabel.text = @"正在加载更多数据...";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        self.dataCount += 5;
-        [self.tableView reloadData];
-        
-        [self footerEndRefreshing];
-    });
+    [self loadMoreData];
 }
 
 - (void)footerEndRefreshing {
