@@ -9,6 +9,20 @@
 #import "QQTopicCell.h"
 #import "QQTopic.h"
 
+@interface QQTopicCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *myTextLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *dingButton;
+@property (weak, nonatomic) IBOutlet UIButton *caiButton;
+@property (weak, nonatomic) IBOutlet UIButton *repostButton;
+@property (weak, nonatomic) IBOutlet UIButton *commantButton;
+
+@end
+
 @implementation QQTopicCell
 
 - (void)setTopic:(QQTopic *)topic {

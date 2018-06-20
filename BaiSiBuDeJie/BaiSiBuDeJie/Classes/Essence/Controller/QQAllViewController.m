@@ -11,11 +11,7 @@
 #import "QQTopic.h"
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
-
-#import "QQVideoCell.h"
-#import "QQVoiceCell.h"
-#import "QQPictureCell.h"
-#import "QQWordCell.h"
+#import "QQTopicCell.h"
 
 @interface QQAllViewController ()
 
@@ -35,10 +31,7 @@
 
 @implementation QQAllViewController
 
-static NSString * const QQPictureCellId = @"QQPictureCellId";
-static NSString * const QQWordCellId = @"QQWordCellId";
-static NSString * const QQVoiceCellId = @"QQVoiceCellId";
-static NSString * const QQVideoCellId = @"QQVideoCellId";
+static NSString * const QQTopicCellId = @"QQTopicCellId";
 
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
@@ -46,11 +39,10 @@ static NSString * const QQVideoCellId = @"QQVideoCellId";
     
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.rowHeight = 200;
     
-    [self.tableView registerClass:[QQPictureCell class] forCellReuseIdentifier:QQPictureCellId];
-    [self.tableView registerClass:[QQWordCell class] forCellReuseIdentifier:QQWordCellId];
-    [self.tableView registerClass:[QQVoiceCell class] forCellReuseIdentifier:QQVoiceCellId];
-    [self.tableView registerClass:[QQVideoCell class] forCellReuseIdentifier:QQVideoCellId];
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([QQTopicCell class]) bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:QQTopicCellId];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonRepeatClick) name:QQTabBarButtonDidRepeatClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonRepeatClick) name:QQTitlerButtonDidRepeatClickNotification object:nil];
@@ -191,27 +183,15 @@ static NSString * const QQVideoCellId = @"QQVideoCellId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQTopic *topic = self.topics[indexPath.row];
-    QQTopicCell *cell = nil;
-    
-    if (topic.type == QQTopicTypePicture) {
-        cell = [tableView dequeueReusableCellWithIdentifier:QQPictureCellId];
-    } else if (topic.type == QQTopicTypeWord) {
-        cell = [tableView dequeueReusableCellWithIdentifier:QQWordCellId];
-    } else if (topic.type == QQTopicTypeVoice) {
-        cell = [tableView dequeueReusableCellWithIdentifier:QQVoiceCellId];
-    } else if (topic.type == QQTopicTypeVideo) {
-        cell = [tableView dequeueReusableCellWithIdentifier:QQVideoCellId];
-    }
-    
+    QQTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:QQTopicCellId];
     cell.topic = topic;
-    
     return cell;
 }
 
 #pragma mark - TableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 44;
+//}
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

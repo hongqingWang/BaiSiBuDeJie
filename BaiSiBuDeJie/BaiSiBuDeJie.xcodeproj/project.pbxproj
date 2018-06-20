@@ -21,10 +21,7 @@
 		181716DE1FE8078000AF0286 /* QQAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716DD1FE8078000AF0286 /* QQAdView.m */; };
 		181716E51FEAA4D000AF0286 /* QQAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 181716E41FEAA4D000AF0286 /* QQAd.m */; };
 		183838C220DA501E004260E4 /* QQTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838C120DA501E004260E4 /* QQTopicCell.m */; };
-		183838C520DA503C004260E4 /* QQVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838C420DA503C004260E4 /* QQVideoCell.m */; };
-		183838C820DA504C004260E4 /* QQVoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838C720DA504C004260E4 /* QQVoiceCell.m */; };
-		183838CB20DA5061004260E4 /* QQPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838CA20DA5061004260E4 /* QQPictureCell.m */; };
-		183838CE20DA5074004260E4 /* QQWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838CD20DA5074004260E4 /* QQWordCell.m */; };
+		183838D520DA64B9004260E4 /* QQTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183838D420DA64B9004260E4 /* QQTopicCell.xib */; };
 		18598A3420D7885F008EECED /* QQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3320D7885F008EECED /* QQTitleButton.m */; };
 		18598A3720D7A9A3008EECED /* QQAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3620D7A9A3008EECED /* QQAllViewController.m */; };
 		18598A3A20D7A9BD008EECED /* QQVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3920D7A9BD008EECED /* QQVideoViewController.m */; };
@@ -93,14 +90,7 @@
 		181716E41FEAA4D000AF0286 /* QQAd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQAd.m; sourceTree = "<group>"; };
 		183838C020DA501E004260E4 /* QQTopicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTopicCell.h; sourceTree = "<group>"; };
 		183838C120DA501E004260E4 /* QQTopicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTopicCell.m; sourceTree = "<group>"; };
-		183838C320DA503C004260E4 /* QQVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVideoCell.h; sourceTree = "<group>"; };
-		183838C420DA503C004260E4 /* QQVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQVideoCell.m; sourceTree = "<group>"; };
-		183838C620DA504C004260E4 /* QQVoiceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVoiceCell.h; sourceTree = "<group>"; };
-		183838C720DA504C004260E4 /* QQVoiceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQVoiceCell.m; sourceTree = "<group>"; };
-		183838C920DA5061004260E4 /* QQPictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQPictureCell.h; sourceTree = "<group>"; };
-		183838CA20DA5061004260E4 /* QQPictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQPictureCell.m; sourceTree = "<group>"; };
-		183838CC20DA5074004260E4 /* QQWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQWordCell.h; sourceTree = "<group>"; };
-		183838CD20DA5074004260E4 /* QQWordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQWordCell.m; sourceTree = "<group>"; };
+		183838D420DA64B9004260E4 /* QQTopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQTopicCell.xib; sourceTree = "<group>"; };
 		18598A3220D7885F008EECED /* QQTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTitleButton.h; sourceTree = "<group>"; };
 		18598A3320D7885F008EECED /* QQTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTitleButton.m; sourceTree = "<group>"; };
 		18598A3520D7A9A3008EECED /* QQAllViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAllViewController.h; sourceTree = "<group>"; };
@@ -435,14 +425,7 @@
 				18598A3320D7885F008EECED /* QQTitleButton.m */,
 				183838C020DA501E004260E4 /* QQTopicCell.h */,
 				183838C120DA501E004260E4 /* QQTopicCell.m */,
-				183838C320DA503C004260E4 /* QQVideoCell.h */,
-				183838C420DA503C004260E4 /* QQVideoCell.m */,
-				183838C620DA504C004260E4 /* QQVoiceCell.h */,
-				183838C720DA504C004260E4 /* QQVoiceCell.m */,
-				183838C920DA5061004260E4 /* QQPictureCell.h */,
-				183838CA20DA5061004260E4 /* QQPictureCell.m */,
-				183838CC20DA5074004260E4 /* QQWordCell.h */,
-				183838CD20DA5074004260E4 /* QQWordCell.m */,
+				183838D420DA64B9004260E4 /* QQTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -670,6 +653,7 @@
 				18EE159620D4BD660078EB5E /* QQFastLoginView.xib in Resources */,
 				04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */,
 				18EE159120D496600078EB5E /* QQLoginRegisterView.xib in Resources */,
+				183838D520DA64B9004260E4 /* QQTopicCell.xib in Resources */,
 				18EE15A120D5F26B0078EB5E /* QQMeViewController.storyboard in Resources */,
 				18EE15B020D642F90078EB5E /* QQWebViewController.xib in Resources */,
 			);
@@ -762,13 +746,9 @@
 				183838C220DA501E004260E4 /* QQTopicCell.m in Sources */,
 				18EE159420D4BD5D0078EB5E /* QQFastLoginView.m in Sources */,
 				18EE15A620D5FDC20078EB5E /* QQSquareCell.m in Sources */,
-				183838CE20DA5074004260E4 /* QQWordCell.m in Sources */,
 				18598A5420D7BDA9008EECED /* UIImageView+QQ.m in Sources */,
-				183838C820DA504C004260E4 /* QQVoiceCell.m in Sources */,
 				044612DF1FCC4A66002C8A95 /* AppDelegate.m in Sources */,
 				18598A5520D7BDA9008EECED /* UIView+QQ.m in Sources */,
-				183838CB20DA5061004260E4 /* QQPictureCell.m in Sources */,
-				183838C520DA503C004260E4 /* QQVideoCell.m in Sources */,
 				04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */,
 				18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */,
 				18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */,
