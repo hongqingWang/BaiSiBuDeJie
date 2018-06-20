@@ -28,4 +28,7 @@
 /// 帖子的被评论数量
 @property (nonatomic, copy) NSString *comment;
 
+/// 帖子的类型，1为全部 10为图片 29为段子 31为音频 41为视频
+@property (nonatomic, assign) NSInteger type;
+
 @end

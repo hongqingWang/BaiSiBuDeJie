@@ -12,6 +12,11 @@
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
 
+#import "QQVideoCell.h"
+#import "QQVoiceCell.h"
+#import "QQPictureCell.h"
+#import "QQWordCell.h"
+
 @interface QQAllViewController ()
 
 @property (nonatomic, weak) UIView *header;
@@ -30,12 +35,23 @@
 
 @implementation QQAllViewController
 
+static NSString * const QQPictureCellId = @"QQPictureCellId";
+static NSString * const QQWordCellId = @"QQWordCellId";
+static NSString * const QQVoiceCellId = @"QQVoiceCellId";
+static NSString * const QQVideoCellId = @"QQVideoCellId";
+
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    [self.tableView registerClass:[QQPictureCell class] forCellReuseIdentifier:QQPictureCellId];
+    [self.tableView registerClass:[QQWordCell class] forCellReuseIdentifier:QQWordCellId];
+    [self.tableView registerClass:[QQVoiceCell class] forCellReuseIdentifier:QQVoiceCellId];
+    [self.tableView registerClass:[QQVideoCell class] forCellReuseIdentifier:QQVideoCellId];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonRepeatClick) name:QQTabBarButtonDidRepeatClickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonRepeatClick) name:QQTitlerButtonDidRepeatClickNotification object:nil];
     
@@ -55,7 +71,7 @@
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"a"] = @"list";
     para[@"c"] = @"data";
-//    para[@"type"] = @(41);
+    para[@"type"] = @(1);
     
     [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -174,15 +190,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    QQTopic *topic = self.topics[indexPath.row];
+    QQTopicCell *cell = nil;
+    
+    if (topic.type == 10) {
+        cell = [tableView dequeueReusableCellWithIdentifier:QQPictureCellId];
+    } else if (topic.type == 29) {
+        cell = [tableView dequeueReusableCellWithIdentifier:QQWordCellId];
+    } else if (topic.type == 31) {
+        cell = [tableView dequeueReusableCellWithIdentifier:QQVoiceCellId];
+    } else if (topic.type == 41) {
+        cell = [tableView dequeueReusableCellWithIdentifier:QQVideoCellId];
     }
     
-    QQTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
+    cell.topic = topic;
     
     return cell;
 }
