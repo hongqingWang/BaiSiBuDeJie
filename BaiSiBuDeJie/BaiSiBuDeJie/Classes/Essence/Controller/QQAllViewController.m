@@ -240,6 +240,7 @@
 - (void)headerBeginRefreshing {
     
     if (self.isHeaderRefreshing) return;
+    if (self.isFooterRefreshing) return;
     
     self.headerLabel.text = @"正在刷新数据...";
     self.header.backgroundColor = [UIColor blueColor];
@@ -271,6 +272,7 @@
 - (void)footerBeginRefreshing {
     
     if (self.isFooterRefreshing) return;
+    if (self.isHeaderRefreshing) return;
     
     self.footerRefreshing = YES;
     self.footerView.backgroundColor = [UIColor blueColor];
