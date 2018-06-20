@@ -56,7 +56,7 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         
         NSLog(@"%@", responseObject);
-        QQAFNWriteToPlist(@"new_topics")
+        QQAFNWriteToPlist(new_topics)
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

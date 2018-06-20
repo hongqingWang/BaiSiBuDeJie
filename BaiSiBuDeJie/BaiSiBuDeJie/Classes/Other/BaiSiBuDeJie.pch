@@ -32,5 +32,6 @@
 
 #endif
 
-#define QQAFNWriteToPlist(fileName) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/wanghongqing/Desktop/%@.plist", fileName] atomically:YES];
+// # 的作用相当于("")->双引号
+#define QQAFNWriteToPlist(fileName) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/wanghongqing/Desktop/%@.plist", @#fileName] atomically:YES];
 
