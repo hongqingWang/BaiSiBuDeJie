@@ -193,13 +193,13 @@ static NSString * const QQVideoCellId = @"QQVideoCellId";
     QQTopic *topic = self.topics[indexPath.row];
     QQTopicCell *cell = nil;
     
-    if (topic.type == 10) {
+    if (topic.type == QQTopicTypePicture) {
         cell = [tableView dequeueReusableCellWithIdentifier:QQPictureCellId];
-    } else if (topic.type == 29) {
+    } else if (topic.type == QQTopicTypeWord) {
         cell = [tableView dequeueReusableCellWithIdentifier:QQWordCellId];
-    } else if (topic.type == 31) {
+    } else if (topic.type == QQTopicTypeVoice) {
         cell = [tableView dequeueReusableCellWithIdentifier:QQVoiceCellId];
-    } else if (topic.type == 41) {
+    } else if (topic.type == QQTopicTypeVideo) {
         cell = [tableView dequeueReusableCellWithIdentifier:QQVideoCellId];
     }
     

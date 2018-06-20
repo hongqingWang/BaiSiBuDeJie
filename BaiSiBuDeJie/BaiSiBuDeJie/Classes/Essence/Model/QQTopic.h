@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, QQTopicType) {
+    QQTopicTypeAll = 1,         // 全部
+    QQTopicTypePicture = 10,    // 图片
+    QQTopicTypeWord = 29,       // 段子
+    QQTopicTypeVoice = 31,      // 音频
+    QQTopicTypeVideo = 41       // 视频
+};
+
 @interface QQTopic : NSObject
 
 /// 头像的图片url地址
