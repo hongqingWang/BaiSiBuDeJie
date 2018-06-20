@@ -17,6 +17,14 @@
 
 + (UIColor *)lineColor {
     
+    return [UIColor colorWithRed:210 / 255.0 green:210 / 255.0 blue:210 / 255.0 alpha:1.0];
+}
+
+/**
+ * 灰色背景颜色
+ */
++ (UIColor *)backgroundColor {
+    
     return [UIColor colorWithRed:220 / 255.0 green:220 / 255.0 blue:220 / 255.0 alpha:1.0];
 }
 

@@ -28,6 +28,11 @@
  */
 + (UIColor *)lineColor;
 
+/**
+ * 灰色背景颜色
+ */
++ (UIColor *)backgroundColor;
+
 //// 默认alpha位1
 //+ (UIColor *)colorWithHexString:(NSString *)color;
 //

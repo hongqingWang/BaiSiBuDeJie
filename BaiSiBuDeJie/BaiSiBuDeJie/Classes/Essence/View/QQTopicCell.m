@@ -8,6 +8,7 @@
 
 #import "QQTopicCell.h"
 #import "QQTopic.h"
+#import <UIImageView+WebCache.h>
 
 @interface QQTopicCell ()
 
@@ -28,6 +29,12 @@
 - (void)setTopic:(QQTopic *)topic {
     _topic = topic;
     
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    self.nameLabel.text = topic.name;
+    self.timeLabel.text = topic.passtime;
+    self.myTextLabel.text = topic.text;
+    
+    [self.dingButton setTitle:[NSString stringWithFormat:@"%@", topic.ding] forState:UIControlStateNormal];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -36,6 +43,12 @@
         
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
 @end
