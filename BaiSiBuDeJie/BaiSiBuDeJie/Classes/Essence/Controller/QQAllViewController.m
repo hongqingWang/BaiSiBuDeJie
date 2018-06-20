@@ -8,6 +8,9 @@
 
 #import "QQAllViewController.h"
 #import <AFNetworking.h>
+#import "QQTopic.h"
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
 
 @interface QQAllViewController ()
 
@@ -18,7 +21,8 @@
 @property (nonatomic, weak) UIView *footerView;
 @property (nonatomic, weak) UILabel *footerLabel;
 @property (nonatomic, assign, getter=isFooterRefreshing) BOOL footerRefreshing;
-@property (nonatomic, assign) NSInteger dataCount;
+
+@property (nonatomic, strong) NSMutableArray *topics;
 
 @end
 
@@ -49,42 +53,49 @@
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"a"] = @"list";
     para[@"c"] = @"data";
-//    para[@"type"] = @(1);
+    para[@"type"] = @(1);
     
     [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         
-        NSLog(@"%@", responseObject);
-        QQAFNWriteToPlist(new_topics)
+        self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.tableView reloadData];
+        [self headerEndRefreshing];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"%@", error);
-    }];
-    
-    NSLog(@"发送数据给服务器，下拉刷新数据");
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        self.dataCount = 20;
-        [self.tableView reloadData];
-        
+        [SVProgressHUD showErrorWithStatus:@"网络繁忙，请稍后再试!"];
         [self headerEndRefreshing];
-    });
+    }];
 }
 
 - (void)loadMoreTopics {
     
-    NSLog(@"发送数据给服务器，上拉加载数据");
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"a"] = @"list";
+    para[@"c"] = @"data";
+    para[@"type"] = @(1);
+    
+    [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        self.dataCount += 5;
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        
+        NSMutableArray *moreTopics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.topics addObjectsFromArray:moreTopics];
+        
         [self.tableView reloadData];
-        
         [self footerEndRefreshing];
-    });
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"%@", error);
+        [SVProgressHUD showErrorWithStatus:@"网络繁忙，请稍后再试!"];
+        [self footerEndRefreshing];
+    }];
 }
 
 #pragma mark - Refresh
@@ -152,8 +163,8 @@
 #pragma mark - TableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    self.footerView.hidden = (self.dataCount == 0);
-    return self.dataCount;
+    self.footerView.hidden = (self.topics.count == 0);
+    return self.topics.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,9 +172,13 @@
     static NSString *ID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%ld", self.class, indexPath.row];
+    
+    QQTopic *topic = self.topics[indexPath.row];
+    cell.textLabel.text = topic.name;
+    cell.detailTextLabel.text = topic.text;
+    
     return cell;
 }
 

@@ -33,6 +33,7 @@
 		18598A5520D7BDA9008EECED /* UIView+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A4F20D7BDA9008EECED /* UIView+QQ.m */; };
 		18598A5620D7BDA9008EECED /* UITextField+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A5020D7BDA9008EECED /* UITextField+QQ.m */; };
 		18598A5A20D7BE55008EECED /* QQConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A5920D7BE55008EECED /* QQConst.m */; };
+		18598A8020D9EC66008EECED /* QQTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A7F20D9EC66008EECED /* QQTopic.m */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
 		18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C3C20C91A7300BE8EA8 /* QQSubTagViewController.m */; };
 		18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C4320C920D800BE8EA8 /* QQSubTag.m */; };
@@ -112,6 +113,8 @@
 		18598A5720D7BDE7008EECED /* BaiSiBuDeJie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiSiBuDeJie.pch; sourceTree = "<group>"; };
 		18598A5820D7BE55008EECED /* QQConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQConst.h; sourceTree = "<group>"; };
 		18598A5920D7BE55008EECED /* QQConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQConst.m; sourceTree = "<group>"; };
+		18598A7E20D9EC66008EECED /* QQTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTopic.h; sourceTree = "<group>"; };
+		18598A7F20D9EC66008EECED /* QQTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTopic.m; sourceTree = "<group>"; };
 		189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTabBarController.h; sourceTree = "<group>"; };
 		189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTabBarController.m; sourceTree = "<group>"; };
 		18DD1C3B20C91A7300BE8EA8 /* QQSubTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSubTagViewController.h; sourceTree = "<group>"; };
@@ -279,7 +282,7 @@
 			children = (
 				044612D31FCC4A66002C8A95 /* Controller */,
 				18598A3120D78848008EECED /* View */,
-				044612D41FCC4A66002C8A95 /* Model */,
+				18598A7D20D9EC51008EECED /* Model */,
 			);
 			path = Essence;
 			sourceTree = "<group>";
@@ -301,13 +304,6 @@
 				18598A4220D7A9FB008EECED /* QQWordViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		044612D41FCC4A66002C8A95 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		044612D61FCC4A66002C8A95 /* Me */ = {
@@ -443,6 +439,15 @@
 				18598A5020D7BDA9008EECED /* UITextField+QQ.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		18598A7D20D9EC51008EECED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18598A7E20D9EC66008EECED /* QQTopic.h */,
+				18598A7F20D9EC66008EECED /* QQTopic.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		189A8D531FCDCA5F00F7F77D /* Main */ = {
@@ -713,6 +718,7 @@
 				044612E81FCC4B0D002C8A95 /* QQPublishViewController.m in Sources */,
 				181716E51FEAA4D000AF0286 /* QQAd.m in Sources */,
 				044612DE1FCC4A66002C8A95 /* main.m in Sources */,
+				18598A8020D9EC66008EECED /* QQTopic.m in Sources */,
 				18EE159920D4ECEB0078EB5E /* QQFastButton.m in Sources */,
 				18EE15AF20D642F90078EB5E /* QQWebViewController.m in Sources */,
 				18E0F1121FE2B72C00ABC4E1 /* QQAdController.m in Sources */,
