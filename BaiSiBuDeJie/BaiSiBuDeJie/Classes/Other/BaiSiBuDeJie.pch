@@ -32,3 +32,5 @@
 
 #endif
 
+#define QQAFNWriteToPlist(fileName) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/wanghongqing/Desktop/%@.plist", fileName] atomically:YES];
+

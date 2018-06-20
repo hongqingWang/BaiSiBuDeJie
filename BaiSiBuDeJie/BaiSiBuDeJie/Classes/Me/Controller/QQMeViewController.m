@@ -47,7 +47,7 @@ static int const margin = 1;
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"a"] = @"square";
     para[@"c"] = @"topic";
-    [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         

@@ -7,6 +7,7 @@
 //
 
 #import "QQAllViewController.h"
+#import <AFNetworking.h>
 
 @interface QQAllViewController ()
 
@@ -27,20 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.dataCount = 3;
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//        self.dataCount = 4;
-//        [self.tableView reloadData];
-//
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//            self.dataCount = 0;
-//            [self.tableView reloadData];
-//        });
-//    });
-    
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonRepeatClick) name:QQTabBarButtonDidRepeatClickNotification object:nil];
@@ -55,7 +42,26 @@
 }
 
 #pragma mark - LoadData
-- (void)loadNewData {
+- (void)loadNewTopics {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"a"] = @"list";
+    para[@"c"] = @"data";
+//    para[@"type"] = @(1);
+    
+    [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        QQAFNWriteToPlist(@"new_topics")
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"%@", error);
+    }];
     
     NSLog(@"发送数据给服务器，下拉刷新数据");
     
@@ -68,7 +74,7 @@
     });
 }
 
-- (void)loadMoreData {
+- (void)loadMoreTopics {
     
     NSLog(@"发送数据给服务器，上拉加载数据");
     
@@ -227,7 +233,7 @@
         self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, -(inset.top + QQNavigationMaxY));
     }];
     
-    [self loadNewData];
+    [self loadNewTopics];
 }
 
 - (void)headerEndRefreshing {
@@ -250,7 +256,7 @@
     self.footerView.backgroundColor = [UIColor blueColor];
     self.footerLabel.text = @"正在加载更多数据...";
     
-    [self loadMoreData];
+    [self loadMoreTopics];
 }
 
 - (void)footerEndRefreshing {

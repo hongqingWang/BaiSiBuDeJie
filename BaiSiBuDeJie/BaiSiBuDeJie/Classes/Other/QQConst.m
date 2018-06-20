@@ -1,5 +1,8 @@
 #import <UIKit/UIKit.h>
 
+/// 通用 URL
+NSString * const QQCommonURL = @"http://api.budejie.com/api/api_open.php";
+
 /// 标题栏高度
 CGFloat const QQTitlesViewHeight = 35;
 /// TabBar 高度
