@@ -23,6 +23,8 @@
 @property (nonatomic, assign, getter=isFooterRefreshing) BOOL footerRefreshing;
 
 @property (nonatomic, strong) NSMutableArray *topics;
+/// 第一次加载帖子时候不需要传入此关键字，当需要加载下一页时：需要传入加载上一页时返回值字段“maxtime”中的内容。
+@property (nonatomic, copy) NSString *maxtime;
 
 @end
 
@@ -53,13 +55,14 @@
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"a"] = @"list";
     para[@"c"] = @"data";
-    para[@"type"] = @(1);
+//    para[@"type"] = @(41);
     
     [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        self.maxtime = responseObject[@"info"][@"maxtime"];
         [self.tableView reloadData];
         [self headerEndRefreshing];
         
@@ -79,6 +82,7 @@
     para[@"a"] = @"list";
     para[@"c"] = @"data";
     para[@"type"] = @(1);
+    para[@"maxtime"] = self.maxtime;
     
     [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -86,6 +90,7 @@
         
         NSMutableArray *moreTopics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
+        self.maxtime = responseObject[@"info"][@"maxtime"];
         
         [self.tableView reloadData];
         [self footerEndRefreshing];
