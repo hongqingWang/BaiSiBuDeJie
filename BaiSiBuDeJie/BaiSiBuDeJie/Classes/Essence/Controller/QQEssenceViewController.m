@@ -147,6 +147,11 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:QQTitlerButtonDidRepeatClickNotification object:nil];
     }
     
+    [self dealTitleButtonClick:titleButton];
+}
+
+- (void)dealTitleButtonClick:(QQTitleButton *)titleButton {
+    
     self.previousClickedTitleButton.selected = NO;
     titleButton.selected = YES;
     self.previousClickedTitleButton = titleButton;
@@ -188,7 +193,10 @@
     
     NSUInteger index = scrollView.contentOffset.x / scrollView.qq_w;
     QQTitleButton *button = self.titlesView.subviews[index];
-    [self titleButtonClick:button];
+
+    // 这句会造成轻轻左右滑动一下,就下拉刷新的 Bug
+//    [self titleButtonClick:button];
+    [self dealTitleButtonClick:button];
 }
 
 /**
