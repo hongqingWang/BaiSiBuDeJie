@@ -41,6 +41,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.estimatedRowHeight = 200;
     
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([QQTopicCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:QQTopicCellId];
@@ -191,7 +192,13 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 
 #pragma mark - TableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld", indexPath.row);
     return self.topics[indexPath.row].cellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s, %ld", __FUNCTION__, indexPath.row);
+    return 200;
 }
 
 #pragma mark - UIScrollViewDelegate
