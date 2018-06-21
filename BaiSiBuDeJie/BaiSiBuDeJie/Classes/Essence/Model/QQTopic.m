@@ -7,6 +7,8 @@
 //
 
 #import "QQTopic.h"
+#import "QQComment.h"
+#import "QQUser.h"
 
 @implementation QQTopic
 
@@ -24,9 +26,24 @@
     
     _cellHeight += 35;
     
-    _cellHeight += QQMargin;
+    if (self.top_comments.count > 0) {
+        
+        _cellHeight += QQMargin;
+        QQComment *comment = [self.top_comments firstObject];
+        NSString *hotCommentString = [NSString stringWithFormat:@"%@: %@", comment.u.name, comment.content];
+        CGSize commentSize = CGSizeMake(SCREEN_WIDTH - QQMargin * 4, MAXFLOAT);
+        _cellHeight += [hotCommentString boundingRectWithSize:commentSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+        _cellHeight += QQMargin;
+        _cellHeight += QQMargin;
+    }
     
     return _cellHeight;
+}
+
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+             @"top_comments":@"QQComment"
+             };
 }
 
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class QQUser;
 
 @interface QQComment : NSObject
+
+/// 评论内容
+@property (nonatomic, copy) NSString *content;
+/// 个人信息
+@property (nonatomic, strong) QQUser *u;
 
 @end

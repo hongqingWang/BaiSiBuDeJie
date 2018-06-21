@@ -9,6 +9,7 @@
 #import "QQTopicCell.h"
 #import "QQTopic.h"
 #import "QQUser.h"
+#import "QQComment.h"
 #import "UIImageView+QQ.h"
 #import "UIImage+QQ.h"
 
@@ -25,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *commantButton;
 
 @property (weak, nonatomic) IBOutlet UIView *hotCommentView;
+@property (weak, nonatomic) IBOutlet UILabel *hotCommentLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *hotCommentViewTopCons;
 
 @end
 
@@ -45,8 +48,14 @@
     
     if (topic.top_comments.count > 0) {
         self.hotCommentView.hidden = NO;
+        QQComment *comment = [topic.top_comments firstObject];
+        self.hotCommentLabel.text = [NSString stringWithFormat:@"%@: %@", comment.u.name, comment.content];
+        self.hotCommentViewTopCons.constant = 0;
+        
     } else {
+        
         self.hotCommentView.hidden = YES;
+        self.hotCommentViewTopCons.constant = -(self.hotCommentView.qq_h + QQMargin);
     }
 }
 
@@ -72,12 +81,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+//    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
 - (void)setFrame:(CGRect)frame {
-    
-    frame.size.height -= QQMargin;
     
     [super setFrame:frame];
 }

@@ -39,6 +39,13 @@
     return [UIColor colorWithRed:244 / 255.0 green:48 / 255.0 blue:40 / 255.0 alpha:1.0];
 }
 
+/**
+ * 评论背景色
+ */
++ (UIColor *)commentBackgroundColor {
+    return [UIColor colorWithRed:242 / 255.0 green:242 / 255.0 blue:242 / 255.0 alpha:1.0];
+}
+
 //+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha
 //{
 //    

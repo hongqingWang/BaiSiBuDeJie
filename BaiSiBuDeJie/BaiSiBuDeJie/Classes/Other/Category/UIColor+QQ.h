@@ -43,6 +43,11 @@
  */
 + (UIColor *)vipNameColor;
 
+/**
+ * 评论背景色
+ */
++ (UIColor *)commentBackgroundColor;
+
 //// 默认alpha位1
 //+ (UIColor *)colorWithHexString:(NSString *)color;
 //
