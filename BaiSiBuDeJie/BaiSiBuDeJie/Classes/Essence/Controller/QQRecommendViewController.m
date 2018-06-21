@@ -1,19 +1,19 @@
 //
-//  QQAllViewController.m
+//  QQRecommendViewController.m
 //  BaiSiBuDeJie
 //
-//  Created by 王红庆 on 2018/6/18.
+//  Created by 王红庆 on 2018/6/21.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "QQAllViewController.h"
+#import "QQRecommendViewController.h"
 #import <AFNetworking.h>
 #import "QQTopic.h"
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
 #import "QQTopicCell.h"
 
-@interface QQAllViewController ()
+@interface QQRecommendViewController ()
 
 @property (nonatomic, weak) UIView *header;
 @property (nonatomic, weak) UILabel *headerLabel;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation QQAllViewController
+@implementation QQRecommendViewController
 
 static NSString * const QQTopicCellId = @"QQTopicCellId";
 
@@ -41,7 +41,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.tableView.estimatedRowHeight = 200;
+    //    self.tableView.estimatedRowHeight = 200;
     
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([QQTopicCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:QQTopicCellId];
@@ -63,11 +63,11 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     /*
-    http://api.budejie.com/api/api_open.php
-    http://api.budejie.com/api/api_open.php?a=list&c=data&type=1
-    
+     http://api.budejie.com/api/api_open.php
+     http://api.budejie.com/api/api_open.php?a=list&c=data&type=1
+     
      --- 新版百思不得姐API ---
-    
+     
      0.每次从后台回到app中调用的方法
      
      http://api.budejie.com/api/api_open.php?a=user_login_report&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&c=user&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529457024&udid=&ver=4.5.9
@@ -311,7 +311,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 }
 
 - (void)headerEndRefreshing {
-  
+    
     self.headerRefreshing = NO;
     
     [UIView animateWithDuration:0.25 animations:^{

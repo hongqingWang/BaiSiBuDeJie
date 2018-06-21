@@ -8,7 +8,7 @@
 
 #import "QQEssenceViewController.h"
 #import "QQTitleButton.h"
-#import "QQAllViewController.h"
+#import "QQRecommendViewController.h"
 #import "QQVideoViewController.h"
 #import "QQVoiceViewController.h"
 #import "QQPictureViewController.h"
@@ -42,7 +42,7 @@
 
 - (void)setupAllChildViewControllers {
     
-    [self addChildViewController:[[QQAllViewController alloc] init]];
+    [self addChildViewController:[[QQRecommendViewController alloc] init]];
     [self addChildViewController:[[QQVideoViewController alloc] init]];
     [self addChildViewController:[[QQVoiceViewController alloc] init]];
     [self addChildViewController:[[QQPictureViewController alloc] init]];

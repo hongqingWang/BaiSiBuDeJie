@@ -24,8 +24,8 @@
 		183838D520DA64B9004260E4 /* QQTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183838D420DA64B9004260E4 /* QQTopicCell.xib */; };
 		183838DB20DB9042004260E4 /* QQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838DA20DB9042004260E4 /* QQUser.m */; };
 		183838DE20DB98B7004260E4 /* QQComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838DD20DB98B7004260E4 /* QQComment.m */; };
+		183838E420DBB5E4004260E4 /* QQRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838E320DBB5E4004260E4 /* QQRecommendViewController.m */; };
 		18598A3420D7885F008EECED /* QQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3320D7885F008EECED /* QQTitleButton.m */; };
-		18598A3720D7A9A3008EECED /* QQAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3620D7A9A3008EECED /* QQAllViewController.m */; };
 		18598A3A20D7A9BD008EECED /* QQVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3920D7A9BD008EECED /* QQVideoViewController.m */; };
 		18598A3D20D7A9D7008EECED /* QQVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3C20D7A9D7008EECED /* QQVoiceViewController.m */; };
 		18598A4020D7A9E7008EECED /* QQPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3F20D7A9E7008EECED /* QQPictureViewController.m */; };
@@ -97,10 +97,10 @@
 		183838DA20DB9042004260E4 /* QQUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQUser.m; sourceTree = "<group>"; };
 		183838DC20DB98B7004260E4 /* QQComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQComment.h; sourceTree = "<group>"; };
 		183838DD20DB98B7004260E4 /* QQComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQComment.m; sourceTree = "<group>"; };
+		183838E220DBB5E4004260E4 /* QQRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQRecommendViewController.h; sourceTree = "<group>"; };
+		183838E320DBB5E4004260E4 /* QQRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQRecommendViewController.m; sourceTree = "<group>"; };
 		18598A3220D7885F008EECED /* QQTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTitleButton.h; sourceTree = "<group>"; };
 		18598A3320D7885F008EECED /* QQTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTitleButton.m; sourceTree = "<group>"; };
-		18598A3520D7A9A3008EECED /* QQAllViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQAllViewController.h; sourceTree = "<group>"; };
-		18598A3620D7A9A3008EECED /* QQAllViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQAllViewController.m; sourceTree = "<group>"; };
 		18598A3820D7A9BD008EECED /* QQVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVideoViewController.h; sourceTree = "<group>"; };
 		18598A3920D7A9BD008EECED /* QQVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQVideoViewController.m; sourceTree = "<group>"; };
 		18598A3B20D7A9D7008EECED /* QQVoiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVoiceViewController.h; sourceTree = "<group>"; };
@@ -303,8 +303,8 @@
 			children = (
 				044612E01FCC4AE7002C8A95 /* QQEssenceViewController.h */,
 				044612E11FCC4AE7002C8A95 /* QQEssenceViewController.m */,
-				18598A3520D7A9A3008EECED /* QQAllViewController.h */,
-				18598A3620D7A9A3008EECED /* QQAllViewController.m */,
+				183838E220DBB5E4004260E4 /* QQRecommendViewController.h */,
+				183838E320DBB5E4004260E4 /* QQRecommendViewController.m */,
 				18598A3820D7A9BD008EECED /* QQVideoViewController.h */,
 				18598A3920D7A9BD008EECED /* QQVideoViewController.m */,
 				18598A3B20D7A9D7008EECED /* QQVoiceViewController.h */,
@@ -730,7 +730,6 @@
 				18EE158F20D496520078EB5E /* QQLoginRegisterView.m in Sources */,
 				18598A3420D7885F008EECED /* QQTitleButton.m in Sources */,
 				18EE159C20D4F4DD0078EB5E /* QQLoginField.m in Sources */,
-				18598A3720D7A9A3008EECED /* QQAllViewController.m in Sources */,
 				18598A3A20D7A9BD008EECED /* QQVideoViewController.m in Sources */,
 				18EE15B420D7319E0078EB5E /* QQFileTool.m in Sources */,
 				189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */,
@@ -753,6 +752,7 @@
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
 				04105BB21FD587E400DC3EF3 /* QQTabBar.m in Sources */,
 				18598A5320D7BDA9008EECED /* UIImage+QQ.m in Sources */,
+				183838E420DBB5E4004260E4 /* QQRecommendViewController.m in Sources */,
 				183838C220DA501E004260E4 /* QQTopicCell.m in Sources */,
 				18EE159420D4BD5D0078EB5E /* QQFastLoginView.m in Sources */,
 				18EE15A620D5FDC20078EB5E /* QQSquareCell.m in Sources */,
