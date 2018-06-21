@@ -56,18 +56,7 @@
     
     [self setupCommentWithTopic:topic];
     
-    if ([topic.type isEqualToString:@"image"] || [topic.type isEqualToString:@"gif"]) {
-        [self.contentView addSubview:self.topicPictureView];
-        self.topicPictureView.hidden = NO;
-        self.topicVideoView.hidden = YES;
-    } else if ([topic.type isEqualToString:@"video"]) {
-        [self.contentView addSubview:self.topicVideoView];
-        self.topicPictureView.hidden = YES;
-        self.topicVideoView.hidden = NO;
-    } else if ([topic.type isEqualToString:@"text"]) {
-        self.topicPictureView.hidden = YES;
-        self.topicVideoView.hidden = YES;
-    }
+    [self setupXibViewWithTopic:topic];
 }
 
 - (void)setupButton:(UIButton *)button number:(NSUInteger)number placeholder:(NSString *)placeholder {
@@ -96,6 +85,22 @@
     }
 }
 
+- (void)setupXibViewWithTopic:(QQTopic *)topic {
+    
+    if ([topic.type isEqualToString:@"image"] || [topic.type isEqualToString:@"gif"]) {
+        [self.contentView addSubview:self.topicPictureView];
+        self.topicPictureView.hidden = NO;
+        self.topicVideoView.hidden = YES;
+    } else if ([topic.type isEqualToString:@"video"]) {
+        [self.contentView addSubview:self.topicVideoView];
+        self.topicPictureView.hidden = YES;
+        self.topicVideoView.hidden = NO;
+    } else if ([topic.type isEqualToString:@"text"]) {
+        self.topicPictureView.hidden = YES;
+        self.topicVideoView.hidden = YES;
+    }
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -110,7 +115,14 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-//    self.
+    if ([self.topic.type isEqualToString:@"image"] || [self.topic.type isEqualToString:@"gif"]) {
+//        self.topicPictureView.frame = self.topic.middleViewframe;
+    } else if ([self.topic.type isEqualToString:@"video"]) {
+        NSLog(@"%@", NSStringFromCGRect(self.topic.middleViewframe));
+        self.topicVideoView.frame = self.topic.middleViewframe;
+    } else if ([self.topic.type isEqualToString:@"text"]) {
+        
+    }
 }
 
 #pragma mark - Getters And Setters

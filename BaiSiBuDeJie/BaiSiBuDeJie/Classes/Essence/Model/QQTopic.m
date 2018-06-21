@@ -25,13 +25,11 @@
     _cellHeight += [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height;
     _cellHeight += QQMargin;
     
-    _cellHeight += 35;
-    
     // 视频
     if ([self.type isEqualToString:@"video"]) {
         
         // 宽高比大于1
-        if ((self.video.width / self.video.height) > 1) {
+        if ((self.video.width / self.video.height) >= 1) {
             CGFloat middleViewX = QQMargin;
             CGFloat middleViewY = _cellHeight;
             CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
@@ -47,6 +45,9 @@
             _cellHeight += middleViewH;
         }
     }
+    
+    // 四个按钮的View(BottomView)
+    _cellHeight += 35;
     
     // 评论
     if (self.top_comments.count > 0) {
