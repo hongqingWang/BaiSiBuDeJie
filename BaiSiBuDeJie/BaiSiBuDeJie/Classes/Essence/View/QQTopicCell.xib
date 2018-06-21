@@ -149,16 +149,45 @@
                             <constraint firstItem="VDa-Ij-aoy" firstAttribute="width" secondItem="Cis-WA-bWm" secondAttribute="width" id="yo5-Zb-ua5"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROZ-en-sFa" userLabel="Hot Comment View">
+                        <rect key="frame" x="10" y="207.5" width="355" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8F-EW-8Tj">
+                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论最热评论" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjW-2C-itu">
+                                <rect key="frame" x="0.0" y="18" width="355" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.1923929623" blue="0.24343571419999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rjW-2C-itu" firstAttribute="top" secondItem="V8F-EW-8Tj" secondAttribute="bottom" id="0hR-1z-l3I"/>
+                            <constraint firstAttribute="trailing" secondItem="rjW-2C-itu" secondAttribute="trailing" id="NvG-hC-mf4"/>
+                            <constraint firstItem="V8F-EW-8Tj" firstAttribute="leading" secondItem="ROZ-en-sFa" secondAttribute="leading" id="QOj-So-OOQ"/>
+                            <constraint firstItem="V8F-EW-8Tj" firstAttribute="top" secondItem="ROZ-en-sFa" secondAttribute="top" id="RqL-ym-YPe"/>
+                            <constraint firstItem="rjW-2C-itu" firstAttribute="leading" secondItem="ROZ-en-sFa" secondAttribute="leading" id="iJV-zz-CVS"/>
+                            <constraint firstAttribute="bottom" secondItem="rjW-2C-itu" secondAttribute="bottom" id="sNS-0t-wZN"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="goM-mE-OEm" firstAttribute="leading" secondItem="HMI-OL-Efc" secondAttribute="leading" constant="10" id="2o8-tX-jD3"/>
+                    <constraint firstItem="gx5-vc-NqH" firstAttribute="top" secondItem="ROZ-en-sFa" secondAttribute="bottom" id="63o-XO-iTv"/>
                     <constraint firstItem="M36-bx-QOE" firstAttribute="top" secondItem="goM-mE-OEm" secondAttribute="top" id="B2D-81-X1l"/>
                     <constraint firstItem="i9g-pJ-BBn" firstAttribute="top" secondItem="HMI-OL-Efc" secondAttribute="top" constant="10" id="FxX-b6-eaZ"/>
                     <constraint firstAttribute="bottom" secondItem="gx5-vc-NqH" secondAttribute="bottom" id="SpX-uc-qDS"/>
                     <constraint firstItem="Plq-RE-HW9" firstAttribute="leading" secondItem="goM-mE-OEm" secondAttribute="leading" id="T8E-rw-eLR"/>
                     <constraint firstAttribute="trailing" secondItem="i9g-pJ-BBn" secondAttribute="trailing" constant="10" id="U1K-vN-X8V"/>
+                    <constraint firstItem="ROZ-en-sFa" firstAttribute="leading" secondItem="Plq-RE-HW9" secondAttribute="leading" id="c2y-UH-tAD"/>
                     <constraint firstItem="goM-mE-OEm" firstAttribute="top" secondItem="HMI-OL-Efc" secondAttribute="top" constant="10" id="itR-lo-Zi8"/>
                     <constraint firstItem="2KL-BB-McF" firstAttribute="bottom" secondItem="goM-mE-OEm" secondAttribute="bottom" id="lax-bB-3Y6"/>
+                    <constraint firstItem="ROZ-en-sFa" firstAttribute="trailing" secondItem="Plq-RE-HW9" secondAttribute="trailing" id="n9d-2c-vBG"/>
                     <constraint firstItem="Plq-RE-HW9" firstAttribute="trailing" secondItem="i9g-pJ-BBn" secondAttribute="trailing" id="qeo-44-qKs"/>
                     <constraint firstAttribute="trailing" secondItem="gx5-vc-NqH" secondAttribute="trailing" id="sky-r3-adm"/>
                     <constraint firstItem="Plq-RE-HW9" firstAttribute="top" secondItem="goM-mE-OEm" secondAttribute="bottom" constant="10" id="uA3-2a-KwH"/>

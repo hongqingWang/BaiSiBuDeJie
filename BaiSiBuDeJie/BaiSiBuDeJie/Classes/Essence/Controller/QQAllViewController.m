@@ -192,12 +192,10 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 
 #pragma mark - TableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld", indexPath.row);
     return self.topics[indexPath.row].cellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%s, %ld", __FUNCTION__, indexPath.row);
     return 200;
 }
 
