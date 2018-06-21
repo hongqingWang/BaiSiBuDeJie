@@ -27,6 +27,8 @@
 /// 第一次加载帖子时候不需要传入此关键字，当需要加载下一页时：需要传入加载上一页时返回值字段“maxtime”中的内容。
 @property (nonatomic, copy) NSString *maxtime;
 
+@property (nonatomic, strong) NSMutableDictionary *cellHeightDict;
+
 @end
 
 @implementation QQAllViewController
@@ -74,6 +76,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
         self.maxtime = responseObject[@"info"][@"maxtime"];
         [self.tableView reloadData];
         [self headerEndRefreshing];
+        [self.cellHeightDict removeAllObjects];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -193,20 +196,26 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQTopic *topic = self.topics[indexPath.row];
-    NSLog(@"%@", topic);
-    CGFloat cellHeight = 0;
     
-    cellHeight += QQMargin;
-    cellHeight += 35;
-    cellHeight += QQMargin;
+    NSString *key = topic.description;
     
-    CGSize size = CGSizeMake(SCREEN_WIDTH - QQMargin * 2, MAXFLOAT);
-    cellHeight += [topic.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height;
-    cellHeight += QQMargin;
+    CGFloat cellHeight = [self.cellHeightDict[key] doubleValue];
     
-    cellHeight += 35;
-    
-    cellHeight += QQMargin;
+    if (cellHeight == 0) {
+        cellHeight += QQMargin;
+        cellHeight += 35;
+        cellHeight += QQMargin;
+        
+        CGSize size = CGSizeMake(SCREEN_WIDTH - QQMargin * 2, MAXFLOAT);
+        cellHeight += [topic.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height;
+        cellHeight += QQMargin;
+        
+        cellHeight += 35;
+        
+        cellHeight += QQMargin;
+        
+        self.cellHeightDict[key] = @(cellHeight);
+    }
     
     return cellHeight;
 }
@@ -305,6 +314,14 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.footerRefreshing = NO;
     self.footerView.backgroundColor = [UIColor redColor];
     self.footerLabel.text = @"上拉加载更多";
+}
+
+#pragma mark - Getters And Setters
+- (NSMutableDictionary *)cellHeightDict {
+    if (_cellHeightDict == nil) {
+        _cellHeightDict = [NSMutableDictionary dictionary];
+    }
+    return _cellHeightDict;
 }
 
 @end
