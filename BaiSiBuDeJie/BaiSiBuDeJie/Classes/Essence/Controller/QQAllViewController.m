@@ -24,9 +24,7 @@
 @property (nonatomic, assign, getter=isFooterRefreshing) BOOL footerRefreshing;
 
 @property (nonatomic, strong) NSMutableArray<QQTopic *> *topics;
-/// 第一次加载帖子时候不需要传入此关键字，当需要加载下一页时：需要传入加载上一页时返回值字段“maxtime”中的内容。
-@property (nonatomic, copy) NSString *maxtime;
-/// 帖子的最大id
+/// 第一次加载帖子时候不需要传入此关键字，当需要加载下一页时：需要传入加载上一页时返回值字段“maxid”中的内容。
 @property (nonatomic, assign) NSInteger maxid;
 
 @end
@@ -63,11 +61,6 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 - (void)loadNewTopics {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"a"] = @"list";
-    para[@"c"] = @"data";
-    para[@"type"] = @(1);
     
     /*
     http://api.budejie.com/api/api_open.php
@@ -126,12 +119,12 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     self.maxid = 0;
     
-    [manager GET:QQRecommandURL(self.maxid) parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQRecommandURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         QQAFNWriteToPlist(recommand.plist)
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        self.maxid = [responseObject[@"info"][@"np"] integerValue];
         [self.tableView reloadData];
         [self headerEndRefreshing];
         
@@ -147,19 +140,13 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"a"] = @"list";
-    para[@"c"] = @"data";
-    para[@"type"] = @(1);
-    para[@"maxtime"] = self.maxtime;
-    
-    [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQRecommandURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         
         NSMutableArray *moreTopics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        self.maxid = [responseObject[@"info"][@"np"] integerValue];
         
         [self.tableView reloadData];
         [self footerEndRefreshing];
