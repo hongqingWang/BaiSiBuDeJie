@@ -12,5 +12,7 @@
 
 /// 昵称
 @property (nonatomic, copy) NSString *name;
+/// 头像数组
+@property (nonatomic, strong) NSArray *header;
 
 @end

@@ -33,7 +33,7 @@
 - (void)setTopic:(QQTopic *)topic {
     _topic = topic;
     
-    [self.profileImageView qq_setAvatarWithUrlString:topic.profile_image placeholderImage:[UIImage qq_avatarImageWithImageName:@"defaultUserIcon"]];
+    [self.profileImageView qq_setAvatarWithUrlString:[topic.u.header firstObject] placeholderImage:[UIImage qq_avatarImageWithImageName:@"defaultUserIcon"]];
     self.nameLabel.text = topic.u.name;
     self.timeLabel.text = topic.passtime;
     self.myTextLabel.text = topic.text;
@@ -43,7 +43,7 @@
     [self setupButton:self.repostButton number:topic.forward placeholder:@"分享"];
     [self setupButton:self.commantButton number:topic.comment placeholder:@"评论"];
     
-    if (topic.top_cmt.count > 0) {
+    if (topic.top_comments.count > 0) {
         self.hotCommentView.hidden = NO;
     } else {
         self.hotCommentView.hidden = YES;
