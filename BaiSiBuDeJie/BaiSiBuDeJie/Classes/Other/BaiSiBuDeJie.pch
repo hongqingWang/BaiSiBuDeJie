@@ -15,6 +15,10 @@
 #import <Masonry.h>
 #import "QQConst.h"
 
+/**************************************** URL ****************************************/
+
+
+/**************************************** 尺寸 ****************************************/
 #define SCREEN_WIDTH        [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT       [UIScreen mainScreen].bounds.size.height
 

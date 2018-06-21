@@ -56,6 +56,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QQTabBarButtonDidRepeatClickNotification object:nil];
 }
+#define QQRecommandURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
 
 #pragma mark - LoadData
 - (void)loadNewTopics {
@@ -67,9 +68,52 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     para[@"c"] = @"data";
     para[@"type"] = @(1);
     
+    /*
+    http://api.budejie.com/api/api_open.php
+    http://api.budejie.com/api/api_open.php?a=list&c=data&type=1
+    
+     --- 新版百思不得姐API ---
+    
+     0.每次从后台回到app中调用的方法
+     
+     http://api.budejie.com/api/api_open.php?a=user_login_report&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&c=user&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529457024&udid=&ver=4.5.9
+     
+     1.推荐
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/0-20.json
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/1529555042-20.json
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/1529549641-20.json      <1529539861>
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/1529539861-20.json      <1529534161>
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/1529534161-20.json      <1529518982><4822>
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/1529518982-20.json      <1529509201><4823>
+     
+     2.视频
+     http://s.budejie.com/topic/list/jingxuan/41/bs0315-iphone-4.5.9/0-20.json
+     http://s.budejie.com/topic/list/jingxuan/41/bs0315-iphone-4.5.9/1529552161-20.json     <1529536981><4707>
+     http://s.budejie.com/topic/list/jingxuan/41/bs0315-iphone-4.5.9/1529536981-20.json     <1529514782><4707>
+     http://s.budejie.com/topic/list/jingxuan/41/bs0315-iphone-4.5.9/1529514782-20.json     <1529501822><4708>
+     
+     3.图片
+     http://s.budejie.com/topic/list/jingxuan/10/bs0315-iphone-4.5.9/0-20.json              <1529539922><4198>
+     http://s.budejie.com/topic/list/jingxuan/10/bs0315-iphone-4.5.9/1529539922-20.json     <1529509201><4198>
+     http://s.budejie.com/topic/list/jingxuan/10/bs0315-iphone-4.5.9/1529509201-20.json     <1529484241><4198>
+     
+     4.笑话
+     http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/0-20.json           <1529555904><1000>
+     http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/1529555904-20.json  <1529547671><1000>
+     http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/1529547671-20.json  <1529544651><1000>
+     
+     5.排行
+     http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/0-20.json                  <1526270581><182>
+     http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/1526270581-20.json         <1524982321><182>
+     http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/1524982321-20.json         <1524266822><182>
+     
+     */
+    
     [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        
+        NSLog(@"%@", responseObject);
         
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.maxtime = responseObject[@"info"][@"maxtime"];
