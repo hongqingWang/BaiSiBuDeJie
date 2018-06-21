@@ -11,12 +11,10 @@
 @implementation UIColor (QQ)
 
 + (UIColor *)randomColor {
-    
     return [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:0.5];
 }
 
 + (UIColor *)lineColor {
-    
     return [UIColor colorWithRed:210 / 255.0 green:210 / 255.0 blue:210 / 255.0 alpha:1.0];
 }
 
@@ -24,8 +22,21 @@
  * 灰色背景颜色
  */
 + (UIColor *)backgroundColor {
-    
     return [UIColor colorWithRed:220 / 255.0 green:220 / 255.0 blue:220 / 255.0 alpha:1.0];
+}
+
+/**
+ * 昵称颜色(普通)
+ */
++ (UIColor *)nameColor {
+    return [UIColor colorWithRed:67 / 255.0 green:115 / 255.0 blue:166 / 255.0 alpha:1.0];
+}
+
+/**
+ * 昵称颜色(会员)
+ */
++ (UIColor *)vipNameColor {
+    return [UIColor colorWithRed:244 / 255.0 green:48 / 255.0 blue:40 / 255.0 alpha:1.0];
 }
 
 //+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha

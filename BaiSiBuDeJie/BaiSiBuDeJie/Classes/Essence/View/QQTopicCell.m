@@ -8,6 +8,7 @@
 
 #import "QQTopicCell.h"
 #import "QQTopic.h"
+#import "QQUser.h"
 #import "UIImageView+QQ.h"
 #import "UIImage+QQ.h"
 
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commantButton;
 
+@property (weak, nonatomic) IBOutlet UIView *hotCommentView;
+
 @end
 
 @implementation QQTopicCell
@@ -31,14 +34,20 @@
     _topic = topic;
     
     [self.profileImageView qq_setAvatarWithUrlString:topic.profile_image placeholderImage:[UIImage qq_avatarImageWithImageName:@"defaultUserIcon"]];
-    self.nameLabel.text = topic.name;
+    self.nameLabel.text = topic.u.name;
     self.timeLabel.text = topic.passtime;
     self.myTextLabel.text = topic.text;
     
-    [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
-    [self setupButton:self.caiButton number:topic.cai placeholder:@"踩"];
-    [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
+    [self setupButton:self.dingButton number:topic.up placeholder:@"顶"];
+    [self setupButton:self.caiButton number:topic.down placeholder:@"踩"];
+    [self setupButton:self.repostButton number:topic.forward placeholder:@"分享"];
     [self setupButton:self.commantButton number:topic.comment placeholder:@"评论"];
+    
+    if (topic.top_cmt.count > 0) {
+        self.hotCommentView.hidden = NO;
+    } else {
+        self.hotCommentView.hidden = YES;
+    }
 }
 
 - (void)setupButton:(UIButton *)button number:(NSUInteger)number placeholder:(NSString *)placeholder {

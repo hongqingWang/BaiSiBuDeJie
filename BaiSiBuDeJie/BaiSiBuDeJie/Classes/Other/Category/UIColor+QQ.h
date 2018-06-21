@@ -33,6 +33,16 @@
  */
 + (UIColor *)backgroundColor;
 
+/**
+ * 昵称颜色(普通)
+ */
++ (UIColor *)nameColor;
+
+/**
+ * 昵称颜色(会员)
+ */
++ (UIColor *)vipNameColor;
+
 //// 默认alpha位1
 //+ (UIColor *)colorWithHexString:(NSString *)color;
 //

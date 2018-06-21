@@ -16,7 +16,7 @@
 #import "QQConst.h"
 
 /**************************************** URL ****************************************/
-
+#define QQRecommandURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
 
 /**************************************** 尺寸 ****************************************/
 #define SCREEN_WIDTH        [UIScreen mainScreen].bounds.size.width

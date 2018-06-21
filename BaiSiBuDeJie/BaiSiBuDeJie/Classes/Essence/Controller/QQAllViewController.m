@@ -26,6 +26,8 @@
 @property (nonatomic, strong) NSMutableArray<QQTopic *> *topics;
 /// 第一次加载帖子时候不需要传入此关键字，当需要加载下一页时：需要传入加载上一页时返回值字段“maxtime”中的内容。
 @property (nonatomic, copy) NSString *maxtime;
+/// 帖子的最大id
+@property (nonatomic, assign) NSInteger maxid;
 
 @end
 
@@ -56,7 +58,6 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QQTabBarButtonDidRepeatClickNotification object:nil];
 }
-#define QQRecommandURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
 
 #pragma mark - LoadData
 - (void)loadNewTopics {
@@ -77,6 +78,20 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
      0.每次从后台回到app中调用的方法
      
      http://api.budejie.com/api/api_open.php?a=user_login_report&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&c=user&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529457024&udid=&ver=4.5.9
+     
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/0-20.json <1529558941><4833>
+     http://d.api.budejie.com/topic/recommend/bs0315-iphone-4.5.9/0-30.json?openudid=5704d313c8474093176a4a702aace6c88fdd5287&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529568150&udid=&ver=4.5.9 <1523539801><30>
+     http://d.api.budejie.com/topic/recommend/bs0315-iphone-4.5.9/0-30.json?openudid=5704d313c8474093176a4a702aace6c88fdd5287&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529568209&udid=&ver=4.5.9 <1526637001><30>
+     http://d.api.budejie.com/topic/recommend/bs0315-iphone-4.5.9/0-30.json?openudid=5704d313c8474093176a4a702aace6c88fdd5287&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529568239&udid=&ver=4.5.9 <1524235802><30>
+     http://d.api.budejie.com/topic/recommend/bs0315-iphone-4.5.9/0-30.json?openudid=5704d313c8474093176a4a702aace6c88fdd5287&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529568264&udid=&ver=4.5.9 <1523799055><30>
+     
+     隔了大约5分钟
+     
+     http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/0-20.json <1529559901><4836>
+     
+     再快速刷新
+     
+     http://d.api.budejie.com/topic/recommend/bs0315-iphone-4.5.9/0-30.json?openudid=5704d313c8474093176a4a702aace6c88fdd5287&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529568868&udid=&ver=4.5.9 <1526190242><30>
      
      1.推荐
      http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/0-20.json
@@ -109,12 +124,12 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
      
      */
     
-    [manager GET:QQCommonURL parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+    self.maxid = 0;
+    
+    [manager GET:QQRecommandURL(self.maxid) parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-        
-        NSLog(@"%@", responseObject);
-        
+        QQAFNWriteToPlist(recommand.plist)
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.maxtime = responseObject[@"info"][@"maxtime"];
         [self.tableView reloadData];
