@@ -46,5 +46,7 @@ typedef NS_ENUM(NSUInteger, QQTopicType) {
 
 /// CellHeight
 @property (nonatomic, assign) CGFloat cellHeight;
+/// MiddleViewFrame
+@property (nonatomic, assign) CGRect middleViewframe;
 
 @end

@@ -58,10 +58,15 @@
     
     if ([topic.type isEqualToString:@"image"] || [topic.type isEqualToString:@"gif"]) {
         [self.contentView addSubview:self.topicPictureView];
+        self.topicPictureView.hidden = NO;
+        self.topicVideoView.hidden = YES;
     } else if ([topic.type isEqualToString:@"video"]) {
         [self.contentView addSubview:self.topicVideoView];
+        self.topicPictureView.hidden = YES;
+        self.topicVideoView.hidden = NO;
     } else if ([topic.type isEqualToString:@"text"]) {
-        
+        self.topicPictureView.hidden = YES;
+        self.topicVideoView.hidden = YES;
     }
 }
 
@@ -91,14 +96,6 @@
     }
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
-    }
-    return self;
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -108,6 +105,12 @@
 - (void)setFrame:(CGRect)frame {
     
     [super setFrame:frame];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+//    self.
 }
 
 #pragma mark - Getters And Setters
