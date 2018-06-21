@@ -9,6 +9,7 @@
 #import "QQTopic.h"
 #import "QQComment.h"
 #import "QQUser.h"
+#import "QQVideo.h"
 
 @implementation QQTopic
 
@@ -26,6 +27,12 @@
     
     _cellHeight += 35;
     
+    // 视频
+    if ([self.type isEqualToString:@"video"]) {
+        _cellHeight += 100;
+    }
+    
+    // 评论
     if (self.top_comments.count > 0) {
         
         _cellHeight += QQMargin;

@@ -32,6 +32,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *hotCommentLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *hotCommentViewTopCons;
 
+/// QQTopicVideoView
+@property (nonatomic, weak) QQTopicVideoView *topicVideoView;
+/// QQTopicPictureView
+@property (nonatomic, weak) QQTopicPictureView *topicPictureView;
+
 @end
 
 @implementation QQTopicCell
@@ -51,12 +56,10 @@
     
     [self setupCommentWithTopic:topic];
     
-    if ([topic.type isEqualToString:@"image"]) {
-        [self.contentView addSubview:[QQTopicPictureView qq_viewFromNib]];
-    } else if ([topic.type isEqualToString:@"gif"]) {
-        [self.contentView addSubview:[QQTopicPictureView qq_viewFromNib]];
+    if ([topic.type isEqualToString:@"image"] || [topic.type isEqualToString:@"gif"]) {
+        [self.contentView addSubview:self.topicPictureView];
     } else if ([topic.type isEqualToString:@"video"]) {
-        [self.contentView addSubview:[QQTopicVideoView qq_viewFromNib]];
+        [self.contentView addSubview:self.topicVideoView];
     } else if ([topic.type isEqualToString:@"text"]) {
         
     }
@@ -105,6 +108,21 @@
 - (void)setFrame:(CGRect)frame {
     
     [super setFrame:frame];
+}
+
+#pragma mark - Getters And Setters
+- (QQTopicPictureView *)topicPictureView {
+    if (_topicPictureView == nil) {
+        _topicPictureView = [QQTopicPictureView qq_viewFromNib];
+    }
+    return _topicPictureView;
+}
+
+- (QQTopicVideoView *)topicVideoView {
+    if (_topicVideoView == nil) {
+        _topicVideoView = [QQTopicVideoView qq_viewFromNib];
+    }
+    return _topicVideoView;
 }
 
 @end

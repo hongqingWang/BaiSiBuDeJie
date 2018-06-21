@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class QQUser;
+@class QQVideo;
 
 typedef NS_ENUM(NSUInteger, QQTopicType) {
     QQTopicTypeAll = 1,         // 全部
@@ -21,6 +22,8 @@ typedef NS_ENUM(NSUInteger, QQTopicType) {
 
 /// 个人信息
 @property (nonatomic, strong) QQUser *u;
+/// 视频信息
+@property (nonatomic, strong) QQVideo *video;
 
 /// 帖子通过的时间和created_at的参数时间一致
 @property (nonatomic, copy) NSString *passtime;
