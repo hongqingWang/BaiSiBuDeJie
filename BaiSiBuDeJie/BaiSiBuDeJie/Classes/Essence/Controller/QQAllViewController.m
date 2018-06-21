@@ -40,7 +40,6 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.view.backgroundColor = [UIColor backgroundColor];
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.rowHeight = 200;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([QQTopicCell class]) bundle:nil];
@@ -191,9 +190,26 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 }
 
 #pragma mark - TableViewDelegate
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 44;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    QQTopic *topic = self.topics[indexPath.row];
+    NSLog(@"%@", topic);
+    CGFloat cellHeight = 0;
+    
+    cellHeight += QQMargin;
+    cellHeight += 35;
+    cellHeight += QQMargin;
+    
+    CGSize size = CGSizeMake(SCREEN_WIDTH - QQMargin * 2, MAXFLOAT);
+    cellHeight += [topic.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height;
+    cellHeight += QQMargin;
+    
+    cellHeight += 35;
+    
+    cellHeight += QQMargin;
+    
+    return cellHeight;
+}
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
