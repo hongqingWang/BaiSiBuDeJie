@@ -89,7 +89,7 @@
 
 - (void)setupTitleButton {
     
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"全部a", @"视频bb", @"声音ccc", @"图片dddd", @"段子"];
     NSUInteger titleButtonCount = 5;
     CGFloat titleButtonW = self.titlesView.qq_w / titleButtonCount;
     CGFloat titleButtonH = self.titlesView.qq_h;
@@ -119,7 +119,7 @@
     firstButton.selected = YES;
     self.previousClickedTitleButton = firstButton;
     [firstButton.titleLabel sizeToFit];
-    self.titleUnderline.qq_w = firstButton.titleLabel.qq_w + 10;
+    self.titleUnderline.qq_w = firstButton.titleLabel.qq_w + QQMargin;
     self.titleUnderline.qq_centerX = firstButton.qq_centerX;
 }
 
@@ -161,7 +161,7 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         
-        self.titleUnderline.qq_w = titleButton.titleLabel.qq_w + 10;
+        self.titleUnderline.qq_w = titleButton.titleLabel.qq_w + QQMargin;
         self.titleUnderline.qq_centerX = titleButton.qq_centerX;
         
         CGFloat offsetX = self.scrollView.qq_w * index;

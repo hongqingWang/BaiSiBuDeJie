@@ -10,7 +10,7 @@
 
 @implementation UIImage (QQ)
 
-- (UIImage *)qq_avatarImageWithSize:(CGSize)size {
+- (UIImage *)qq_avatarImage {
     
     // 图像的上下文-内存中开辟一个地址,跟屏幕无关
     /**
@@ -19,9 +19,9 @@
      * 3>scale:屏幕分辨率,默认情况下生成的图像使用'1.0'的分辨率,图像质量不好
      *         可以指定'0',会选择当前设备的屏幕分辨率
      */
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     
     // 实例化一个圆形的路径
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
@@ -41,11 +41,21 @@
     return newImage;
 }
 
++ (UIImage *)qq_avatarImageWithImageName:(NSString *)imageName {
+    
+    return [[self imageNamed:imageName] qq_avatarImage];
+}
+
 + (instancetype)imageOriginalWithName:(NSString *)imageName {
     
     UIImage *imageNormal = [UIImage imageNamed:imageName];
     return [imageNormal imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
+
+
+
+
+
 
 
 

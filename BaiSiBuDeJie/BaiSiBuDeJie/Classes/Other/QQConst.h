@@ -9,6 +9,8 @@ UIKIT_EXTERN CGFloat const QQTitlesViewHeight;
 UIKIT_EXTERN CGFloat const QQTabBarHeight;
 /// Navigation 最大Y值
 UIKIT_EXTERN CGFloat const QQNavigationMaxY;
+/// Margin
+UIKIT_EXTERN CGFloat const QQMargin;
 
 /// TabBarButton 被重复点击的通知
 UIKIT_EXTERN NSString * const QQTabBarButtonDidRepeatClickNotification;

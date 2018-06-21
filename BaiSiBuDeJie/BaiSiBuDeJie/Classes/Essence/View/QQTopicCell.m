@@ -8,7 +8,8 @@
 
 #import "QQTopicCell.h"
 #import "QQTopic.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+QQ.h"
+#import "UIImage+QQ.h"
 
 @interface QQTopicCell ()
 
@@ -29,7 +30,7 @@
 - (void)setTopic:(QQTopic *)topic {
     _topic = topic;
     
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.profileImageView qq_setAvatarWithUrlString:topic.profile_image placeholderImage:[UIImage qq_avatarImageWithImageName:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
     self.timeLabel.text = topic.passtime;
     self.myTextLabel.text = topic.text;
@@ -63,6 +64,13 @@
     [super awakeFromNib];
     
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+}
+
+- (void)setFrame:(CGRect)frame {
+    
+    frame.size.height -= QQMargin;
+    
+    [super setFrame:frame];
 }
 
 @end

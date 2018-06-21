@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QQTopicCellId" rowHeight="278" id="LIK-R6-BW7" customClass="QQTopicCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="QQTopicCellId" rowHeight="278" id="LIK-R6-BW7" customClass="QQTopicCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LIK-R6-BW7" id="HMI-OL-Efc">
@@ -43,7 +43,7 @@
                             <constraint firstAttribute="height" constant="30" id="CjA-fb-gBc"/>
                             <constraint firstAttribute="width" constant="30" id="Ems-2m-VxZ"/>
                         </constraints>
-                        <state key="normal" title="Button" image="cellmorebtnnormal"/>
+                        <state key="normal" image="cellmorebtnnormal"/>
                         <state key="highlighted" image="cellmorebtnclick"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plq-RE-HW9" userLabel="Text">

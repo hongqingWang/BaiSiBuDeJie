@@ -41,6 +41,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.rowHeight = 200;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([QQTopicCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:QQTopicCellId];

@@ -10,9 +10,15 @@
 
 @interface UIImage (QQ)
 
-- (UIImage *)qq_avatarImageWithSize:(CGSize)size;
+- (UIImage *)qq_avatarImage;
++ (UIImage *)qq_avatarImageWithImageName:(NSString *)imageName;
 
 + (instancetype)imageOriginalWithName:(NSString *)imageName;
+
+
+
+
+
 
 
 

@@ -18,9 +18,16 @@
     
     [self sd_setImageWithURL:url placeholderImage:placeholderImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
-        self.image = [image qq_avatarImageWithSize:image.size];
+        if (!image) return;
+        
+        self.image = [image qq_avatarImage];
     }];
 }
+
+
+
+
+
 
 
 

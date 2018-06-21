@@ -15,6 +15,11 @@
 
 
 
+
+
+
+
+
 - (void)qq_imageName:(NSString *)imageName;
 - (void)qq_setImageWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage isAvatar:(BOOL)isAvatar;
 
