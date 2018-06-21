@@ -28,13 +28,13 @@ typedef NS_ENUM(NSUInteger, QQTopicType) {
 @property (nonatomic, copy) NSString *text;
 
 /// 顶的数量
-@property (nonatomic, copy) NSString *ding;
+@property (nonatomic, assign) NSUInteger ding;
 /// 踩的人数
-@property (nonatomic, copy) NSString *cai;
+@property (nonatomic, assign) NSUInteger cai;
 /// 转发的数量
-@property (nonatomic, copy) NSString *repost;
+@property (nonatomic, assign) NSUInteger repost;
 /// 帖子的被评论数量
-@property (nonatomic, copy) NSString *comment;
+@property (nonatomic, assign) NSUInteger comment;
 
 /// 帖子的类型，1为全部 10为图片 29为段子 31为音频 41为视频
 @property (nonatomic, assign) NSInteger type;

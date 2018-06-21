@@ -34,7 +34,21 @@
     self.timeLabel.text = topic.passtime;
     self.myTextLabel.text = topic.text;
     
-    [self.dingButton setTitle:[NSString stringWithFormat:@"%@", topic.ding] forState:UIControlStateNormal];
+    [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
+    [self setupButton:self.caiButton number:topic.cai placeholder:@"踩"];
+    [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
+    [self setupButton:self.commantButton number:topic.comment placeholder:@"评论"];
+}
+
+- (void)setupButton:(UIButton *)button number:(NSUInteger)number placeholder:(NSString *)placeholder {
+    
+    if (number >= 10000) {
+        [button setTitle:[NSString stringWithFormat:@"%.1f万", number / 10000.0] forState:UIControlStateNormal];
+    } else if (number > 0) {
+        [button setTitle:[NSString stringWithFormat:@"%zd", number] forState:UIControlStateNormal];
+    } else {
+        [button setTitle:placeholder forState:UIControlStateNormal];
+    }
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
