@@ -35,8 +35,8 @@ typedef NS_ENUM(NSUInteger, QQTopicType) {
 /// 帖子的被评论数量
 @property (nonatomic, assign) NSUInteger comment;
 
-/// 帖子的类型，1为全部 10为图片 29为段子 31为音频 41为视频
-//@property (nonatomic, assign) NSInteger type;
+/// image gif video text
+@property (nonatomic, copy) NSString *type;
 
 /// 最热评论数组
 @property (nonatomic, strong) NSArray *top_comments;

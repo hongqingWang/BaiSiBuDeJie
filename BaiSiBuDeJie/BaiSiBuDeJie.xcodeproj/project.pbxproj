@@ -25,6 +25,10 @@
 		183838DB20DB9042004260E4 /* QQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838DA20DB9042004260E4 /* QQUser.m */; };
 		183838DE20DB98B7004260E4 /* QQComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838DD20DB98B7004260E4 /* QQComment.m */; };
 		183838E420DBB5E4004260E4 /* QQRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838E320DBB5E4004260E4 /* QQRecommendViewController.m */; };
+		183838E720DBBC47004260E4 /* QQTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838E620DBBC47004260E4 /* QQTopicPictureView.m */; };
+		183838E920DBBC50004260E4 /* QQTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183838E820DBBC50004260E4 /* QQTopicPictureView.xib */; };
+		183838EC20DBBC7B004260E4 /* QQTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838EB20DBBC7B004260E4 /* QQTopicVideoView.m */; };
+		183838EE20DBBC8D004260E4 /* QQTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183838ED20DBBC8D004260E4 /* QQTopicVideoView.xib */; };
 		18598A3420D7885F008EECED /* QQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3320D7885F008EECED /* QQTitleButton.m */; };
 		18598A3A20D7A9BD008EECED /* QQVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3920D7A9BD008EECED /* QQVideoViewController.m */; };
 		18598A3D20D7A9D7008EECED /* QQVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3C20D7A9D7008EECED /* QQVoiceViewController.m */; };
@@ -99,6 +103,12 @@
 		183838DD20DB98B7004260E4 /* QQComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQComment.m; sourceTree = "<group>"; };
 		183838E220DBB5E4004260E4 /* QQRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQRecommendViewController.h; sourceTree = "<group>"; };
 		183838E320DBB5E4004260E4 /* QQRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQRecommendViewController.m; sourceTree = "<group>"; };
+		183838E520DBBC46004260E4 /* QQTopicPictureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTopicPictureView.h; sourceTree = "<group>"; };
+		183838E620DBBC47004260E4 /* QQTopicPictureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTopicPictureView.m; sourceTree = "<group>"; };
+		183838E820DBBC50004260E4 /* QQTopicPictureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQTopicPictureView.xib; sourceTree = "<group>"; };
+		183838EA20DBBC7B004260E4 /* QQTopicVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTopicVideoView.h; sourceTree = "<group>"; };
+		183838EB20DBBC7B004260E4 /* QQTopicVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTopicVideoView.m; sourceTree = "<group>"; };
+		183838ED20DBBC8D004260E4 /* QQTopicVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQTopicVideoView.xib; sourceTree = "<group>"; };
 		18598A3220D7885F008EECED /* QQTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTitleButton.h; sourceTree = "<group>"; };
 		18598A3320D7885F008EECED /* QQTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTitleButton.m; sourceTree = "<group>"; };
 		18598A3820D7A9BD008EECED /* QQVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVideoViewController.h; sourceTree = "<group>"; };
@@ -432,6 +442,12 @@
 				183838C020DA501E004260E4 /* QQTopicCell.h */,
 				183838C120DA501E004260E4 /* QQTopicCell.m */,
 				183838D420DA64B9004260E4 /* QQTopicCell.xib */,
+				183838E520DBBC46004260E4 /* QQTopicPictureView.h */,
+				183838E620DBBC47004260E4 /* QQTopicPictureView.m */,
+				183838E820DBBC50004260E4 /* QQTopicPictureView.xib */,
+				183838EA20DBBC7B004260E4 /* QQTopicVideoView.h */,
+				183838EB20DBBC7B004260E4 /* QQTopicVideoView.m */,
+				183838ED20DBBC8D004260E4 /* QQTopicVideoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -658,10 +674,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EE15A720D5FDC20078EB5E /* QQSquareCell.xib in Resources */,
+				183838EE20DBBC8D004260E4 /* QQTopicVideoView.xib in Resources */,
 				18EE158320D220C00078EB5E /* QQLoginViewController.xib in Resources */,
 				18EE157B20D09DE10078EB5E /* QQFriendTrendViewController.xib in Resources */,
 				18EE159620D4BD660078EB5E /* QQFastLoginView.xib in Resources */,
 				04A644F71FCC3D4700763D3C /* Assets.xcassets in Resources */,
+				183838E920DBBC50004260E4 /* QQTopicPictureView.xib in Resources */,
 				18EE159120D496600078EB5E /* QQLoginRegisterView.xib in Resources */,
 				183838D520DA64B9004260E4 /* QQTopicCell.xib in Resources */,
 				18EE15A120D5F26B0078EB5E /* QQMeViewController.storyboard in Resources */,
@@ -724,6 +742,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183838EC20DBBC7B004260E4 /* QQTopicVideoView.m in Sources */,
 				18598A4320D7A9FB008EECED /* QQWordViewController.m in Sources */,
 				18EE15AB20D605760078EB5E /* QQSquare.m in Sources */,
 				044612EE1FCC4B4E002C8A95 /* QQMeViewController.m in Sources */,
@@ -759,6 +778,7 @@
 				18598A5420D7BDA9008EECED /* UIImageView+QQ.m in Sources */,
 				044612DF1FCC4A66002C8A95 /* AppDelegate.m in Sources */,
 				18598A5520D7BDA9008EECED /* UIView+QQ.m in Sources */,
+				183838E720DBBC47004260E4 /* QQTopicPictureView.m in Sources */,
 				04577C911FD830BC00A0DB29 /* QQNavigationController.m in Sources */,
 				18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */,
 				183838DE20DB98B7004260E4 /* QQComment.m in Sources */,

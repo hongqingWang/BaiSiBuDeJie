@@ -18,4 +18,6 @@
 @property (nonatomic, assign) CGFloat qq_centerY;
 @property (nonatomic, assign) CGSize qq_size;
 
++ (instancetype)qq_viewFromNib;
+
 @end

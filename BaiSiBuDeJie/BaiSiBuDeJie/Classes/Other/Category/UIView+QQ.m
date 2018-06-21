@@ -10,7 +10,6 @@
 
 @implementation UIView (QQ)
 
-
 - (void)setQq_x:(CGFloat)qq_x {
     
     CGRect frame = self.frame;
@@ -93,6 +92,10 @@
 - (CGSize)qq_size {
     
     return self.frame.size;
+}
+
++ (instancetype)qq_viewFromNib {
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
 }
 
 @end

@@ -13,6 +13,9 @@
 #import "UIImageView+QQ.h"
 #import "UIImage+QQ.h"
 
+#import "QQTopicPictureView.h"
+#import "QQTopicVideoView.h"
+
 @interface QQTopicCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -46,16 +49,16 @@
     [self setupButton:self.repostButton number:topic.forward placeholder:@"分享"];
     [self setupButton:self.commantButton number:topic.comment placeholder:@"评论"];
     
-    if (topic.top_comments.count > 0) {
-        self.hotCommentView.hidden = NO;
-        QQComment *comment = [topic.top_comments firstObject];
-        self.hotCommentLabel.text = [NSString stringWithFormat:@"%@: %@", comment.u.name, comment.content];
-        self.hotCommentViewTopCons.constant = 0;
+    [self setupCommentWithTopic:topic];
+    
+    if ([topic.type isEqualToString:@"image"]) {
+        [self.contentView addSubview:[QQTopicPictureView qq_viewFromNib]];
+    } else if ([topic.type isEqualToString:@"gif"]) {
+        [self.contentView addSubview:[QQTopicPictureView qq_viewFromNib]];
+    } else if ([topic.type isEqualToString:@"video"]) {
+        [self.contentView addSubview:[QQTopicVideoView qq_viewFromNib]];
+    } else if ([topic.type isEqualToString:@"text"]) {
         
-    } else {
-        
-        self.hotCommentView.hidden = YES;
-        self.hotCommentViewTopCons.constant = -(self.hotCommentView.qq_h + QQMargin);
     }
 }
 
@@ -67,6 +70,21 @@
         [button setTitle:[NSString stringWithFormat:@"%zd", number] forState:UIControlStateNormal];
     } else {
         [button setTitle:placeholder forState:UIControlStateNormal];
+    }
+}
+
+- (void)setupCommentWithTopic:(QQTopic *)topic {
+    
+    if (topic.top_comments.count > 0) {
+        self.hotCommentView.hidden = NO;
+        QQComment *comment = [topic.top_comments firstObject];
+        self.hotCommentLabel.text = [NSString stringWithFormat:@"%@: %@", comment.u.name, comment.content];
+        self.hotCommentViewTopCons.constant = 0;
+        
+    } else {
+        
+        self.hotCommentView.hidden = YES;
+        self.hotCommentViewTopCons.constant = -(self.hotCommentView.qq_h + QQMargin);
     }
 }
 
