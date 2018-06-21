@@ -10,6 +10,8 @@
 #import "QQComment.h"
 #import "QQUser.h"
 #import "QQVideo.h"
+#import "QQImage.h"
+#import "QQGif.h"
 
 @implementation QQTopic
 
@@ -44,6 +46,38 @@
             self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
             _cellHeight += middleViewH;
         }
+    }
+    
+    // 图片
+    if ([self.type isEqualToString:@"image"]) {
+        
+        CGFloat middleViewX = QQMargin;
+        CGFloat middleViewY = _cellHeight;
+        CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
+        CGFloat middleViewH = middleViewW * self.image.height / self.image.width;
+        
+        if (middleViewH > SCREEN_HEIGHT / 2) {
+            middleViewH = 200;
+        }
+        
+        self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
+        _cellHeight += middleViewH;
+    }
+    
+    // gif
+    if ([self.type isEqualToString:@"gif"]) {
+        
+        CGFloat middleViewX = QQMargin;
+        CGFloat middleViewY = _cellHeight;
+        CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
+        CGFloat middleViewH = middleViewW * self.gif.height / self.gif.width;
+        
+        if (middleViewH > SCREEN_HEIGHT / 2) {
+            middleViewH = 300;
+        }
+        
+        self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
+        _cellHeight += middleViewH;
     }
     
     // 四个按钮的View(BottomView)

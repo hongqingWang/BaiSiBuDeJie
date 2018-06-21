@@ -87,7 +87,11 @@
 
 - (void)setupXibViewWithTopic:(QQTopic *)topic {
     
-    if ([topic.type isEqualToString:@"image"] || [topic.type isEqualToString:@"gif"]) {
+    if ([topic.type isEqualToString:@"image"]) {
+        [self.contentView addSubview:self.topicPictureView];
+        self.topicPictureView.hidden = NO;
+        self.topicVideoView.hidden = YES;
+    } else if ([topic.type isEqualToString:@"gif"]) {
         [self.contentView addSubview:self.topicPictureView];
         self.topicPictureView.hidden = NO;
         self.topicVideoView.hidden = YES;
@@ -115,10 +119,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if ([self.topic.type isEqualToString:@"image"] || [self.topic.type isEqualToString:@"gif"]) {
-//        self.topicPictureView.frame = self.topic.middleViewframe;
-    } else if ([self.topic.type isEqualToString:@"video"]) {
+    if ([self.topic.type isEqualToString:@"image"]) {
         NSLog(@"%@", NSStringFromCGRect(self.topic.middleViewframe));
+        self.topicPictureView.frame = self.topic.middleViewframe;
+    } else if ([self.topic.type isEqualToString:@"gif"]) {
+        self.topicPictureView.frame = self.topic.middleViewframe;
+    } else if ([self.topic.type isEqualToString:@"video"]) {
         self.topicVideoView.frame = self.topic.middleViewframe;
     } else if ([self.topic.type isEqualToString:@"text"]) {
         

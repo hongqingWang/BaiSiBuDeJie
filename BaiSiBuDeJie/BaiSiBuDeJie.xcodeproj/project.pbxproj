@@ -30,6 +30,8 @@
 		183838EC20DBBC7B004260E4 /* QQTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838EB20DBBC7B004260E4 /* QQTopicVideoView.m */; };
 		183838EE20DBBC8D004260E4 /* QQTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183838ED20DBBC8D004260E4 /* QQTopicVideoView.xib */; };
 		183838F120DBC638004260E4 /* QQVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838F020DBC638004260E4 /* QQVideo.m */; };
+		183838F420DBDF01004260E4 /* QQImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838F320DBDF01004260E4 /* QQImage.m */; };
+		183838F720DBE286004260E4 /* QQGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 183838F620DBE286004260E4 /* QQGif.m */; };
 		18598A3420D7885F008EECED /* QQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3320D7885F008EECED /* QQTitleButton.m */; };
 		18598A3A20D7A9BD008EECED /* QQVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3920D7A9BD008EECED /* QQVideoViewController.m */; };
 		18598A3D20D7A9D7008EECED /* QQVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3C20D7A9D7008EECED /* QQVoiceViewController.m */; };
@@ -112,6 +114,10 @@
 		183838ED20DBBC8D004260E4 /* QQTopicVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQTopicVideoView.xib; sourceTree = "<group>"; };
 		183838EF20DBC638004260E4 /* QQVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVideo.h; sourceTree = "<group>"; };
 		183838F020DBC638004260E4 /* QQVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQVideo.m; sourceTree = "<group>"; };
+		183838F220DBDF01004260E4 /* QQImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQImage.h; sourceTree = "<group>"; };
+		183838F320DBDF01004260E4 /* QQImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQImage.m; sourceTree = "<group>"; };
+		183838F520DBE286004260E4 /* QQGif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQGif.h; sourceTree = "<group>"; };
+		183838F620DBE286004260E4 /* QQGif.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQGif.m; sourceTree = "<group>"; };
 		18598A3220D7885F008EECED /* QQTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTitleButton.h; sourceTree = "<group>"; };
 		18598A3320D7885F008EECED /* QQTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTitleButton.m; sourceTree = "<group>"; };
 		18598A3820D7A9BD008EECED /* QQVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQVideoViewController.h; sourceTree = "<group>"; };
@@ -485,6 +491,10 @@
 				183838DD20DB98B7004260E4 /* QQComment.m */,
 				183838EF20DBC638004260E4 /* QQVideo.h */,
 				183838F020DBC638004260E4 /* QQVideo.m */,
+				183838F220DBDF01004260E4 /* QQImage.h */,
+				183838F320DBDF01004260E4 /* QQImage.m */,
+				183838F520DBE286004260E4 /* QQGif.h */,
+				183838F620DBE286004260E4 /* QQGif.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -773,6 +783,7 @@
 				18EE158220D220C00078EB5E /* QQLoginViewController.m in Sources */,
 				18DD1C4820C927F000BE8EA8 /* QQSubTagCell.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
+				183838F420DBDF01004260E4 /* QQImage.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
 				04105BB21FD587E400DC3EF3 /* QQTabBar.m in Sources */,
 				18598A5320D7BDA9008EECED /* UIImage+QQ.m in Sources */,
@@ -788,6 +799,7 @@
 				18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */,
 				183838DE20DB98B7004260E4 /* QQComment.m in Sources */,
 				18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */,
+				183838F720DBE286004260E4 /* QQGif.m in Sources */,
 				18598A5120D7BDA9008EECED /* UIColor+QQ.m in Sources */,
 				04577C991FD832E100A0DB29 /* QQSettingController.m in Sources */,
 				183838F120DBC638004260E4 /* QQVideo.m in Sources */,
