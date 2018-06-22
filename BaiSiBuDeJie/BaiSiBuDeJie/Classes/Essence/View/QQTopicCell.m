@@ -99,6 +99,7 @@
         [self.contentView addSubview:self.topicVideoView];
         self.topicPictureView.hidden = YES;
         self.topicVideoView.hidden = NO;
+        self.topicVideoView.topic = topic;
     } else if ([topic.type isEqualToString:@"text"]) {
         self.topicPictureView.hidden = YES;
         self.topicVideoView.hidden = YES;
@@ -120,7 +121,6 @@
     [super layoutSubviews];
     
     if ([self.topic.type isEqualToString:@"image"]) {
-        NSLog(@"%@", NSStringFromCGRect(self.topic.middleViewframe));
         self.topicPictureView.frame = self.topic.middleViewframe;
     } else if ([self.topic.type isEqualToString:@"gif"]) {
         self.topicPictureView.frame = self.topic.middleViewframe;

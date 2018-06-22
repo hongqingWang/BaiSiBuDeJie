@@ -30,22 +30,29 @@
     // 视频
     if ([self.type isEqualToString:@"video"]) {
         
-        // 宽高比大于1
-        if ((self.video.width / self.video.height) >= 1) {
-            CGFloat middleViewX = QQMargin;
-            CGFloat middleViewY = _cellHeight;
-            CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
-            CGFloat middleViewH = middleViewW * self.video.height / self.video.width;
-            self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
-            _cellHeight += middleViewH;
-        } else {
-            CGFloat middleViewY = _cellHeight;
-            CGFloat middleViewH = SCREEN_HEIGHT / 2;
-            CGFloat middleViewW = middleViewH * self.video.width / self.video.height;
-            CGFloat middleViewX = (SCREEN_WIDTH - middleViewW) / 2;
-            self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
-            _cellHeight += middleViewH;
-        }
+        CGFloat middleViewX = QQMargin;
+        CGFloat middleViewY = _cellHeight;
+        CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
+        CGFloat middleViewH = middleViewW * self.video.height / self.video.width;
+        self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
+        _cellHeight += middleViewH;
+        
+//        // 宽高比大于1
+//        if ((self.video.width / self.video.height) >= 1) {
+//            CGFloat middleViewX = QQMargin;
+//            CGFloat middleViewY = _cellHeight;
+//            CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
+//            CGFloat middleViewH = middleViewW * self.video.height / self.video.width;
+//            self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
+//            _cellHeight += middleViewH;
+//        } else {
+//            CGFloat middleViewY = _cellHeight;
+//            CGFloat middleViewH = SCREEN_HEIGHT / 2;
+//            CGFloat middleViewW = middleViewH * self.video.width / self.video.height;
+//            CGFloat middleViewX = (SCREEN_WIDTH - middleViewW) / 2;
+//            self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
+//            _cellHeight += middleViewH;
+//        }
     }
     
     // 图片
