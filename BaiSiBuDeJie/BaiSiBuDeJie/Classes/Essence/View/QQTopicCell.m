@@ -99,6 +99,7 @@
         [self.contentView addSubview:self.topicPictureView];
         self.topicPictureView.hidden = NO;
         self.topicVideoView.hidden = YES;
+        self.topicPictureView.topic = topic;
         
     } else if ([topic.type isEqualToString:@"video"]) {
         

@@ -14,5 +14,11 @@
 @property (nonatomic, assign) NSInteger width;
 /// gif高度
 @property (nonatomic, assign) NSInteger height;
+/// gif图数组
+@property (nonatomic, strong) NSArray *images;
+/// gif缩略图数组
+@property (nonatomic, strong) NSArray *gif_thumbnail;
+/// gif下载链接数组
+@property (nonatomic, strong) NSArray *download_url;
 
 @end

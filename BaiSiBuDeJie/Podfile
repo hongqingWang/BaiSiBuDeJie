@@ -8,7 +8,10 @@ inhibit_all_warnings!
 
 pod 'AFNetworking'
 pod 'MJExtension'
+pod 'YYImage'
+pod 'YYImage/WebP'
 pod 'SDWebImage'
+pod 'SDWebImage/GIF'
 pod 'Masonry'
 pod 'SVProgressHUD'
 

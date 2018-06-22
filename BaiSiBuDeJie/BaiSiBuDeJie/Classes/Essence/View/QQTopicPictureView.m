@@ -9,7 +9,9 @@
 #import "QQTopicPictureView.h"
 #import "QQTopic.h"
 #import "QQImage.h"
+#import "QQGif.h"
 #import "UIImageView+QQ.h"
+#import <FLAnimatedImageView+WebCache.h>
 
 @interface QQTopicPictureView ()
 
@@ -26,11 +28,40 @@
     
     self.placeholderImageView.hidden = NO;
     
-    [self.imageView qq_setOriginImageWithURLString:[topic.image.big firstObject] thumbnailImage:[topic.image.thumbnail_small firstObject] placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        if (!image) return;
+    NSString *pictureURLString = [NSString string];
+    NSString *pictureThumbnailURLString = [NSString string];
+    
+    if ([topic.type isEqualToString:@"image"]) {
+        pictureURLString = [topic.image.big firstObject];
+        pictureThumbnailURLString = [topic.image.thumbnail_small firstObject];
         
-        self.placeholderImageView.hidden = YES;
-    }];
+        [self.imageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            if (!image) return;
+            
+            self.placeholderImageView.hidden = YES;
+        }];
+        
+    } else if ([topic.type isEqualToString:@"gif"]) {
+        pictureURLString = [topic.gif.images firstObject];
+        pictureThumbnailURLString = [topic.gif.gif_thumbnail firstObject];
+        
+        
+        FLAnimatedImageView *animatedImageView = [[FLAnimatedImageView alloc] init];
+        animatedImageView.frame = self.imageView.bounds;
+        NSURL *gifUrl = [NSURL URLWithString:pictureURLString];
+        NSData *gifData = [NSData dataWithContentsOfURL:gifUrl];
+        FLAnimatedImage *animateImage = [FLAnimatedImage animatedImageWithGIFData:gifData];
+        animatedImageView.animatedImage = animateImage;
+//        self.imageView.image
+    }
+    
+    NSLog(@"%@", pictureURLString);
+    
+//    [self.imageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        if (!image) return;
+//
+//        self.placeholderImageView.hidden = YES;
+//    }];
 }
 
 - (void)awakeFromNib {

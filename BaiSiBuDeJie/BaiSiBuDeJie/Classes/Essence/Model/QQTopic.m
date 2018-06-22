@@ -79,9 +79,9 @@
         CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
         CGFloat middleViewH = middleViewW * self.gif.height / self.gif.width;
         
-        if (middleViewH > SCREEN_HEIGHT / 2) {
-            middleViewH = 300;
-        }
+//        if (middleViewH > SCREEN_HEIGHT / 2) {
+//            middleViewH = 300;
+//        }
         
         self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
         _cellHeight += middleViewH;
