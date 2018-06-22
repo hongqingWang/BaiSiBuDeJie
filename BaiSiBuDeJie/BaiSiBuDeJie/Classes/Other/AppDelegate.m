@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "QQAdController.h"
 #import "QQTabBarController.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()
 
@@ -27,6 +28,10 @@
     self.window.rootViewController = tabBarVc;
     
     [self.window makeKeyAndVisible];
+    
+    // 监测网络
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager startMonitoring];
     
     return YES;
 }

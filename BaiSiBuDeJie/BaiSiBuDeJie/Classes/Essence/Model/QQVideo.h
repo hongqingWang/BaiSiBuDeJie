@@ -18,8 +18,10 @@
 @property (nonatomic, assign) NSInteger playcount;
 /// 视频时长
 @property (nonatomic, assign) NSInteger duration;
-/// 缩略图数组
+/// 缩略图数组(大图)
 @property (nonatomic, strong) NSArray *thumbnail;
+/// 缩略图数组(小图150x150)
+@property (nonatomic, strong) NSArray *thumbnail_small;
 /// 播放视频地址URL数组
 @property (nonatomic, strong) NSArray *video;
 /// 视频下载数组
