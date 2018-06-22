@@ -88,19 +88,27 @@
 - (void)setupXibViewWithTopic:(QQTopic *)topic {
     
     if ([topic.type isEqualToString:@"image"]) {
+        
         [self.contentView addSubview:self.topicPictureView];
         self.topicPictureView.hidden = NO;
         self.topicVideoView.hidden = YES;
+        self.topicPictureView.topic = topic;
+        
     } else if ([topic.type isEqualToString:@"gif"]) {
+        
         [self.contentView addSubview:self.topicPictureView];
         self.topicPictureView.hidden = NO;
         self.topicVideoView.hidden = YES;
+        
     } else if ([topic.type isEqualToString:@"video"]) {
+        
         [self.contentView addSubview:self.topicVideoView];
         self.topicPictureView.hidden = YES;
         self.topicVideoView.hidden = NO;
         self.topicVideoView.topic = topic;
+        
     } else if ([topic.type isEqualToString:@"text"]) {
+        
         self.topicPictureView.hidden = YES;
         self.topicVideoView.hidden = YES;
     }

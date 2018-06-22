@@ -10,9 +10,9 @@
 
 @interface QQGif : NSObject
 
-/// 视频宽度
+/// gif宽度
 @property (nonatomic, assign) NSInteger width;
-/// 视频高度
+/// gif高度
 @property (nonatomic, assign) NSInteger height;
 
 @end
