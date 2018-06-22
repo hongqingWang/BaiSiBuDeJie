@@ -56,9 +56,9 @@
         CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
         CGFloat middleViewH = middleViewW * self.image.height / self.image.width;
         
-        if (middleViewH > SCREEN_HEIGHT / 2) {
-            middleViewH = 200;
-        }
+//        if (middleViewH > SCREEN_HEIGHT / 2) {
+//            middleViewH = 200;
+//        }
         
         self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
         _cellHeight += middleViewH;
