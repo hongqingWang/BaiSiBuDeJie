@@ -14,6 +14,7 @@
 #import "UIImage+QQ.h"
 
 #import "QQTopicPictureView.h"
+#import "QQTopicGifView.h"
 #import "QQTopicVideoView.h"
 
 @interface QQTopicCell ()
@@ -32,10 +33,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *hotCommentLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *hotCommentViewTopCons;
 
-/// QQTopicVideoView
-@property (nonatomic, weak) QQTopicVideoView *topicVideoView;
 /// QQTopicPictureView
 @property (nonatomic, weak) QQTopicPictureView *topicPictureView;
+/// QQTopicGifView
+@property (nonatomic, strong) QQTopicGifView *topicGifView;
+/// QQTopicVideoView
+@property (nonatomic, weak) QQTopicVideoView *topicVideoView;
 
 @end
 
@@ -91,26 +94,30 @@
         
         [self.contentView addSubview:self.topicPictureView];
         self.topicPictureView.hidden = NO;
+        self.topicGifView.hidden = YES;
         self.topicVideoView.hidden = YES;
         self.topicPictureView.topic = topic;
         
     } else if ([topic.type isEqualToString:@"gif"]) {
         
-        [self.contentView addSubview:self.topicPictureView];
-        self.topicPictureView.hidden = NO;
+        [self.contentView addSubview:self.topicGifView];
+        self.topicPictureView.hidden = YES;
+        self.topicGifView.hidden = NO;
         self.topicVideoView.hidden = YES;
-        self.topicPictureView.topic = topic;
+//        self.topicPictureView.topic = topic;
         
     } else if ([topic.type isEqualToString:@"video"]) {
         
         [self.contentView addSubview:self.topicVideoView];
         self.topicPictureView.hidden = YES;
+        self.topicGifView.hidden = YES;
         self.topicVideoView.hidden = NO;
         self.topicVideoView.topic = topic;
         
     } else if ([topic.type isEqualToString:@"text"]) {
         
         self.topicPictureView.hidden = YES;
+        self.topicGifView.hidden = YES;
         self.topicVideoView.hidden = YES;
     }
 }
@@ -132,7 +139,7 @@
     if ([self.topic.type isEqualToString:@"image"]) {
         self.topicPictureView.frame = self.topic.middleViewframe;
     } else if ([self.topic.type isEqualToString:@"gif"]) {
-        self.topicPictureView.frame = self.topic.middleViewframe;
+        self.topicGifView.frame = self.topic.middleViewframe;
     } else if ([self.topic.type isEqualToString:@"video"]) {
         self.topicVideoView.frame = self.topic.middleViewframe;
     } else if ([self.topic.type isEqualToString:@"text"]) {
@@ -146,6 +153,13 @@
         _topicPictureView = [QQTopicPictureView qq_viewFromNib];
     }
     return _topicPictureView;
+}
+
+- (QQTopicGifView *)topicGifView {
+    if (_topicGifView == nil) {
+        _topicGifView = [[QQTopicGifView alloc] init];
+    }
+    return _topicGifView;
 }
 
 - (QQTopicVideoView *)topicVideoView {

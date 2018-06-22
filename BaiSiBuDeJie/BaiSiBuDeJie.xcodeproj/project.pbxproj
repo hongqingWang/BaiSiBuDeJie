@@ -46,6 +46,7 @@
 		18598A5A20D7BE55008EECED /* QQConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A5920D7BE55008EECED /* QQConst.m */; };
 		18598A8020D9EC66008EECED /* QQTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A7F20D9EC66008EECED /* QQTopic.m */; };
 		189A8D591FCDCA7F00F7F77D /* QQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */; };
+		189EF4A620DD15C90049CAC5 /* QQTopicGifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189EF4A520DD15C90049CAC5 /* QQTopicGifView.m */; };
 		18DD1C3D20C91A7300BE8EA8 /* QQSubTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C3C20C91A7300BE8EA8 /* QQSubTagViewController.m */; };
 		18DD1C4420C920D800BE8EA8 /* QQSubTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C4320C920D800BE8EA8 /* QQSubTag.m */; };
 		18DD1C4820C927F000BE8EA8 /* QQSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD1C4720C927F000BE8EA8 /* QQSubTagCell.m */; };
@@ -147,6 +148,8 @@
 		18598A7F20D9EC66008EECED /* QQTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTopic.m; sourceTree = "<group>"; };
 		189A8D571FCDCA7F00F7F77D /* QQTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTabBarController.h; sourceTree = "<group>"; };
 		189A8D581FCDCA7F00F7F77D /* QQTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTabBarController.m; sourceTree = "<group>"; };
+		189EF4A420DD15C90049CAC5 /* QQTopicGifView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTopicGifView.h; sourceTree = "<group>"; };
+		189EF4A520DD15C90049CAC5 /* QQTopicGifView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTopicGifView.m; sourceTree = "<group>"; };
 		18DD1C3B20C91A7300BE8EA8 /* QQSubTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSubTagViewController.h; sourceTree = "<group>"; };
 		18DD1C3C20C91A7300BE8EA8 /* QQSubTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSubTagViewController.m; sourceTree = "<group>"; };
 		18DD1C4220C920D800BE8EA8 /* QQSubTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSubTag.h; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				183838E520DBBC46004260E4 /* QQTopicPictureView.h */,
 				183838E620DBBC47004260E4 /* QQTopicPictureView.m */,
 				183838E820DBBC50004260E4 /* QQTopicPictureView.xib */,
+				189EF4A420DD15C90049CAC5 /* QQTopicGifView.h */,
+				189EF4A520DD15C90049CAC5 /* QQTopicGifView.m */,
 				183838EA20DBBC7B004260E4 /* QQTopicVideoView.h */,
 				183838EB20DBBC7B004260E4 /* QQTopicVideoView.m */,
 				183838ED20DBBC8D004260E4 /* QQTopicVideoView.xib */,
@@ -782,6 +787,7 @@
 				18598A3D20D7A9D7008EECED /* QQVoiceViewController.m in Sources */,
 				18EE158220D220C00078EB5E /* QQLoginViewController.m in Sources */,
 				18DD1C4820C927F000BE8EA8 /* QQSubTagCell.m in Sources */,
+				189EF4A620DD15C90049CAC5 /* QQTopicGifView.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
 				183838F420DBDF01004260E4 /* QQImage.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
