@@ -120,7 +120,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.maxid = 0;
 //    QQRecommandURL
 //    QQVideoURL
-    [manager GET:QQRecommandURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQVideoURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         NSLog(@"%@", responseObject);

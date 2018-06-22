@@ -12,7 +12,7 @@
 
 - (void)qq_setAvatarWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage;
 
-- (void)qq_setOriginImageWithURLString:(NSString *)originURLString thumbnailImage:(NSString *)thumbnailURLString placeholder:(UIImage *)placeholder;
+- (void)qq_setOriginImageWithURLString:(NSString *)originURLString thumbnailImage:(NSString *)thumbnailURLString placeholder:(UIImage *)placeholder completed:(nullable SDExternalCompletionBlock)completedBlock;
 
 
 
