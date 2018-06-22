@@ -24,6 +24,30 @@
     }];
 }
 
+- (void)qq_setOriginImageWithURLString:(NSString *)originURLString thumbnailImage:(NSString *)thumbnailURLString placeholder:(UIImage *)placeholder {
+    
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    
+    UIImage *originImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:originURLString];
+    
+    if (originImage) {
+        self.image = originImage;
+    } else {
+        if (manager.isReachableViaWiFi) {
+            [self sd_setImageWithURL:[NSURL URLWithString:originURLString] placeholderImage:placeholder];
+        } else if (manager.isReachableViaWWAN) {
+            [self sd_setImageWithURL:[NSURL URLWithString:thumbnailURLString] placeholderImage:placeholder];
+        } else {
+            UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:thumbnailURLString];
+            if (thumbnailImage) {
+                self.image = thumbnailImage;
+            } else {
+                self.image = placeholder;
+            }
+        }
+    }
+}
+
 
 
 

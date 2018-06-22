@@ -9,15 +9,13 @@
 #import "QQTopicVideoView.h"
 #import "QQTopic.h"
 #import "QQVideo.h"
-#import <UIImageView+WebCache.h>
-#import <AFNetworking.h>
+#import "UIImageView+QQ.h"
 
 @interface QQTopicVideoView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-
 
 @end
 
@@ -26,27 +24,7 @@
 - (void)setTopic:(QQTopic *)topic {
     _topic = topic;
     
-    UIImage *placeholder = nil;
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    
-    UIImage *originImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:[topic.video.thumbnail firstObject]];
-    
-    if (originImage) {
-        self.imageView.image = originImage;
-    } else {
-        if (manager.isReachableViaWiFi) {
-            [self.imageView sd_setImageWithURL:[NSURL URLWithString:[topic.video.thumbnail firstObject]] placeholderImage:placeholder];
-        } else if (manager.isReachableViaWWAN) {
-            [self.imageView sd_setImageWithURL:[NSURL URLWithString:[topic.video.thumbnail_small firstObject]] placeholderImage:placeholder];
-        } else {
-            UIImage *thumbnilImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:[topic.video.thumbnail_small firstObject]];
-            if (thumbnilImage) {
-                self.imageView.image = thumbnilImage;
-            } else {
-                self.imageView.image = placeholder;
-            }
-        }
-    }
+    [self.imageView qq_setOriginImageWithURLString:[topic.video.thumbnail firstObject] thumbnailImage:[topic.video.thumbnail_small firstObject] placeholder:nil];
     
     if (topic.video.playcount >= 10000) {
         self.playCountLabel.text = [NSString stringWithFormat:@"%.1f万播放", topic.video.playcount / 10000.0];
