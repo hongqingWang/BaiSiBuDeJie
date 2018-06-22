@@ -37,11 +37,9 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor backgroundColor];
     self.tableView.contentInset = UIEdgeInsetsMake(QQTitlesViewHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //    self.tableView.estimatedRowHeight = 200;
     
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([QQTopicCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:QQTopicCellId];
@@ -120,10 +118,10 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     self.maxid = 0;
 //    QQRecommandURL
 //    QQVideoURL
-    [manager GET:QQVideoURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQRecommandURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
+//        NSLog(@"%@", responseObject);
         QQAFNWriteToPlist(aaa.plist)
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.maxid = [responseObject[@"info"][@"np"] integerValue];

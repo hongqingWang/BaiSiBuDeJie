@@ -26,8 +26,8 @@
     _topic = topic;
     
     self.plcaeholderImageView.hidden = NO;
-//    [topic.video.thumbnail firstObject]
-    [self.imageView qq_setOriginImageWithURLString:@"aa" thumbnailImage:[topic.video.thumbnail_small firstObject] placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+
+    [self.imageView qq_setOriginImageWithURLString:[topic.video.thumbnail firstObject] thumbnailImage:[topic.video.thumbnail_small firstObject] placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (!image) return;
         
         self.plcaeholderImageView.hidden = YES;
