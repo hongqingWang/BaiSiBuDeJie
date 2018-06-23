@@ -26,17 +26,17 @@
     
     self.placeholderImageView.hidden = NO;
     
-    NSString *pictureURLString = [NSString string];
-    NSString *pictureThumbnailURLString = [NSString string];
-    
-    pictureURLString = [topic.image.big firstObject];
-    pictureThumbnailURLString = [topic.image.thumbnail_small firstObject];
-    
-    [self.imageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.imageView qq_setOriginImageWithURLString:[topic.image.big firstObject] thumbnailImage:[topic.image.thumbnail_small firstObject] placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (!image) return;
         
         self.placeholderImageView.hidden = YES;
     }];
+    
+    if (topic.image.height > SCREEN_HEIGHT) {
+        self.seeBigPictureutton.hidden = NO;
+    } else {
+        self.seeBigPictureutton.hidden = YES;
+    }
 }
 
 - (void)awakeFromNib {

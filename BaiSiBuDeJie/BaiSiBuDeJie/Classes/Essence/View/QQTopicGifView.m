@@ -26,15 +26,7 @@
 - (void)setTopic:(QQTopic *)topic {
     _topic = topic;
     
-//    self.placeholderImageView.hidden = NO;
-    
-    NSString *pictureURLString = [NSString string];
-    NSString *pictureThumbnailURLString = [NSString string];
-    
-    pictureURLString = [topic.gif.images firstObject];
-    pictureThumbnailURLString = [topic.gif.gif_thumbnail firstObject];
-    NSLog(@"%@", pictureURLString);
-    [self.animateImageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.animateImageView qq_setOriginImageWithURLString:[topic.gif.images firstObject] thumbnailImage:[topic.gif.gif_thumbnail firstObject] placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (!image) return;
         
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -52,10 +44,6 @@
                 });
             });
         }
-        
-//        FLAnimatedImage *animateImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
-//        self.animateImageView.animatedImage = animateImage;
-//        self.placeholderImageView.hidden = YES;
     }];
 }
     
