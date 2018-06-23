@@ -103,7 +103,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     [manager GET:QQImageURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
+//        NSLog(@"%@", responseObject);
         QQAFNWriteToPlist(aaa.plist)
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.maxid = [responseObject[@"info"][@"np"] integerValue];

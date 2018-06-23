@@ -32,10 +32,14 @@
         self.placeholderImageView.hidden = YES;
     }];
     
-    if (topic.image.height > SCREEN_HEIGHT) {
+    if (topic.isBigPicture) {
         self.seeBigPictureutton.hidden = NO;
+        self.imageView.contentMode = UIViewContentModeTop;
+        self.imageView.clipsToBounds = YES;
     } else {
         self.seeBigPictureutton.hidden = YES;
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
+        self.imageView.clipsToBounds = NO;
     }
 }
 

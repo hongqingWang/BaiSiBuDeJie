@@ -65,7 +65,6 @@
         
         if (middleViewH > SCREEN_HEIGHT) {
             middleViewH = 200;
-//            self.bigPicture = YES;
         }
         
         self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
@@ -100,6 +99,10 @@
     }
     
     return _cellHeight;
+}
+
+- (BOOL)isBigPicture {
+    return self.image.height > SCREEN_HEIGHT;
 }
 
 + (NSDictionary *)mj_objectClassInArray {
