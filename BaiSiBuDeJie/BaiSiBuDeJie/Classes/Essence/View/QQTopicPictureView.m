@@ -11,8 +11,6 @@
 #import "QQImage.h"
 #import "UIImageView+QQ.h"
 
-//#import <YYImage/YYImage.h>
-
 @interface QQTopicPictureView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -39,25 +37,6 @@
         
         self.placeholderImageView.hidden = YES;
     }];
-    
-//    if ([topic.type isEqualToString:@"image"]) {
-//
-//
-//    } else if ([topic.type isEqualToString:@"gif"]) {
-//        pictureURLString = [topic.gif.images firstObject];
-//        pictureThumbnailURLString = [topic.gif.gif_thumbnail firstObject];
-//
-////        self.imageView
-//
-//    }
-    
-//    NSLog(@"%@", pictureURLString);
-    
-//    [self.imageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        if (!image) return;
-//
-//        self.placeholderImageView.hidden = YES;
-//    }];
 }
 
 - (void)awakeFromNib {
@@ -65,7 +44,5 @@
     
     self.autoresizingMask = UIViewAutoresizingNone;
 }
-
-
 
 @end

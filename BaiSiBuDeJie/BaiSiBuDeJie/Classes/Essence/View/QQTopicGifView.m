@@ -16,6 +16,8 @@
 @interface QQTopicGifView ()
 
 @property (nonatomic, strong) FLAnimatedImageView *animateImageView;
+/// gif标识
+@property (nonatomic, strong) UIImageView *gifLogoImageView;
 
 @end
 
@@ -69,6 +71,7 @@
 - (void)setupUI {
     
     [self addSubview:self.animateImageView];
+    [self addSubview:self.gifLogoImageView];
     
     self.animateImageView.image = [UIImage imageNamed:@"defaultUserIcon"];
 }
@@ -77,6 +80,7 @@
     [super layoutSubviews];
     
     self.animateImageView.frame = self.bounds;
+    self.gifLogoImageView.frame = CGRectMake(0, 0, 31, 31);
 }
 
 #pragma mark - Getters And Setters
@@ -86,6 +90,14 @@
         _animateImageView.runLoopMode = NSDefaultRunLoopMode;
     }
     return _animateImageView;
+}
+
+- (UIImageView *)gifLogoImageView {
+    if (_gifLogoImageView == nil) {
+        _gifLogoImageView = [[UIImageView alloc] init];
+        _gifLogoImageView.image = [UIImage imageNamed:@"common-gif"];
+    }
+    return _gifLogoImageView;
 }
 
 @end
