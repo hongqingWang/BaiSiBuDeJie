@@ -104,7 +104,7 @@
         self.topicPictureView.hidden = YES;
         self.topicGifView.hidden = NO;
         self.topicVideoView.hidden = YES;
-//        self.topicPictureView.topic = topic;
+        self.topicGifView.topic = topic;
         
     } else if ([topic.type isEqualToString:@"video"]) {
         

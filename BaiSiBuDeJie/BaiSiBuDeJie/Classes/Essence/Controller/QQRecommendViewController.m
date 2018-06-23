@@ -122,7 +122,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    [manager GET:QQVideoURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQImageURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         

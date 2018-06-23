@@ -11,6 +11,7 @@
 #import "QQTopic.h"
 #import "QQGif.h"
 #import "UIImageView+QQ.h"
+#import <NSData+ImageContentType.h>
 
 @interface QQTopicGifView ()
 
@@ -30,13 +31,28 @@
     
     pictureURLString = [topic.gif.images firstObject];
     pictureThumbnailURLString = [topic.gif.gif_thumbnail firstObject];
-    
+    NSLog(@"%@", pictureURLString);
     [self.animateImageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (!image) return;
         
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        FLAnimatedImage *animateImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
-        self.animateImageView.animatedImage = animateImage;
+        SDImageFormat imageFormat = [NSData sd_imageFormatForImageData:imageData];
+
+        if (imageFormat == SDImageFormatGIF) {
+
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+                FLAnimatedImage *animateImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+
+                    self.animateImageView.animatedImage = animateImage;
+                });
+            });
+        }
+        
+//        FLAnimatedImage *animateImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
+//        self.animateImageView.animatedImage = animateImage;
 //        self.placeholderImageView.hidden = YES;
     }];
 }
@@ -67,6 +83,7 @@
 - (FLAnimatedImageView *)animateImageView {
     if (_animateImageView == nil) {
         _animateImageView = [[FLAnimatedImageView alloc] init];
+        _animateImageView.runLoopMode = NSDefaultRunLoopMode;
     }
     return _animateImageView;
 }

@@ -51,7 +51,7 @@
 //
 //    }
     
-    NSLog(@"%@", pictureURLString);
+//    NSLog(@"%@", pictureURLString);
     
 //    [self.imageView qq_setOriginImageWithURLString:pictureURLString thumbnailImage:pictureThumbnailURLString placeholder:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
 //        if (!image) return;
