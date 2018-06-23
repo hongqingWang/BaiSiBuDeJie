@@ -232,6 +232,8 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     [self dealHeader];
     [self dealFooter];
+    
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {

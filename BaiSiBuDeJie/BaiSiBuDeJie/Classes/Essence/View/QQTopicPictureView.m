@@ -30,15 +30,9 @@
         if (!image) return;
         
         self.placeholderImageView.hidden = YES;
-    }];
-    
-    if (topic.isBigPicture) {
-        self.seeBigPictureutton.hidden = NO;
-        self.imageView.contentMode = UIViewContentModeTop;
-        self.imageView.clipsToBounds = YES;
         
         // 重新调整图片尺寸大小
-        if (self.imageView.image) {
+        if (topic.isBigPicture) {
             
             CGFloat imageW = SCREEN_WIDTH - QQMargin * 2;
             CGFloat imageH = imageW * topic.image.height / topic.image.width;
@@ -52,8 +46,16 @@
             
             UIGraphicsEndImageContext();
         }
+    }];
+    
+    if (topic.isBigPicture) {
+        
+        self.seeBigPictureutton.hidden = NO;
+        self.imageView.contentMode = UIViewContentModeTop;
+        self.imageView.clipsToBounds = YES;
         
     } else {
+        
         self.seeBigPictureutton.hidden = YES;
         self.imageView.contentMode = UIViewContentModeScaleToFill;
         self.imageView.clipsToBounds = NO;
