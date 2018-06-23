@@ -36,6 +36,23 @@
         self.seeBigPictureutton.hidden = NO;
         self.imageView.contentMode = UIViewContentModeTop;
         self.imageView.clipsToBounds = YES;
+        
+        // 重新调整图片尺寸大小
+        if (self.imageView.image) {
+            
+            CGFloat imageW = SCREEN_WIDTH - QQMargin * 2;
+            CGFloat imageH = imageW * topic.image.height / topic.image.width;
+            CGSize size = CGSizeMake(imageW, imageH);
+            
+            UIGraphicsBeginImageContext(size);
+            
+            [self.imageView.image drawInRect:CGRectMake(0, 0, imageW, imageH)];
+            
+            self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            
+            UIGraphicsEndImageContext();
+        }
+        
     } else {
         self.seeBigPictureutton.hidden = YES;
         self.imageView.contentMode = UIViewContentModeScaleToFill;

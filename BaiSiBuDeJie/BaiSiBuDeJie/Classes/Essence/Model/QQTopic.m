@@ -24,7 +24,7 @@
     _cellHeight += QQMargin;
     
     CGSize size = CGSizeMake(SCREEN_WIDTH - QQMargin * 2, MAXFLOAT);
-    _cellHeight += [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height;
+    _cellHeight += [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:QQContentTextFontSize]} context:nil].size.height;
     _cellHeight += QQMargin;
     
     // 视频
@@ -64,7 +64,7 @@
         CGFloat middleViewH = middleViewW * self.image.height / self.image.width;
         
         if (middleViewH > SCREEN_HEIGHT) {
-            middleViewH = 200;
+            middleViewH = 350;
         }
         
         self.middleViewframe = CGRectMake(middleViewX, middleViewY, middleViewW, middleViewH);
