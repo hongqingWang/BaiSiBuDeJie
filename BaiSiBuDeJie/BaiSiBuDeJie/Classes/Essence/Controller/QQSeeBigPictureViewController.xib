@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQSeeBigPictureViewController">
             <connections>
+                <outlet property="saveButton" destination="1NZ-gA-opn" id="FJf-lj-2UN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,23 +21,38 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feK-Kb-Sv9">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feK-Kb-Sv9" userLabel="Back Button">
                     <rect key="frame" x="10" y="40" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="7Xb-6f-EfN"/>
                         <constraint firstAttribute="width" constant="35" id="hww-MP-YDv"/>
                     </constraints>
                     <state key="normal" title="Button" image="show_image_back_icon"/>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="9Hr-rB-upj"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-gA-opn">
-                    <rect key="frame" x="304" y="617" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-gA-opn" userLabel="Save Button">
+                    <rect key="frame" x="295" y="597" width="70" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="5t4-sr-T4W"/>
+                        <constraint firstAttribute="height" constant="30" id="ODH-5D-I4X"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="savePicture:" destination="-1" eventType="touchUpInside" id="JGM-IY-sTz"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="feK-Kb-Sv9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="B5a-mn-cXx"/>
+                <constraint firstAttribute="bottom" secondItem="1NZ-gA-opn" secondAttribute="bottom" constant="40" id="CGe-TU-3dZ"/>
+                <constraint firstAttribute="trailing" secondItem="1NZ-gA-opn" secondAttribute="trailing" constant="10" id="MxH-5W-gZ1"/>
                 <constraint firstItem="feK-Kb-Sv9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="PL8-lt-jhb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

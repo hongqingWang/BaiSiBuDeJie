@@ -10,6 +10,7 @@
 #import "QQTopic.h"
 #import "QQImage.h"
 #import "UIImageView+QQ.h"
+#import "QQSeeBigPictureViewController.h"
 
 @interface QQTopicPictureView ()
 
@@ -65,7 +66,8 @@
 #pragma mark - Event Response
 - (void)seeBigImage {
     
-    NSLog(@"aaa");
+    QQSeeBigPictureViewController *vc = [[QQSeeBigPictureViewController alloc] init];
+    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)awakeFromNib {
