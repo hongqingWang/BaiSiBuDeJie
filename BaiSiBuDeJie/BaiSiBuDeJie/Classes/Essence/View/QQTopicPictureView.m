@@ -62,10 +62,19 @@
     }
 }
 
+#pragma mark - Event Response
+- (void)seeBigImage {
+    
+    NSLog(@"aaa");
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
     self.autoresizingMask = UIViewAutoresizingNone;
+    self.imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBigImage)];
+    [self.imageView addGestureRecognizer:tap];
 }
 
 @end
