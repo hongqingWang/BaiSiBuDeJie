@@ -11,6 +11,7 @@
 @interface QQSeeBigPictureViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -18,7 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = [UIColor redColor];
+    
+//    scrollView.frame = self.view.bounds;
+//    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+//    scrollView.frame = [UIScreen mainScreen].bounds;
+    
+    [self.view insertSubview:scrollView atIndex:0];
+//    self.scrollView = scrollView;
 }
 
 #pragma mark - Event Response
@@ -27,7 +38,14 @@
 }
 
 - (IBAction)savePicture:(UIButton *)sender {
+
     
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    self.scrollView.frame = self.view.bounds;
 }
 
 @end
