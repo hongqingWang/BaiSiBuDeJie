@@ -67,6 +67,7 @@
 - (void)seeBigImage {
     
     QQSeeBigPictureViewController *vc = [[QQSeeBigPictureViewController alloc] init];
+    vc.topic = self.topic;
     [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 }
 

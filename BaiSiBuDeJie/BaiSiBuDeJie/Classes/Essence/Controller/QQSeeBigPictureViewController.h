@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class QQTopic;
 
 @interface QQSeeBigPictureViewController : UIViewController
+
+@property (nonatomic, strong) QQTopic *topic;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "QQSeeBigPictureViewController.h"
+#import "QQTopic.h"
+#import "QQImage.h"
 
 @interface QQSeeBigPictureViewController ()
 
@@ -22,14 +24,25 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = [UIColor redColor];
-    
-//    scrollView.frame = self.view.bounds;
-//    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-//    scrollView.frame = [UIScreen mainScreen].bounds;
-    
+    scrollView.frame = [UIScreen mainScreen].bounds;
     [self.view insertSubview:scrollView atIndex:0];
-//    self.scrollView = scrollView;
+    
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[self.topic.image.big firstObject]]];
+    imageView.qq_w = scrollView.qq_w;
+    imageView.qq_h = imageView.qq_w * self.topic.image.height / self.topic.image.width;
+    imageView.qq_x = scrollView.qq_x;
+    if (imageView.qq_h > SCREEN_HEIGHT) {
+        imageView.qq_y = 0;
+        scrollView.contentSize = CGSizeMake(0, imageView.qq_h);
+    } else {
+        imageView.qq_centerY = scrollView.qq_h * 0.5;
+    }
+    [scrollView addSubview:imageView];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 #pragma mark - Event Response
@@ -45,7 +58,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    self.scrollView.frame = self.view.bounds;
+//    self.scrollView.frame = self.view.bounds;
 }
 
 @end
