@@ -68,43 +68,92 @@
 
 - (IBAction)savePicture:(UIButton *)sender {
     
+    PHAuthorizationStatus oldStatus = [PHPhotoLibrary authorizationStatus];
+    
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (status == PHAuthorizationStatusDenied) {
+                if (oldStatus == PHAuthorizationStatusNotDetermined) {
+                    NSLog(@"请允许访问相册");
+                }
+            } else if (status == PHAuthorizationStatusAuthorized) {
+                [self saveImageIntoAlbum];
+            } else if (status == PHAuthorizationStatusRestricted) {
+                [SVProgressHUD showErrorWithStatus:@"系统原因，暂时无法访问相册!"];
+            }
+        });
+    }];
+}
+
+- (void)saveImageIntoAlbum {
+    
+    // 保存图片到系统相册
+    PHFetchResult<PHAsset *> *createdAssets = [self createdAssets];
+    if (createdAssets == nil) {
+        [SVProgressHUD showErrorWithStatus:@"保存图片失败!"];
+        return;
+    }
+    
+    // 创建自己App的相册
+    PHAssetCollection *assetCollection = [self creatCollection];
+    if (assetCollection == nil) {
+        [SVProgressHUD showErrorWithStatus:@"创建相册失败!"];
+        return;
+    }
+    
+    NSError *error = nil;
+    // 添加图片到自定义相册
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        
+        PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+        [request insertAssets:createdAssets atIndexes:[NSIndexSet indexSetWithIndex:0]];
+        
+    } error:&error];
+    if (error) {
+        [SVProgressHUD showErrorWithStatus:@"保存图片失败!"];
+    } else {
+        [SVProgressHUD showSuccessWithStatus:@"保存图片成功"];
+    }
+}
+
+#pragma mark - 创建App相册
+- (PHAssetCollection *)creatCollection {
+    
     NSString *title = [NSBundle mainBundle].infoDictionary[(NSString *)kCFBundleNameKey];
     
     PHFetchResult<PHAssetCollection *> *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    PHAssetCollection *createdCollection = nil;
+    
     for (PHAssetCollection *titleCollection in result) {
         if ([titleCollection.localizedTitle isEqualToString:title]) {
-            createdCollection = titleCollection;
-            break;
+            return titleCollection;
         }
     }
     
-    if (createdCollection == nil) {
-        NSError *error;
-        __block NSString *createdCollectionID;
+    NSError *error = nil;
+    __block NSString *createdCollectionID;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
         
-        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-            
-            createdCollectionID = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title].placeholderForCreatedAssetCollection.localIdentifier;
-            
-        } error:&error];
-
-        createdCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[createdCollectionID] options:nil].firstObject;
-    }
+        createdCollectionID = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title].placeholderForCreatedAssetCollection.localIdentifier;
+        
+    } error:&error];
+    if (error) return nil;
     
-    NSLog(@"%@", createdCollection);
-    
-//    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    return [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[createdCollectionID] options:nil].firstObject;
 }
 
-//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-//
-//    if (error) {
-//        [SVProgressHUD showErrorWithStatus:@"保存失败!"];
-//    } else {
-//        [SVProgressHUD showSuccessWithStatus:@"保存成功!"];
-//    }
-//}
+- (PHFetchResult<PHAsset *> *)createdAssets {
+    
+    NSError *error = nil;
+    __block NSString *assetID = nil;
+    
+    // 保存图片到系统相册
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        assetID = [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
+    } error:&error];
+    if (error) return nil;
+    // 获取图片
+    return [PHAsset fetchAssetsWithLocalIdentifiers:@[assetID] options:nil];
+}
 
 #pragma mark - UIScrollViewDelegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
