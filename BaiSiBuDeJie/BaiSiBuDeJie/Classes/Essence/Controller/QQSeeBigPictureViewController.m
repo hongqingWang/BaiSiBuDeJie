@@ -10,6 +10,7 @@
 #import "QQTopic.h"
 #import "QQImage.h"
 #import <SVProgressHUD.h>
+#import <Photos/Photos.h>
 
 @interface QQSeeBigPictureViewController ()<UIScrollViewDelegate>
 
@@ -66,18 +67,33 @@
 }
 
 - (IBAction)savePicture:(UIButton *)sender {
-
-    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    
+    NSError *error;
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        
+        NSLog(@"1 - %@", [NSThread currentThread]);
+        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
+        
+    } error:&error];
     
     if (error) {
         [SVProgressHUD showErrorWithStatus:@"保存失败!"];
     } else {
         [SVProgressHUD showSuccessWithStatus:@"保存成功!"];
     }
+    
+//    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
+
+//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+//
+//    if (error) {
+//        [SVProgressHUD showErrorWithStatus:@"保存失败!"];
+//    } else {
+//        [SVProgressHUD showSuccessWithStatus:@"保存成功!"];
+//    }
+//}
 
 #pragma mark - UIScrollViewDelegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

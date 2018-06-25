@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;百思不得姐&quot;需要您的同意，才能访问相册</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>&quot;百思不得姐&quot;需要您的同意，才能添加照片</string>
 	<key>NSAppTransportSecurity</key>
