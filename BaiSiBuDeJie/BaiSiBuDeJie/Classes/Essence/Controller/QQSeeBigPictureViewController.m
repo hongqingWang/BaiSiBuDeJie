@@ -72,8 +72,10 @@
     
     [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
         
-        NSLog(@"1 - %@", [NSThread currentThread]);
-        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
+        NSString *title = [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
+//        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
+        
+        [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title];
         
     } error:&error];
     
