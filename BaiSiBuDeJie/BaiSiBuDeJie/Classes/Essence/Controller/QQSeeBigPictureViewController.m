@@ -68,22 +68,31 @@
 
 - (IBAction)savePicture:(UIButton *)sender {
     
-    NSError *error;
+    NSString *title = [NSBundle mainBundle].infoDictionary[(NSString *)kCFBundleNameKey];
     
-    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-        
-        NSString *title = [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
-//        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
-        
-        [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title];
-        
-    } error:&error];
-    
-    if (error) {
-        [SVProgressHUD showErrorWithStatus:@"保存失败!"];
-    } else {
-        [SVProgressHUD showSuccessWithStatus:@"保存成功!"];
+    PHFetchResult<PHAssetCollection *> *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    PHAssetCollection *createdCollection = nil;
+    for (PHAssetCollection *titleCollection in result) {
+        if ([titleCollection.localizedTitle isEqualToString:title]) {
+            createdCollection = titleCollection;
+            break;
+        }
     }
+    
+    if (createdCollection == nil) {
+        NSError *error;
+        __block NSString *createdCollectionID;
+        
+        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+            
+            createdCollectionID = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title].placeholderForCreatedAssetCollection.localIdentifier;
+            
+        } error:&error];
+
+        createdCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[createdCollectionID] options:nil].firstObject;
+    }
+    
+    NSLog(@"%@", createdCollection);
     
 //    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
