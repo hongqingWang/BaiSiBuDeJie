@@ -10,10 +10,11 @@
 #import "QQTopic.h"
 #import "QQImage.h"
 
-@interface QQSeeBigPictureViewController ()
+@interface QQSeeBigPictureViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, weak) UIImageView *imageView;
 
 @end
 
@@ -23,8 +24,8 @@
     [super viewDidLoad];
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = [UIColor redColor];
     scrollView.frame = [UIScreen mainScreen].bounds;
+    
     [self.view insertSubview:scrollView atIndex:0];
     [scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back:)]];
     
@@ -44,6 +45,14 @@
         imageView.qq_centerY = scrollView.qq_h * 0.5;
     }
     [scrollView addSubview:imageView];
+    self.imageView = imageView;
+    
+    // 图片缩放
+    CGFloat maxScale = self.topic.image.width / imageView.qq_w;
+    if (maxScale > 1) {
+        scrollView.maximumZoomScale = maxScale;
+        scrollView.delegate = self;
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -58,6 +67,11 @@
 - (IBAction)savePicture:(UIButton *)sender {
 
     
+}
+
+#pragma mark - UIScrollViewDelegate
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
 }
 
 - (void)viewDidLayoutSubviews {
