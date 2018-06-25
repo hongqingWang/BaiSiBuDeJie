@@ -9,6 +9,7 @@
 #import "QQSeeBigPictureViewController.h"
 #import "QQTopic.h"
 #import "QQImage.h"
+#import <SVProgressHUD.h>
 
 @interface QQSeeBigPictureViewController ()<UIScrollViewDelegate>
 
@@ -66,7 +67,16 @@
 
 - (IBAction)savePicture:(UIButton *)sender {
 
+    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     
+    if (error) {
+        [SVProgressHUD showErrorWithStatus:@"保存失败!"];
+    } else {
+        [SVProgressHUD showSuccessWithStatus:@"保存成功!"];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
