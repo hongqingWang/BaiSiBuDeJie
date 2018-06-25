@@ -26,9 +26,14 @@
     scrollView.backgroundColor = [UIColor redColor];
     scrollView.frame = [UIScreen mainScreen].bounds;
     [self.view insertSubview:scrollView atIndex:0];
+    [scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back:)]];
     
     UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[self.topic.image.big firstObject]]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[self.topic.image.big firstObject]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (!image) return;
+        
+        self.saveButton.enabled = YES;
+    }];
     imageView.qq_w = scrollView.qq_w;
     imageView.qq_h = imageView.qq_w * self.topic.image.height / self.topic.image.width;
     imageView.qq_x = scrollView.qq_x;
