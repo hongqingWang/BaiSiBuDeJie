@@ -14,5 +14,6 @@ pod 'SDWebImage'
 pod 'SDWebImage/GIF'
 pod 'Masonry'
 pod 'SVProgressHUD'
+pod 'MJRefresh'
 
 end
