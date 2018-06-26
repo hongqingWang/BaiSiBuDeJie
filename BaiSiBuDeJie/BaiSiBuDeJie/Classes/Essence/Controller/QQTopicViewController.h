@@ -1,5 +1,5 @@
 //
-//  QQRankViewController.h
+//  QQTopicViewController.h
 //  BaiSiBuDeJie
 //
 //  Created by 王红庆 on 2018/6/26.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QQRankViewController : UIViewController
+@interface QQTopicViewController : UITableViewController
 
 @end

@@ -20,8 +20,8 @@
     if (_cellHeight) return _cellHeight;
     
     _cellHeight += QQMargin;
+    // 头像高
     _cellHeight += 35;
-    _cellHeight += QQMargin;
     
     CGSize size = CGSizeMake(SCREEN_WIDTH - QQMargin * 2, MAXFLOAT);
     _cellHeight += [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:QQContentTextFontSize]} context:nil].size.height;
@@ -29,6 +29,8 @@
     
     // 视频
     if ([self.type isEqualToString:@"video"]) {
+        
+        _cellHeight += QQMargin;
         
         CGFloat middleViewX = QQMargin;
         CGFloat middleViewY = _cellHeight;
@@ -58,6 +60,8 @@
     // 图片
     if ([self.type isEqualToString:@"image"]) {
         
+        _cellHeight += QQMargin;
+        
         CGFloat middleViewX = QQMargin;
         CGFloat middleViewY = _cellHeight;
         CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
@@ -74,6 +78,8 @@
     // gif
     if ([self.type isEqualToString:@"gif"]) {
         
+        _cellHeight += QQMargin;
+        
         CGFloat middleViewX = QQMargin;
         CGFloat middleViewY = _cellHeight;
         CGFloat middleViewW = SCREEN_WIDTH - QQMargin * 2;
@@ -84,7 +90,7 @@
     }
     
     // 四个按钮的View(BottomView)
-    _cellHeight += 35;
+    _cellHeight += 44;
     
     // 评论
     if (self.top_comments.count > 0) {

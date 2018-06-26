@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "QQTopicViewController.h"
 
-@interface QQRecommendViewController : UITableViewController
+@interface QQRecommendViewController : QQTopicViewController
 
 @end

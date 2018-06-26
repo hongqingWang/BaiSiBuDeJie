@@ -126,6 +126,7 @@
     [super awakeFromNib];
     
 //    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+//    self.dingButton setBackgroundImage:<#(nullable UIImage *)#> forState:<#(UIControlState)#>
 }
 
 - (void)setFrame:(CGRect)frame {
