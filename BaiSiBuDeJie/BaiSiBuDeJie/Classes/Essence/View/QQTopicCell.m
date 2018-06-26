@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *dingButton;
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
-@property (weak, nonatomic) IBOutlet UIButton *commantButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (weak, nonatomic) IBOutlet UIView *hotCommentView;
 @property (weak, nonatomic) IBOutlet UILabel *hotCommentLabel;
@@ -55,7 +55,7 @@
     [self setupButton:self.dingButton number:topic.up placeholder:@"顶"];
     [self setupButton:self.caiButton number:topic.down placeholder:@"踩"];
     [self setupButton:self.repostButton number:topic.forward placeholder:@"分享"];
-    [self setupButton:self.commantButton number:topic.comment placeholder:@"评论"];
+    [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
     
     [self setupCommentWithTopic:topic];
     
@@ -125,8 +125,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-//    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
-//    self.dingButton setBackgroundImage:<#(nullable UIImage *)#> forState:<#(UIControlState)#>
+    [self.dingButton setBackgroundImage:[UIImage qq_imageFromColor:[UIColor backgroundColor] size:CGSizeMake(10, 10)] forState:UIControlStateHighlighted];
+    [self.caiButton setBackgroundImage:[UIImage qq_imageFromColor:[UIColor backgroundColor] size:CGSizeMake(10, 10)] forState:UIControlStateHighlighted];
+    [self.repostButton setBackgroundImage:[UIImage qq_imageFromColor:[UIColor backgroundColor] size:CGSizeMake(10, 10)] forState:UIControlStateHighlighted];
+    [self.commentButton setBackgroundImage:[UIImage qq_imageFromColor:[UIColor backgroundColor] size:CGSizeMake(10, 10)] forState:UIControlStateHighlighted];
 }
 
 - (void)setFrame:(CGRect)frame {

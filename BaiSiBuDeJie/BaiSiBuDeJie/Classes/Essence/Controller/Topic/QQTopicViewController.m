@@ -55,6 +55,11 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QQTabBarButtonDidRepeatClickNotification object:nil];
 }
 
+- (void)loadDataWithURLString:(NSString *)urlString {
+    
+    
+}
+
 #pragma mark - LoadData
 - (void)loadNewTopics {
     
@@ -97,8 +102,10 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
      */
     
     self.maxid = 0;
-    //    QQImageURL
-    [manager GET:QQRecommendURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%ld-20.json", self.urlString, self.maxid];
+    
+    [manager GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         //        NSLog(@"%@", responseObject);
@@ -120,7 +127,11 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    [manager GET:QQRecommendURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//    #define QQRecommendURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
+    
+    NSString *url = [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", self.maxid];
+    
+    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         

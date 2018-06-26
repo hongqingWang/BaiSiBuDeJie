@@ -10,4 +10,6 @@
 
 @interface QQTopicViewController : UITableViewController
 
+@property (nonatomic, copy) NSString *urlString;
+
 @end

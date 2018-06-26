@@ -52,7 +52,32 @@
     return [imageNormal imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
-
+/**
+ 根据颜色生成图片
+ 
+ @param color color
+ @param size size
+ @return return
+ */
++ (UIImage *)qq_imageFromColor:(UIColor *)color size:(CGSize)size {
+    
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    
+    // 创建图片
+    UIGraphicsBeginImageContext(size);
+    // 创建图片上下文
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    // 设置当前填充颜色的图形上下文
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    // 填充颜色
+    CGContextFillRect(context, rect);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 关闭上下文
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 
 
 

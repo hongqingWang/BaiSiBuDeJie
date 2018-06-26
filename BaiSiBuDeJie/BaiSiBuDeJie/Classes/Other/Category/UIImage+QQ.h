@@ -15,7 +15,14 @@
 
 + (instancetype)imageOriginalWithName:(NSString *)imageName;
 
-
+/**
+ 根据颜色生成图片
+ 
+ @param color color
+ @param size size
+ @return return
+ */
++ (UIImage *)qq_imageFromColor:(UIColor *)color size:(CGSize)size;
 
 
 

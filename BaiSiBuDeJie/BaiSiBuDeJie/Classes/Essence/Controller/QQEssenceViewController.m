@@ -40,9 +40,15 @@
     [self addChildViewControllerWithIndex:0];
 }
 
+/**
+ * 添加子控制器
+ */
 - (void)setupAllChildViewControllers {
     
-    [self addChildViewController:[[QQRecommendViewController alloc] init]];
+    QQRecommendViewController *recommendVc = [[QQRecommendViewController alloc] init];
+    recommendVc.urlString = QQRecommendURL;
+    [self addChildViewController:recommendVc];
+    
     [self addChildViewController:[[QQVideoViewController alloc] init]];
     [self addChildViewController:[[QQPictureViewController alloc] init]];
     [self addChildViewController:[[QQWordViewController alloc] init]];
