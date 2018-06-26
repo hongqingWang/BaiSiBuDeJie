@@ -24,7 +24,14 @@
     _cellHeight += 35;
     
     CGSize size = CGSizeMake(SCREEN_WIDTH - QQMargin * 2, MAXFLOAT);
-    _cellHeight += [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:QQContentTextFontSize]} context:nil].size.height;
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:QQTextRowSpace];
+    // 解决`Label`不能正确换行问题
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSParagraphStyleAttributeName] = paragraphStyle;
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:QQContentTextFontSize];
+    _cellHeight += [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size.height;
     _cellHeight += QQMargin;
     
     // 视频

@@ -12,6 +12,7 @@
 #import "QQComment.h"
 #import "UIImageView+QQ.h"
 #import "UIImage+QQ.h"
+#import "NSString+QQ.h"
 
 #import "QQTopicPictureView.h"
 #import "QQTopicGifView.h"
@@ -50,7 +51,7 @@
     [self.profileImageView qq_setAvatarWithUrlString:[topic.u.header firstObject] placeholderImage:[UIImage qq_avatarImageWithImageName:@"defaultUserIcon"]];
     self.nameLabel.text = topic.u.name;
     self.timeLabel.text = topic.passtime;
-    self.myTextLabel.text = topic.text;
+    self.myTextLabel.attributedText = [NSString qq_attributeString:topic.text fontSize:QQContentTextFontSize lineSpacing:QQTextRowSpace];
     
     [self setupButton:self.dingButton number:topic.up placeholder:@"顶"];
     [self setupButton:self.caiButton number:topic.down placeholder:@"踩"];

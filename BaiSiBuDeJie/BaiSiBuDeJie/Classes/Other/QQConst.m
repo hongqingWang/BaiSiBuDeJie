@@ -24,6 +24,8 @@ CGFloat const QQNavigationMaxY = 64;
 CGFloat const QQMargin = 10;
 /// 内容字体大小
 CGFloat const QQContentTextFontSize = 16;
+/// 字体行间距
+CGFloat const QQTextRowSpace = 4;
 
 /// TabBarButton 被重复点击的通知
 NSString * const QQTabBarButtonDidRepeatClickNotification = @"QQTabBarButtonDidRepeatClickNotification";
