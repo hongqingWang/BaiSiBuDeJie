@@ -49,10 +49,21 @@
     recommendVc.urlString = QQRecommendURL;
     [self addChildViewController:recommendVc];
     
-    [self addChildViewController:[[QQVideoViewController alloc] init]];
-    [self addChildViewController:[[QQPictureViewController alloc] init]];
-    [self addChildViewController:[[QQWordViewController alloc] init]];
-    [self addChildViewController:[[QQRankViewController alloc] init]];
+    QQVideoViewController *videoVc = [[QQVideoViewController alloc] init];
+    videoVc.urlString = QQVideoURL;
+    [self addChildViewController:videoVc];
+    
+    QQPictureViewController *pictureVc = [[QQPictureViewController alloc] init];
+    pictureVc.urlString = QQPictureURL;
+    [self addChildViewController:pictureVc];
+    
+    QQWordViewController *wordVc = [[QQWordViewController alloc] init];
+    wordVc.urlString = QQWordURL;
+    [self addChildViewController:wordVc];
+    
+    QQRankViewController *rankVc = [[QQRankViewController alloc] init];
+    rankVc.urlString = QQRankURL;
+    [self addChildViewController:rankVc];
 }
 
 - (void)setupScrollView {

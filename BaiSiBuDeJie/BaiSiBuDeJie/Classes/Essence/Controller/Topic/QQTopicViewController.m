@@ -127,11 +127,9 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-//    #define QQRecommendURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
+    NSString *urlString = [NSString stringWithFormat:@"%@%ld-20.json", self.urlString, self.maxid];
     
-    NSString *url = [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", self.maxid];
-    
-    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         

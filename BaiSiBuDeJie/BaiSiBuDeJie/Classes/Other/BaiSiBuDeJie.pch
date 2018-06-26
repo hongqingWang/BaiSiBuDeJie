@@ -15,19 +15,6 @@
 #import <Masonry.h>
 #import "QQConst.h"
 
-/**************************************** URL ****************************************/
-// 推荐
-#define QQRecommendURL @"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/"
-//#define QQRecommendURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
-// 视频
-#define QQVideoURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/41/bs0315-iphone-4.5.9/%ld-20.json", maxid]
-// 图片
-#define QQPictureURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/jingxuan/10/bs0315-iphone-4.5.9/%ld-20.json", maxid]
-// 笑话
-#define QQWordURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/%ld-20.json", maxid]
-// 排行
-#define QQRankURL(maxid) [NSString stringWithFormat:@"http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/%ld-20.json", maxid]
-
 /**************************************** 尺寸 ****************************************/
 #define SCREEN_WIDTH        [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT       [UIScreen mainScreen].bounds.size.height
