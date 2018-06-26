@@ -97,10 +97,8 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
      */
     
     self.maxid = 0;
-//    QQRecommandURL
-//    QQVideoURL
 //    QQImageURL
-    [manager GET:QQImageURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQRecommandURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
 //        NSLog(@"%@", responseObject);
@@ -122,7 +120,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    [manager GET:QQImageURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:QQRecommandURL(self.maxid) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         

@@ -10,9 +10,9 @@
 #import "QQTitleButton.h"
 #import "QQRecommendViewController.h"
 #import "QQVideoViewController.h"
-#import "QQVoiceViewController.h"
 #import "QQPictureViewController.h"
 #import "QQWordViewController.h"
+#import "QQRankViewController.h"
 
 @interface QQEssenceViewController ()<UIScrollViewDelegate>
 
@@ -44,9 +44,9 @@
     
     [self addChildViewController:[[QQRecommendViewController alloc] init]];
     [self addChildViewController:[[QQVideoViewController alloc] init]];
-    [self addChildViewController:[[QQVoiceViewController alloc] init]];
     [self addChildViewController:[[QQPictureViewController alloc] init]];
     [self addChildViewController:[[QQWordViewController alloc] init]];
+    [self addChildViewController:[[QQRankViewController alloc] init]];
 }
 
 - (void)setupScrollView {
@@ -89,7 +89,7 @@
 
 - (void)setupTitleButton {
     
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"推荐", @"视频", @"图片", @"笑话", @"排行"];
     NSUInteger titleButtonCount = 5;
     CGFloat titleButtonW = self.titlesView.qq_w / titleButtonCount;
     CGFloat titleButtonH = self.titlesView.qq_h;
