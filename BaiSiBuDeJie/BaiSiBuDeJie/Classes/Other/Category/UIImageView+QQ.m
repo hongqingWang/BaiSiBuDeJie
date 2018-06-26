@@ -32,8 +32,9 @@
 //    typedef void(^SDExternalCompletionBlock)(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL);
     
     if (originImage) {
-        self.image = originImage;
-        completedBlock(originImage, nil, 0, [NSURL URLWithString:originURLString]);
+        [self sd_setImageWithURL:[NSURL URLWithString:originURLString] placeholderImage:placeholder completed:completedBlock];
+//        self.image = originImage;
+//        completedBlock(originImage, nil, 0, [NSURL URLWithString:originURLString]);
     } else {
         if (manager.isReachableViaWiFi) {
             [self sd_setImageWithURL:[NSURL URLWithString:originURLString] placeholderImage:placeholder completed:completedBlock];
@@ -42,10 +43,12 @@
         } else {
             UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:thumbnailURLString];
             if (thumbnailImage) {
-                self.image = thumbnailImage;
-                completedBlock(thumbnailImage, nil, 0, [NSURL URLWithString:thumbnailURLString]);
+                [self sd_setImageWithURL:[NSURL URLWithString:thumbnailURLString] placeholderImage:placeholder completed:completedBlock];
+//                self.image = thumbnailImage;
+//                completedBlock(thumbnailImage, nil, 0, [NSURL URLWithString:thumbnailURLString]);
             } else {
-                self.image = placeholder;
+                [self sd_setImageWithURL:nil placeholderImage:placeholder completed:completedBlock];
+//                self.image = placeholder;
             }
         }
     }
