@@ -20,4 +20,8 @@
     
 }
 
+- (NSString *)urlString {
+    return QQPictureURL;
+}
+
 @end

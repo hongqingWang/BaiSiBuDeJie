@@ -19,4 +19,8 @@
     [super viewDidLoad];
 }
 
+- (NSString *)urlString {
+    return QQWordURL;
+}
+
 @end

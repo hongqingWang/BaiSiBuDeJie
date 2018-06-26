@@ -55,9 +55,8 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QQTabBarButtonDidRepeatClickNotification object:nil];
 }
 
-- (void)loadDataWithURLString:(NSString *)urlString {
-    
-    
+- (NSString *)urlString {
+    return nil;
 }
 
 #pragma mark - LoadData
@@ -88,22 +87,11 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
      再快速刷新
      
      http://d.api.budejie.com/topic/Topic/bs0315-iphone-4.5.9/0-30.json?openudid=5704d313c8474093176a4a702aace6c88fdd5287&appname=bs0315&asid=1A454B88-A199-44C7-A464-0AA026DAE934&client=iphone&device=iPhone%205s%20%28GSM%2BCDMA%29&from=ios&jbk=1&market=&openudid=5704d313c8474093176a4a702aace6c88fdd5287&t=1529568868&udid=&ver=4.5.9 <1526190242><30>
-     
-     4.笑话
-     http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/0-20.json           <1529555904><1000>
-     http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/1529555904-20.json  <1529547671><1000>
-     http://s.budejie.com/topic/tag-topic/63674/hot/bs0315-iphone-4.5.9/1529547671-20.json  <1529544651><1000>
-     
-     5.排行
-     http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/0-20.json                  <1526270581><182>
-     http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/1526270581-20.json         <1524982321><182>
-     http://s.budejie.com/topic/list/remen/1/bs0315-iphone-4.5.9/1524982321-20.json         <1524266822><182>
-     
      */
     
     self.maxid = 0;
     
-    NSString *urlString = [NSString stringWithFormat:@"%@%ld-20.json", self.urlString, self.maxid];
+    NSString *urlString = [NSString stringWithFormat:@"%@%ld-20.json", [self urlString], self.maxid];
     
     [manager GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -127,7 +115,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@%ld-20.json", self.urlString, self.maxid];
+    NSString *urlString = [NSString stringWithFormat:@"%@%ld-20.json", [self urlString], self.maxid];
     
     [manager GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         

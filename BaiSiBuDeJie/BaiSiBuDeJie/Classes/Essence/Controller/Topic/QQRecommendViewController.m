@@ -23,7 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+}
+
+- (NSString *)urlString {
+    return QQRecommendURL;
 }
 
 @end
