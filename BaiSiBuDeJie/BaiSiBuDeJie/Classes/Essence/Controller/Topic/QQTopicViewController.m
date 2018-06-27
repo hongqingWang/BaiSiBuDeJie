@@ -12,7 +12,7 @@
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
 #import "QQTopicCell.h"
-#import <MJRefresh.h>
+#import "QQRefreshHeader.h"
 
 @interface QQTopicViewController ()
 
@@ -132,9 +132,8 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 #pragma mark - Refresh
 - (void)setupRefresh {
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    self.tableView.mj_header = [QQRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     [self.tableView.mj_header beginRefreshing];
-    self.tableView.mj_header.automaticallyChangeAlpha = YES;
     
     UILabel *adLabel = [[UILabel alloc] init];
     adLabel.backgroundColor = [UIColor blackColor];
