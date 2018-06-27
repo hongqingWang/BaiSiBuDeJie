@@ -40,6 +40,7 @@
 		1842F84320E26F9800A1A43D /* NSString+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842F84220E26F9800A1A43D /* NSString+QQ.m */; };
 		184E1ECB20E30EC7005C4097 /* QQRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 184E1ECA20E30EC7005C4097 /* QQRefreshHeader.m */; };
 		184E1ECE20E31443005C4097 /* QQDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 184E1ECD20E31443005C4097 /* QQDIYHeader.m */; };
+		184E1ED220E336EE005C4097 /* QQHTTPSessionManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184E1ED120E336EE005C4097 /* QQHTTPSessionManger.m */; };
 		18598A3420D7885F008EECED /* QQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A3320D7885F008EECED /* QQTitleButton.m */; };
 		18598A5120D7BDA9008EECED /* UIColor+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A4520D7BDA9008EECED /* UIColor+QQ.m */; };
 		18598A5220D7BDA9008EECED /* UIBarButtonItem+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18598A4C20D7BDA9008EECED /* UIBarButtonItem+QQ.m */; };
@@ -141,6 +142,8 @@
 		184E1ECA20E30EC7005C4097 /* QQRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQRefreshHeader.m; sourceTree = "<group>"; };
 		184E1ECC20E31443005C4097 /* QQDIYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQDIYHeader.h; sourceTree = "<group>"; };
 		184E1ECD20E31443005C4097 /* QQDIYHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQDIYHeader.m; sourceTree = "<group>"; };
+		184E1ED020E336EE005C4097 /* QQHTTPSessionManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQHTTPSessionManger.h; sourceTree = "<group>"; };
+		184E1ED120E336EE005C4097 /* QQHTTPSessionManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQHTTPSessionManger.m; sourceTree = "<group>"; };
 		18598A3220D7885F008EECED /* QQTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQTitleButton.h; sourceTree = "<group>"; };
 		18598A3320D7885F008EECED /* QQTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTitleButton.m; sourceTree = "<group>"; };
 		18598A4520D7BDA9008EECED /* UIColor+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QQ.m"; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 		041CE63D1FCF961B00883695 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				184E1ECF20E336C6005C4097 /* Network */,
 				184E1EC820E30E79005C4097 /* Refresh */,
 				18EE15B120D7318C0078EB5E /* File */,
 			);
@@ -486,6 +490,15 @@
 				184E1ECD20E31443005C4097 /* QQDIYHeader.m */,
 			);
 			path = Refresh;
+			sourceTree = "<group>";
+		};
+		184E1ECF20E336C6005C4097 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				184E1ED020E336EE005C4097 /* QQHTTPSessionManger.h */,
+				184E1ED120E336EE005C4097 /* QQHTTPSessionManger.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		18598A3120D78848008EECED /* View */ = {
@@ -838,6 +851,7 @@
 				189EF4A620DD15C90049CAC5 /* QQTopicGifView.m in Sources */,
 				044612E21FCC4AE8002C8A95 /* QQEssenceViewController.m in Sources */,
 				183838F420DBDF01004260E4 /* QQImage.m in Sources */,
+				184E1ED220E336EE005C4097 /* QQHTTPSessionManger.m in Sources */,
 				044612E51FCC4B01002C8A95 /* QQFriendTrendViewController.m in Sources */,
 				04105BB21FD587E400DC3EF3 /* QQTabBar.m in Sources */,
 				18598A5320D7BDA9008EECED /* UIImage+QQ.m in Sources */,

@@ -10,6 +10,7 @@
 #import "QQAdView.h"
 #import "QQAd.h"
 #import "QQTabBarController.h"
+#import "QQHTTPSessionManger.h"
 
 static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-10.html";
 
@@ -55,7 +56,7 @@ static NSString *const adURLString = @"http://c.m.163.com/nc/article/headline/T1
 #pragma mark - loadData
 - (void)loadData {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    QQHTTPSessionManger *manager = [QQHTTPSessionManger manager];
     [manager GET:adURLString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSArray *adArray = [responseObject[@"T1348647853363"] firstObject][@"ads"];

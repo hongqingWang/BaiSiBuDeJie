@@ -7,7 +7,7 @@
 //
 
 #import "QQTopicViewController.h"
-#import <AFNetworking.h>
+#import "QQHTTPSessionManger.h"
 #import "QQTopic.h"
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
@@ -56,7 +56,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 #pragma mark - LoadData
 - (void)loadNewTopics {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    QQHTTPSessionManger *manager = [QQHTTPSessionManger manager];
     
     /*
      http://api.budejie.com/api/api_open.php

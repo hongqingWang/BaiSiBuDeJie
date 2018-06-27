@@ -9,6 +9,7 @@
 #import "UIImageView+QQ.h"
 #import <UIImageView+WebCache.h>
 #import "UIImage+QQ.h"
+#import <AFNetworking.h>
 
 @implementation UIImageView (QQ)
 

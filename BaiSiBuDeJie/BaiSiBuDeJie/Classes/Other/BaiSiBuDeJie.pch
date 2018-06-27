@@ -9,7 +9,6 @@
 #import "UIView+QQ.h"
 #import "UIBarButtonItem+QQ.h"
 #import "UIColor+QQ.h"
-#import <AFNetworking.h>
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
 #import <Masonry.h>
