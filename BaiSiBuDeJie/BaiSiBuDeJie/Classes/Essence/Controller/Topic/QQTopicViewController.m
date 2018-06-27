@@ -13,6 +13,7 @@
 #import <SVProgressHUD.h>
 #import "QQTopicCell.h"
 #import "QQRefreshHeader.h"
+//#import "QQDIYHeader.h"
 
 @interface QQTopicViewController ()
 
@@ -133,6 +134,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
 - (void)setupRefresh {
     
     self.tableView.mj_header = [QQRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+//    self.tableView.mj_header = [QQDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     [self.tableView.mj_header beginRefreshing];
     
     UILabel *adLabel = [[UILabel alloc] init];
