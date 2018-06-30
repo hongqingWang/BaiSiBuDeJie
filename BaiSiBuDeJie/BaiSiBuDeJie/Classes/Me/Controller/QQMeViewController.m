@@ -43,6 +43,23 @@ static int const margin = 1;
 #pragma mark - loadData
 - (void)loadData {
     
+    // 美图
+    
+    NSMutableString *urlString = [NSMutableString string];
+    
+    NSString *str01 = @"https://api.xiuxiu.meitu.com/v1/feed/show.json?ab_info=%7B%0A%20%20%22version%22%20%3A%20%223.3.2%22%2C%0A%20%20%22ab_codes%22%20%3A%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22count%22%20%3A%200%2C%0A%20%20%20%20%20%20%22code%22%20%3A%201684%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22count%22%20%3A%200%2C%0A%20%20%20%20%20%20%22code%22%20%3A%20153%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22count%22%20%3A%201%2C%0A%20%20%20%20%20%20%22code%22%20%3A%201580%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22count%22%20%3A%200%2C%0A%20%20%20%20%20%20%22code%22%20%3A%201717%0A%20%20%20%20%7D%0A%20%20%5D%0A%7D&client_channel_id=App%20Store&client_id=1089867603&client_language=zh-Hans&client_model=iPhone8%2C2&client_network=WiFi&client_operator=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&client_os=11.4&community_version=2.0.0&";
+    
+    NSString *string01 = @"feed_id=6414343201524286465";
+    
+    NSString *str02 = @"&gid=1144246449&idfa=953BB6B5-463F-4ACC-B694-463E5234629D&idfv=699D2DAB-8D6E-4E9C-9EA8-5CBB1327FEC0&";
+    
+    NSString *string02 = @"sig=28a4d61dbbc5798a09368f7d78bb777f";
+    
+    NSString *string03 = @"&sigTime=1530370939253";
+//                                  1530346030
+    
+    NSString *str03 = @"&sigVersion=1.3&version=8.0.51";
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"a"] = @"square";
