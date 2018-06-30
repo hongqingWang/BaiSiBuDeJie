@@ -10,6 +10,9 @@
 #import "QQTopic.h"
 #import "QQVideo.h"
 #import "UIImageView+QQ.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface QQTopicVideoView ()
 
@@ -21,6 +24,21 @@
 @end
 
 @implementation QQTopicVideoView
+
+#pragma mark - Event Response
+- (IBAction)play:(UIButton *)sender {
+    
+    NSURL *url = [NSURL URLWithString:[self.topic.video.video firstObject]];
+
+    AVPlayer *player = [[AVPlayer alloc] initWithURL:url];
+    AVPlayerViewController *vc = [[AVPlayerViewController alloc] init];
+    vc.player = player;
+    [vc.player play];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+    
+//    MPMoviePlayerViewController *vc = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+//    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)setTopic:(QQTopic *)topic {
     _topic = topic;
