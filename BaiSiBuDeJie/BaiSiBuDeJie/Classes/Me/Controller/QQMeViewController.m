@@ -38,6 +38,31 @@ static int const margin = 1;
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.sectionFooterHeight = QQMargin;
     self.tableView.contentInset = UIEdgeInsetsMake(QQMargin - 35, 0, 0, 0);
+    
+//    [self testLoadData];
+}
+
+- (void)testLoadData {
+    
+    // 极客时间
+    //    https://time.geekbang.org/serv/v1/column/articles
+    
+    NSString *urlString = @"https://time.geekbang.org/serv/v1/column/articles";
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"cid"] = @"85";
+    para[@"size"] = @(20);
+    para[@"prev"] = @(0);
+    para[@"order"] = @"newest";
+    
+    [manager POST:urlString parameters:para progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject = %@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error = %@", error);
+    }];
 }
 
 #pragma mark - loadData
