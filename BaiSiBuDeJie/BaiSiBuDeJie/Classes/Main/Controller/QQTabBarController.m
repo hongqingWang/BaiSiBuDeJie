@@ -16,7 +16,10 @@
 #import "QQTabBar.h"
 #import "QQNavigationController.h"
 
-@interface QQTabBarController ()
+@interface QQTabBarController ()<UITabBarDelegate>
+
+// 记录上一次点击tabbar，使用时，记得先在init或viewDidLoad里 初始化 = 0
+@property (nonatomic,assign) NSInteger  indexFlag;
 
 @end
 
@@ -48,6 +51,8 @@
 #pragma mark - Left Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.indexFlag = 0;
     
     [self addAllChildViewControllers];
     [self setupTabBar];
@@ -100,11 +105,122 @@
     [self addChildViewController:nav];
 }
 
+#pragma mark - UITabBarDelegate
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+    NSInteger index = [self.tabBar.items indexOfObject:item];
+    if (index != self.indexFlag) {
+        // 执行动画
+        NSMutableArray *tabBarButtonArray = [NSMutableArray array];
+        for (UIView *button in self.tabBar.subviews) {
+            if ([button isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+                [tabBarButtonArray addObject:button];
+            }
+        }
+/**************************************** 添加动画 ****************************************/
+        /**
+         * 先放大,再缩小
+         */
+        [self tabBarItemAnimationZoomWithTabBarButtonArray:tabBarButtonArray index:index];
+        /**
+         * Z轴旋转
+         */
+//        [self tabBarItemAnimationRotationZWithTabBarButtonArray:tabBarButtonArray index:index];
+        /**
+         * Y轴位移
+         */
+//        [self tabBarItemAnimationMoveYWithTabBarButtonArray:tabBarButtonArray index:index];
+        /**
+         * 放大并保持
+         */
+//        [self tabBarItemAnimationZoomOutWithTabBarButtonArray:tabBarButtonArray index:index];
+        
+        self.indexFlag = index;
+    }
+}
+
 #pragma mark - setupTabBar
 - (void)setupTabBar {
     
     QQTabBar *tabBar = [[QQTabBar alloc] init];
+    tabBar.delegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
 }
 
+#pragma mark - TabBarItemAnimation
+/**
+ * 先放大,再缩小
+ */
+- (void)tabBarItemAnimationZoomWithTabBarButtonArray:(NSArray *)tabBarButtonArray index:(NSInteger)index {
+    
+    // 放大效果，并回到原位
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    // 速度控制函数，控制动画运行的节奏
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.duration = 0.2;                               // 执行时间
+    animation.repeatCount = 1;                              // 执行次数
+    animation.autoreverses = YES;                           // 完成动画后会回到执行动画之前的状态
+    animation.fromValue = [NSNumber numberWithFloat:0.7];   // 初始伸缩倍数
+    animation.toValue = [NSNumber numberWithFloat:1.3];     // 结束伸缩倍数
+    [[tabBarButtonArray[index] layer] addAnimation:animation forKey:nil];
+}
+
+/**
+ * Z轴旋转
+ */
+- (void)tabBarItemAnimationRotationZWithTabBarButtonArray:(NSArray *)tabBarButtonArray index:(NSInteger)index {
+    
+    // z轴旋转180度
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    // 速度控制函数，控制动画运行的节奏
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.duration = 0.2;                               // 执行时间
+    animation.repeatCount = 1;                              // 执行次数
+    animation.removedOnCompletion = YES;
+    animation.fromValue = [NSNumber numberWithFloat:0];     // 初始伸缩倍数
+    animation.toValue = [NSNumber numberWithFloat:M_PI];    // 结束伸缩倍数
+    [[tabBarButtonArray[index] layer] addAnimation:animation forKey:nil];
+}
+
+/**
+ * Y轴位移
+ */
+- (void)tabBarItemAnimationMoveYWithTabBarButtonArray:(NSArray *)tabBarButtonArray index:(NSInteger)index {
+    
+    // 向上移动
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    // 速度控制函数，控制动画运行的节奏
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.duration = 0.2;                               // 执行时间
+    animation.repeatCount = 1;                              // 执行次数
+    animation.removedOnCompletion = YES;
+    animation.fromValue = [NSNumber numberWithFloat:0];     // 初始伸缩倍数
+    animation.toValue = [NSNumber numberWithFloat:-10];     // 结束伸缩倍数
+    [[tabBarButtonArray[index] layer] addAnimation:animation forKey:nil];
+}
+
+/**
+ * 放大并保持
+ */
+- (void)tabBarItemAnimationZoomOutWithTabBarButtonArray:(NSArray *)tabBarButtonArray index:(NSInteger)index {
+
+    // 放大效果
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    // 速度控制函数，控制动画运行的节奏
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.duration = 0.2;                               // 执行时间
+    animation.repeatCount = 1;                              // 执行次数
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;               // 保证动画效果延续
+    animation.fromValue = [NSNumber numberWithFloat:1.0];   // 初始伸缩倍数
+    animation.toValue = [NSNumber numberWithFloat:1.15];    // 结束伸缩倍数
+    [[tabBarButtonArray[index] layer] addAnimation:animation forKey:nil];
+    // 移除其他tabbar的动画
+    for (int i = 0; i < tabBarButtonArray.count; i++) {
+        if (i != index) {
+            [[tabBarButtonArray[i] layer] removeAllAnimations];
+        }
+    }
+}
+    
 @end

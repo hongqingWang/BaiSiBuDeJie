@@ -91,7 +91,7 @@ static NSString * const QQTopicCellId = @"QQTopicCellId";
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         //        NSLog(@"%@", responseObject);
-        QQAFNWriteToPlist(aaa.plist)
+//        QQAFNWriteToPlist(aaa.plist)
         self.topics = [QQTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.maxid = [responseObject[@"info"][@"np"] integerValue];
         [self.tableView.mj_header endRefreshing];
