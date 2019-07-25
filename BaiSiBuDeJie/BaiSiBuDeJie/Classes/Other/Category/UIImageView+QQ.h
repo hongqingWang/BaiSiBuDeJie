@@ -10,18 +10,18 @@
 
 @interface UIImageView (QQ)
 
-- (void)qq_setAvatarWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage;
+- (void)qq_setAvatarWithUrlString:(NSString *_Nullable)urlString placeholderImage:(UIImage *_Nullable)placeholderImage;
 
-- (void)qq_setOriginImageWithURLString:(NSString *)originURLString thumbnailImage:(NSString *)thumbnailURLString placeholder:(UIImage *)placeholder completed:(nullable SDExternalCompletionBlock)completedBlock;
-
-
+- (void)qq_setOriginImageWithURLString:(NSString *_Nullable)originURLString thumbnailImage:(NSString *)thumbnailURLString placeholder:(UIImage *)placeholder completed:(nullable SDExternalCompletionBlock)completedBlock;
 
 
 
 
 
 
-- (void)qq_imageName:(NSString *)imageName;
-- (void)qq_setImageWithUrlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage isAvatar:(BOOL)isAvatar;
+
+
+- (void)qq_imageName:(NSString *_Nullable)imageName;
+- (void)qq_setImageWithUrlString:(NSString *_Nullable)urlString placeholderImage:(UIImage *_Nullable)placeholderImage isAvatar:(BOOL)isAvatar;
 
 @end
